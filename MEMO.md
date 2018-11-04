@@ -13,13 +13,13 @@ LicensePlistのインストール（これがないとRun時にエラー出る�
 
 `brew install mono0926/license-plist/license-plist`
 
-このリポジトリ（14JK096-TATSUMI/master）のダウンロード
+このリポジトリ（ADVIS/master）のダウンロード
 
-`git clone https://github.com/KSUISIC/14JK096-TATSUMI.git`
+`git clone https://github.com/Tatsumi0000/ADVIS.git`
 
 プロジェクトへ移動
 
-`cd 14JK096-TATSUMI/ADVIS`
+`cd ADVIS/ADVIS`
 
 必要ライブラリをインストール（ちょっと時間かかるかも．）
 
