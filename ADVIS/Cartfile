@@ -1,0 +1,5 @@
+github "airbnb/lottie-ios" == 2.5.0
+github "LaurentiuUngur/LUExpandableTableView" == 3.0.0
+github "SwiftyBeaver/SwiftyBeaver" == 1.6.0
+github "younatics/ExpandableCell" == 1.2.3
+github "vikmeup/SCLAlertView-Swift" "master"

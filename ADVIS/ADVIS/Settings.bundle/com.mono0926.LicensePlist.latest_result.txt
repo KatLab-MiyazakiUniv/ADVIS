@@ -1,0 +1,13 @@
+name: ExpandableCell, nameSpecified: , owner: younatics, version: 1.2.3
+
+name: lottie-ios, nameSpecified: , owner: airbnb, version: 2.5.0
+
+name: LUExpandableTableView, nameSpecified: , owner: LaurentiuUngur, version: 3.0.0
+
+name: SCLAlertView-Swift, nameSpecified: , owner: vikmeup, version: 86ea761
+
+name: SwiftyBeaver, nameSpecified: , owner: SwiftyBeaver, version: 1.6.0
+
+add-version-numbers: false
+
+LicensePlist Version: 1.8.3
