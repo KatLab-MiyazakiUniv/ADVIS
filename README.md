@@ -2,11 +2,11 @@ ADVISのリポジトリです
 ====
 ADVISのリポジトリです．
 
-このプロジェクトの使い方は[こちら](https://github.com/Tatsumi0000/ADVIS/blob/develop/MEMO.md)を参照
+このプロジェクトの使い方は[こちら](https://github.com/Tatsumi0000/ADVIS/blob/master/MEMO.md)を参照
 
 ## Issues
 - 一覧: https://github.com/Tatsumi0000/ADVIS/issues
-- 新規: https://github.com/Tatsumi0000/ADVIS/ssues/new
+- 新規: https://github.com/Tatsumi0000/ADVIS/issues/new
 
 ### Projects
 
