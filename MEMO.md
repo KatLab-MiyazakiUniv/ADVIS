@@ -3,13 +3,13 @@
 # このプロジェクトの利用案内
 このプロジェクトは，設定をきちんとしないとRunできないと思います．
 
-Mac使いという前提で話します（もちろんHomebrew入ってるよね？）．
+Homebrewを使用します．
 
 Carthageのインストール
 
 `brew install carthage`
 
-LicensePlistのインストール（これがないとRun時にエラー出るかも．知らないけど．）
+LicensePlistのインストール（これがないとRun時にエラー出るかも．）
 
 `brew install mono0926/license-plist/license-plist`
 
@@ -34,8 +34,8 @@ LicensePlistのインストール（これがないとRun時にエラー出る�
 <kbd><kbd>command</kbd>+<kbd>R</kbd></kbd>
 
 - Run時にターミナルが立ち上がるかもしれません．これは，プロジェクト内にあるライブラリのライセンスを自動生成してます（iPad内の設定からADVISを選択すると見れます．）．
-- このプロジェクトでは，**SwiftyBeaver**というライブラリを使ってデバッグしています．このライブラリを使うためには，**SwiftyBeaver**というアプリをMacにインストールして`AppDelegate.swift`で設定してください．
-- **上に書いた方法でRunできるか不明（試してないから）**
+- このプロジェクトでは，**SwiftyBeaver**というライブラリを使ってデバッグしています．このライブラリを使うためには，**SwiftyBeaver**というアプリをMacにインストールして`AppDelegate.swift`で設定してください．
+- **上に書いた方法でRunできるはずです**
 - このプロジェクトは，[SwiftFormat](https://github.com/nicklockwood/SwiftFormat)を使って`git commit`時にソースコードを自動整形するように設定してあります．
 
 # 画像
@@ -65,6 +65,6 @@ LicensePlistのインストール（これがないとRun時にエラー出る�
  
  - 現在は，**XCTest**を使ってテストコードを書いている．
  
- - しかしテストコードは， [ArduinoUnoPointControl12_9.swift](https://github.com/KSUISIC/14JK096-TATSUMI/blob/master/ADVIS/ADVIS/ArduinoUnoPointControl12_9.swift)の一部しか書いていない．そのテストコードは [こちら](https://github.com/KSUISIC/14JK096-TATSUMI/blob/master/ADVIS/ADVISTests/ArduinoUnoPointControl12_9Tests.swift)
+ - しかしテストコードは， [ArduinoUnoPointControl12_9.swift](https://github.com/Tatsumi0000/ADVIS/blob/master/ADVIS/ADVIS/ArduinoUnoPointControl12_9.swift)の一部しか書いていない．そのテストコードは [こちら](https://github.com/Tatsumi0000/ADVIS/blob/master/ADVIS/ADVISTests/ArduinoUnoPointControl12_9Tests.swift)
 
 
