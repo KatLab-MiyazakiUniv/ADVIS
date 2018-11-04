@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let console = ConsoleDestination()
         console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:No.$l $M"
         let platform = SBPlatformDestination(
-            appID: "Secret",
-            appSecret: "Secret",
-            encryptionKey: "Secret"
+            appID: "r7xGmp",
+            appSecret: "MnigflBolidaugsAugkllsia5ex59dor",
+            encryptionKey: "kgevmoGkbhszlXGzn5hvzfjpygroYvqh"
         )
         log.addDestination(console)
         log.addDestination(platform)
