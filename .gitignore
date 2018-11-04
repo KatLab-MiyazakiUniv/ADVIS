@@ -1,5 +1,4 @@
-# AppDelegate.swiftの除外
-ADVIS/ADVIS/*AppDelegate.swift
+
 
 # ExampleProjectを除外
 *ExampleProject
