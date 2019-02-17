@@ -27,7 +27,7 @@ class VoltDraw: UIView {
         line.close()
         let voltColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.5)
         voltColor.setStroke()
-        line.lineWidth = 5
+        line.lineWidth = 5 // 線の太さ
         line.stroke()
     }
 }
