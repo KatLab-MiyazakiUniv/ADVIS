@@ -6,7 +6,8 @@ matrix:
 before_install:
     - brew update
     - brew install carthage
-    - brew install mono0926/license-plist/license-plist
+    - brew tap mono0926/license-plist
+    - brew install license-plist
     - cd ./ADVIS
     - carthage bootstrap --no-use-binaries --platform ios
 
