@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// 電流値をいい感じにするクラス
 class AmpereRetention {
     var partsDraw = PartsDraw()
     var arduinoUnoPointControl12_9 = ArduinoUnoPointControl12_9()
