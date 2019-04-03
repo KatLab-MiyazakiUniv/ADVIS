@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -212,6 +213,7 @@
                             <constraint firstItem="EEl-La-sGR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="xzY-7Y-aIG"/>
                             <constraint firstItem="EEl-La-sGR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zgB-y9-xP7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lss-bd-RWO"/>
                     </view>
                     <connections>
                         <outlet property="arduinoImageView" destination="EEl-La-sGR" id="BU0-1Z-1gW"/>
