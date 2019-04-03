@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Tatsumi Nishida. All rights reserved.
 //
 
-@testable import ADVIS
+// @testable import ADVIS
 import XCTest
 
 class ADVISTests: XCTestCase {

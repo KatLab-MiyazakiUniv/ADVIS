@@ -10,5 +10,5 @@ before_install:
     - carthage update --platform ios
 
 script:
-      - xcodebuild -scheme ios-travis -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro 12.9 (3rd generation)' -configuration Debug test | xcpretty -c
-      - bash <(curl -s https://codecov.io/bash)
+    - xcodebuild -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.1,name=iPad Pro (12.9-inch) (2nd generation)' -configuration Debug test    
+    - bash <(curl -s https://codecov.io/bash) t {6bc13b5a-98d9-4eef-bb5c-1418cc68d7e3}
