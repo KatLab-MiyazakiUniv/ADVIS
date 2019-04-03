@@ -6,6 +6,7 @@ matrix:
 before_install:
     - brew update
     - brew install carthage
+    - cd ./ADVIS
     - carthage update --platform ios
 
 script:
