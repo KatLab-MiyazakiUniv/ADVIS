@@ -6,9 +6,10 @@ matrix:
 before_install:
     - brew update
     - brew install carthage
+    - brew install mono0926/license-plist/license-plist
     - cd ./ADVIS
     - carthage bootstrap --no-use-binaries --platform ios
 
 script:
-    - xcodebuild test -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro (12.9-inch) (3rd generation)' -configuration Debug | xcpretty -c
+    - xcodebuild test -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro (12.9-inch) (3rd generation)' -configuration Debug | bundle exec xcpretty -c
     - bash <(curl -s https://codecov.io/bash) t {CODECOV_TOKEN}
