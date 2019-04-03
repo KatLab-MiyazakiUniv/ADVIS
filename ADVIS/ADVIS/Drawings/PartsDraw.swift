@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// モジュール描画Class
 class PartsDraw {
 //    class var partsDrawInstance : PartsDraw {
 //        struct Static {
@@ -39,7 +40,13 @@ class PartsDraw {
 
     var pointControl = ArduinoUnoPointControl12_9() // インスタンス生成
 
-    /* ジャンパワイヤ描画用の配列に値を入れる */
+    /// ジャンパワイヤ描画用の配列に値を入れる
+    ///
+    /// - Parameter translatePoint: ブレッドボードの番号
+    /// 1. ブレッドボード上の値を座標に変換
+    /// 2. タップされたX座標をinsert
+    /// 3. タップされたY座標をinsert
+    /// 4. 使用したtranslatepointを保持
     func wireDraw(translatePoint: Int) {
         /* ブレッドボード上の値を座標に変換 */
         // pointControl.
@@ -53,6 +60,13 @@ class PartsDraw {
         jumperNumber += 1
     }
 
+    /// LED描画用の配列に値を入れる
+    ///
+    /// - Parameter translatePoint: ブレッドボードの番号
+    /// 1. ブレッドボード上の値を座標に変換
+    /// 2. タップされたX座標をinsert
+    /// 3. タップされたY座標をinsert
+    /// 4. 使用したtranslatepointを保持
     func ledDraw(translatePoint: Int) {
         pointControl.coordinateTranslate(translatePoint: translatePoint)
         ledGetPointXArray.insert(pointControl.coordinateNumberX, at: ledNumber)
@@ -61,6 +75,13 @@ class PartsDraw {
         ledNumber += 1
     }
 
+    /// 抵抗器描画用の配列に値を入れる
+    ///
+    /// - Parameter translatePoint: ブレッドボードの番号
+    /// 1. ブレッドボード上の値を座標に変換
+    /// 2. タップされたX座標をinsert
+    /// 3. タップされたY座標をinsert
+    /// 4. 使用したtranslatepointを保持
     func resistorDraw(translatePoint: Int) {
         pointControl.coordinateTranslate(translatePoint: translatePoint)
         resistorGetPointXArray.insert(pointControl.coordinateNumberX, at: resistorNumber)
@@ -69,6 +90,13 @@ class PartsDraw {
         resistorNumber += 1
     }
 
+    /// ジャイロセンサ描画用の配列に値を入れる
+    ///
+    /// - Parameter translatePoint: ブレッドボードの番号
+    /// 1. ブレッドボード上の値を座標に変換
+    /// 2. タップされたX座標をinsert
+    /// 3. タップされたY座標をinsert
+    /// 4. 使用したtranslatepointを保持
     func gyroDraw(translatePoint: Int) {
         pointControl.coordinateTranslate(translatePoint: translatePoint)
         gyroGetPointXArray.insert(pointControl.coordinateNumberX, at: gyroNumber)
@@ -77,7 +105,12 @@ class PartsDraw {
         gyroNumber += 1
     }
 
-    /* 配列の中身が2の倍数の時に描画を開始するために必要 */
+    /* */
+
+    /// 配列の中身が2の倍数の時に描画を開始するためのメソッド
+    ///
+    /// - Parameter flagNumber: 配列の中身の個数
+    /// - Returns: 0もしくは，1を返す
     func flagDraw(flagNumber: Int) -> Int {
         if flagNumber == 0 {
             if jumperNumber > 0 && jumperNumber % 2 == 0 {

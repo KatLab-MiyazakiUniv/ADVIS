@@ -14,6 +14,15 @@ class VoltDraw: UIView {
     var startY: Double = 0
     var endX: Double = 0
     var endY: Double = 0
+
+    /// 線を描画するための座標を設定
+    ///
+    /// - Parameters:
+    ///   - startX: 起点のX座標
+    ///   - startY: 起点のY座標
+    ///   - endX: 終点のX座標
+    ///   - endY: 週手のY座標
+    /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double, endX: Double, endY: Double) {
         self.startX = startX
         self.startY = startY
