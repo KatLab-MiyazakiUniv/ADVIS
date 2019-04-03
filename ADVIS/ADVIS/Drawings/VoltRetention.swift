@@ -69,9 +69,9 @@ class VoltRetention {
             searchInput = voltConnectedArray[repeatNumber][0]
 
             /* 404~418で動作しないようにする */
-            if partsDraw.ledTranslatePointArray.index(of: searchInput) != nil {
-                if partsDraw.ledTranslatePointArray.index(of: searchInput)! % 2 == 0 {
-                    pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.index(of: searchInput)! + 1]
+            if partsDraw.ledTranslatePointArray.firstIndex(of: searchInput) != nil {
+                if partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
+                    pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! + 1]
                     flagPowerIn = 1
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
                         voltValue = 3
@@ -84,7 +84,7 @@ class VoltRetention {
                     }
                     flagPowerIn = 1
                 } else {
-                    pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.index(of: searchInput)! + 1]
+                    pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! + 1]
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
                         voltValue = 3
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
@@ -98,9 +98,9 @@ class VoltRetention {
                 }
             }
 
-            if partsDraw.wireTranslatePointArray.index(of: searchInput) != nil {
-                if partsDraw.wireTranslatePointArray.index(of: searchInput)! % 2 == 0 {
-                    pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.index(of: searchInput)! + 1]
+            if partsDraw.wireTranslatePointArray.firstIndex(of: searchInput) != nil {
+                if partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
+                    pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! + 1]
 
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
                         voltValue = 3
@@ -113,7 +113,7 @@ class VoltRetention {
                     }
                     flagPowerIn = 1
                 } else {
-                    pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.index(of: searchInput)! - 1]
+                    pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! - 1]
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
                         voltValue = 3
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
@@ -127,9 +127,9 @@ class VoltRetention {
                 }
             }
 
-            if partsDraw.resistorTranslatePointArray.index(of: searchInput) != nil {
-                if partsDraw.resistorTranslatePointArray.index(of: searchInput)! % 2 == 0 {
-                    pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.index(of: searchInput)! + 1]
+            if partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput) != nil {
+                if partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
+                    pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! + 1]
 
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
                         voltValue = 3
@@ -142,7 +142,7 @@ class VoltRetention {
                     }
                     flagPowerIn = 1
                 } else {
-                    pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.index(of: searchInput)! + 1]
+                    pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! + 1]
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
                         voltValue = 3
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
@@ -157,7 +157,7 @@ class VoltRetention {
             }
         }
         for iSearch in 0 ..< repeatNumber {
-            if voltConnectedArray[iSearch].index(of: pinNumber) != nil && repeatNumber != 0 {
+            if voltConnectedArray[iSearch].firstIndex(of: pinNumber) != nil && repeatNumber != 0 {
                 pinNumber = 0
             }
         }
@@ -176,8 +176,8 @@ class VoltRetention {
     func voltConnection(inPinNumber: Int, repeatNumber: Int) -> Int {
         if pinNumber != 0 {
             /* inPinNumberが描画用配列の何番目かを調べる */
-            if partsDraw.wireTranslatePointArray.index(of: inPinNumber) != nil {
-                pinNumberConnection = partsDraw.wireTranslatePointArray.index(of: inPinNumber)!
+            if partsDraw.wireTranslatePointArray.firstIndex(of: inPinNumber) != nil {
+                pinNumberConnection = partsDraw.wireTranslatePointArray.firstIndex(of: inPinNumber)!
                 /* 接続先を調べる */
                 if pinNumberConnection == 0 {
                     pinValue = partsDraw.wireTranslatePointArray[pinNumberConnection + 1]
@@ -187,8 +187,8 @@ class VoltRetention {
                     pinValue = partsDraw.wireTranslatePointArray[pinNumberConnection - 1]
                 }
 
-            } else if partsDraw.ledTranslatePointArray.index(of: inPinNumber) != nil {
-                pinNumberConnection = partsDraw.ledTranslatePointArray.index(of: inPinNumber)!
+            } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinNumber) != nil {
+                pinNumberConnection = partsDraw.ledTranslatePointArray.firstIndex(of: inPinNumber)!
                 /* 接続先を調べる */
                 if pinNumberConnection == 0 {
                     pinValue = partsDraw.ledTranslatePointArray[pinNumberConnection + 1]
@@ -198,8 +198,8 @@ class VoltRetention {
                     pinValue = partsDraw.ledTranslatePointArray[pinNumberConnection - 1]
                 }
 
-            } else if partsDraw.resistorTranslatePointArray.index(of: inPinNumber) != nil {
-                pinNumberConnection = partsDraw.resistorTranslatePointArray.index(of: inPinNumber)!
+            } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinNumber) != nil {
+                pinNumberConnection = partsDraw.resistorTranslatePointArray.firstIndex(of: inPinNumber)!
                 /* 接続先を調べる */
                 if pinNumberConnection == 0 {
                     pinValue = partsDraw.resistorTranslatePointArray[pinNumberConnection + 1]
@@ -238,7 +238,7 @@ class VoltRetention {
 //                }
 //            }
         }
-        if voltConnectedArray[repeatNumber].index(of: pinValue) == nil {
+        if voltConnectedArray[repeatNumber].firstIndex(of: pinValue) == nil {
             voltConnectedArray[repeatNumber].append(pinValue)
         }
         return pinValue
@@ -251,56 +251,56 @@ class VoltRetention {
      */
     func voltSearchNearConnection(inPinValue: Int, repeatNumber: Int) -> Int {
         if inPinValue != 0 && returnPinValue == 0 {
-            if voltConnectedArray[repeatNumber].index(of: inPinValue) == nil {
+            if voltConnectedArray[repeatNumber].firstIndex(of: inPinValue) == nil {
                 voltConnectedArray[repeatNumber].append(inPinValue)
             }
             // プラス，マイナス行の管理
             if 1 ... 25 ~= inPinValue {
                 thirtyValue = 0
                 for i in 1 ..< 26 {
-                    if partsDraw.wireTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    if partsDraw.wireTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.ledTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.ledTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.resistorTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.resistorTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.gyroTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.gyroTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
                     }
                 }
             } else if 26 ... 50 ~= inPinValue {
                 for i in 26 ..< 51 {
-                    if partsDraw.wireTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    if partsDraw.wireTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.ledTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.ledTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.resistorTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.resistorTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.gyroTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.gyroTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
                     }
                 }
             } else if 351 ... 375 ~= inPinValue {
                 for i in 351 ..< 376 {
-                    if partsDraw.wireTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    if partsDraw.wireTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.ledTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.ledTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.resistorTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.resistorTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.gyroTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.gyroTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
                     }
                 }
             } else if 376 ... 400 ~= inPinValue {
                 for i in 376 ..< 401 {
-                    if partsDraw.wireTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    if partsDraw.wireTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.ledTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.ledTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.resistorTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.resistorTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
-                    } else if partsDraw.gyroTranslatePointArray.index(of: i) != nil && voltConnectedArray[repeatNumber].index(of: i) == nil {
+                    } else if partsDraw.gyroTranslatePointArray.firstIndex(of: i) != nil && voltConnectedArray[repeatNumber].firstIndex(of: i) == nil {
                         returnPinValue = i
                     }
                 }
@@ -310,17 +310,17 @@ class VoltRetention {
             if 51 ... 200 ~= inPinValue {
                 if 51 ... 80 ~= inPinValue {
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -328,17 +328,17 @@ class VoltRetention {
                 } else if 81 ... 110 ~= inPinValue {
                     thirtyValue = -30
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -346,17 +346,17 @@ class VoltRetention {
                 } else if 111 ... 140 ~= inPinValue {
                     thirtyValue = -60
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -364,17 +364,17 @@ class VoltRetention {
                 } else if 141 ... 170 ~= inPinValue {
                     thirtyValue = -90
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -382,17 +382,17 @@ class VoltRetention {
                 } else if 171 ... 200 ~= inPinValue {
                     thirtyValue = -120
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -404,17 +404,17 @@ class VoltRetention {
             if 201 ... 350 ~= inPinValue {
                 if 201 ... 230 ~= inPinValue {
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -422,17 +422,17 @@ class VoltRetention {
                 } else if 231 ... 260 ~= inPinValue {
                     thirtyValue = -30
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -440,17 +440,17 @@ class VoltRetention {
                 } else if 261 ... 290 ~= inPinValue {
                     thirtyValue = -60
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -458,17 +458,17 @@ class VoltRetention {
                 } else if 291 ... 320 ~= inPinValue {
                     thirtyValue = -90
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -476,17 +476,17 @@ class VoltRetention {
                 } else if 321 ... 350 ~= inPinValue {
                     thirtyValue = -120
                     for _ in 0 ..< 5 {
-                        if partsDraw.wireTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.ledTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.ledTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.resistorTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.resistorTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
-                        } else if partsDraw.gyroTranslatePointArray.index(of: inPinValue + thirtyValue) != nil
-                            && voltConnectedArray[repeatNumber].index(of: inPinValue + thirtyValue) == nil {
+                        } else if partsDraw.gyroTranslatePointArray.firstIndex(of: inPinValue + thirtyValue) != nil
+                            && voltConnectedArray[repeatNumber].firstIndex(of: inPinValue + thirtyValue) == nil {
                             returnPinValue = inPinValue + thirtyValue
                         }
                         thirtyValue += 30
@@ -494,7 +494,7 @@ class VoltRetention {
                 }
             }
         }
-        if voltConnectedArray[repeatNumber].index(of: returnPinValue) == nil && returnPinValue != 0 {
+        if voltConnectedArray[repeatNumber].firstIndex(of: returnPinValue) == nil && returnPinValue != 0 {
             voltConnectedArray[repeatNumber].append(returnPinValue)
         }
         return returnPinValue

@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 class ResitorDraw: UIView {
-    var startX: CGFloat = 0
-    var startY: CGFloat = 0
-    var endX: CGFloat = 0
-    var endY: CGFloat = 0
-    var resistorLongX: CGFloat = 0
-    var resistorLongY: CGFloat = 0
-    var resistorFirstX: CGFloat = 0
-    var resistorFirstY: CGFloat = 0
-    var resistorLengthX: CGFloat = 0
-    var resistorLengthY: CGFloat = 0
+    var startX: Double = 0
+    var startY: Double = 0
+    var endX: Double = 0
+    var endY: Double = 0
+    var resistorLongX: Double = 0
+    var resistorLongY: Double = 0
+    var resistorFirstX: Double = 0
+    var resistorFirstY: Double = 0
+    var resistorLengthX: Double = 0
+    var resistorLengthY: Double = 0
 
-    func intoBoardPoint(startX: CGFloat, startY: CGFloat, endX: CGFloat, endY: CGFloat) {
+    func intoBoardPoint(startX: Double, startY: Double, endX: Double, endY: Double) {
         self.startX = startX
         self.startY = startY
         self.endX = endX

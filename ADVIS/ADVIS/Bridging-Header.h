@@ -9,6 +9,6 @@
 #ifndef Bridging_Header_h
 #define Bridging_Header_h
 
-#import <Lottie/Lottie.h>
+// #import <Lottie/Lottie.h>
 
 #endif /* Bridging_Header_h */

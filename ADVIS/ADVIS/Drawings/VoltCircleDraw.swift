@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class VoltCircleDraw: UIView {
-    var startX: CGFloat = 0
-    var startY: CGFloat = 0
+    var startX: Double = 0
+    var startY: Double = 0
 
-    func intoBoardPoint(startX: CGFloat, startY: CGFloat) {
+    func intoBoardPoint(startX: Double, startY: Double) {
         self.startX = startX
         self.startY = startY
     }

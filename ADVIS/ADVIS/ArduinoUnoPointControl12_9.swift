@@ -11,10 +11,10 @@ import UIKit
 
 // ArduinoUnoの座標をコントロールするクラス
 class ArduinoUnoPointControl12_9 {
-    var coordinateNumberX: CGFloat = 0.0
-    var coordinateNumberY: CGFloat = 0.0
+    var coordinateNumberX: Double = 0.0
+    var coordinateNumberY: Double = 0.0
 
-    func pointTranslate(pointX: CGFloat, pointY: CGFloat) -> Int {
+    func pointTranslate(pointX: Double, pointY: Double) -> Int {
         // Digital Pin
         if 54 ... 77 ~= pointY { //  Y-cordinate
             // X-cordinate

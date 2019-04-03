@@ -27,6 +27,7 @@
 		0741908E2128147400B8E7E1 /* ExpandableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741908D2128147400B8E7E1 /* ExpandableCells.swift */; };
 		07419090212815FB00B8E7E1 /* ExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0741908F212815FB00B8E7E1 /* ExpandedCell.xib */; };
 		074190922128209D00B8E7E1 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074190912128209D00B8E7E1 /* NormalCell.xib */; };
+		07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07560DC1223423C000CB43DA /* AmpereRetention.swift */; };
 		076E946D2130440B0005C52D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
 		077C9BC621273F9D00ECE0C6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077C9BC521273F9D00ECE0C6 /* Settings.bundle */; };
 		077EC9952120844F00DFEC20 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */; };
@@ -36,6 +37,7 @@
 		078F624E212EFAE800C6E079 /* LineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F624D212EFAE800C6E079 /* LineDraw.swift */; };
 		078F6250212F030500C6E079 /* PartsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F624F212F030500C6E079 /* PartsDraw.swift */; };
 		07999A3D21207DFA005C7730 /* LUExpandableTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07999A3C21207DFA005C7730 /* LUExpandableTableView.framework */; };
+		07B7C66A22530F9300275CE0 /* SelectedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7C66922530F9300275CE0 /* SelectedCircle.swift */; };
 		07B8B74F20C510A500B7B9EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B74E20C510A500B7B9EE /* AppDelegate.swift */; };
 		07B8B75120C510A500B7B9EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B75020C510A500B7B9EE /* ViewController.swift */; };
 		07B8B75420C510A500B7B9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8B75220C510A500B7B9EE /* Main.storyboard */; };
@@ -95,6 +97,7 @@
 		0741908D2128147400B8E7E1 /* ExpandableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCells.swift; sourceTree = "<group>"; };
 		0741908F212815FB00B8E7E1 /* ExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedCell.xib; sourceTree = "<group>"; };
 		074190912128209D00B8E7E1 /* NormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
+		07560DC1223423C000CB43DA /* AmpereRetention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpereRetention.swift; sourceTree = "<group>"; };
 		076E946C2130440B0005C52D /* LedDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDraw.swift; sourceTree = "<group>"; };
 		077C9BC521273F9D00ECE0C6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 		078F624D212EFAE800C6E079 /* LineDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDraw.swift; sourceTree = "<group>"; };
 		078F624F212F030500C6E079 /* PartsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsDraw.swift; sourceTree = "<group>"; };
 		07999A3C21207DFA005C7730 /* LUExpandableTableView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LUExpandableTableView.framework; path = Carthage/Build/iOS/LUExpandableTableView.framework; sourceTree = "<group>"; };
+		07B7C66922530F9300275CE0 /* SelectedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCircle.swift; sourceTree = "<group>"; };
 		07B8B74B20C510A500B7B9EE /* ADVIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B8B74E20C510A500B7B9EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07B8B75020C510A500B7B9EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				07DCBD842131C00F002E8C78 /* DangerDraw.swift */,
 				07DCBD862131C8B2002E8C78 /* VoltRetention.swift */,
 				07DCBD8A2131CD47002E8C78 /* GyroDraw.swift */,
+				07560DC1223423C000CB43DA /* AmpereRetention.swift */,
+				07B7C66922530F9300275CE0 /* SelectedCircle.swift */,
 			);
 			path = Drawings;
 			sourceTree = "<group>";
@@ -406,16 +412,16 @@
 				TargetAttributes = {
 					07B8B74A20C510A500B7B9EE = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					07B8B75E20C510A700B7B9EE = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 07B8B74A20C510A500B7B9EE;
 					};
 					07B8B76920C510A700B7B9EE = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 07B8B74A20C510A500B7B9EE;
 					};
 				};
@@ -520,8 +526,10 @@
 				07DCBD832131BDF3002E8C78 /* LedLightupDraw.swift in Sources */,
 				0741908E2128147400B8E7E1 /* ExpandableCells.swift in Sources */,
 				07B8B74F20C510A500B7B9EE /* AppDelegate.swift in Sources */,
+				07B7C66A22530F9300275CE0 /* SelectedCircle.swift in Sources */,
 				070421312127064900688D05 /* CustomMenuButton.swift in Sources */,
 				07DCBD8B2131CD47002E8C78 /* GyroDraw.swift in Sources */,
+				07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */,
 				077F575E2125ABFC008F2606 /* MyTableViewCell.swift in Sources */,
 				071F77C42126C60300534F87 /* CustomArduinoUno.swift in Sources */,
 				070D81472129BEFB0026FD0A /* SplashViewController.swift in Sources */,
@@ -720,7 +728,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ADVIS/Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -746,7 +754,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ADVIS/Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -765,7 +773,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADVIS.app/ADVIS";
 			};
@@ -785,7 +793,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADVIS.app/ADVIS";
 			};
@@ -804,7 +812,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ADVIS;
 			};
@@ -823,7 +831,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ADVIS;
 			};

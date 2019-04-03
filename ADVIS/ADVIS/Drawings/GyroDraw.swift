@@ -11,27 +11,27 @@ import UIKit
 
 class GyroDraw: UIView {
     /* 描画用の座標保持変数 */
-    var x1: CGFloat = 0
-    var y1: CGFloat = 0
-    var x2: CGFloat = 0
-    var y2: CGFloat = 0
-    var x3: CGFloat = 0
-    var y3: CGFloat = 0
-    var x4: CGFloat = 0
-    var y4: CGFloat = 0
-    var x5: CGFloat = 0
-    var y5: CGFloat = 0
-    var x6: CGFloat = 0
-    var y6: CGFloat = 0
-    var x7: CGFloat = 0
-    var y7: CGFloat = 0
-    var x8: CGFloat = 0
-    var y8: CGFloat = 0
+    var x1: Double = 0
+    var y1: Double = 0
+    var x2: Double = 0
+    var y2: Double = 0
+    var x3: Double = 0
+    var y3: Double = 0
+    var x4: Double = 0
+    var y4: Double = 0
+    var x5: Double = 0
+    var y5: Double = 0
+    var x6: Double = 0
+    var y6: Double = 0
+    var x7: Double = 0
+    var y7: Double = 0
+    var x8: Double = 0
+    var y8: Double = 0
     /* 中間管理職変数 */
-    var gyroCenterX: CGFloat = 0
-    var gyroCenterY: CGFloat = 0
+    var gyroCenterX: Double = 0
+    var gyroCenterY: Double = 0
 
-    func intoBoardPoint(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat, x3: CGFloat, y3: CGFloat, x4: CGFloat, y4: CGFloat) {
+    func intoBoardPoint(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double, x4: Double, y4: Double) {
         self.x1 = x1
         self.y1 = y1
         self.x2 = x2

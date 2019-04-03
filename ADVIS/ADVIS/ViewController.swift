@@ -59,10 +59,10 @@ class ViewController: UIViewController {
     //    var backJyro = 0
 
     var backViewArray: Array<Int> = []
-    var ledLightupArrayX: [CGFloat] = []
-    var ledLightupArrayY: [CGFloat] = []
-    var voltDrawArrayX: [CGFloat] = []
-    var voltDrawArrayY: [CGFloat] = []
+    var ledLightupArrayX: [Double] = []
+    var ledLightupArrayY: [Double] = []
+    var voltDrawArrayX: [Double] = []
+    var voltDrawArrayY: [Double] = []
     var testArray: [Int] = []
 
     //    private var logoImageView: UIImageView!
@@ -87,13 +87,13 @@ class ViewController: UIViewController {
     }
 
     //    // CGRectMakeをwrap
-    //    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+    //    func CGRectMake(_ x: Double, _ y: Double, _ width: Double, _ height: Double) -> CGRect {
     //        return CGRect(x: x, y: y, width: width, height: height)
     //    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let deviceSize = judgeDevice(screenSizeHeight: UIScreen.main.nativeBounds.height)
+        let deviceSize = judgeDevice(screenSizeHeight: Double(UIScreen.main.nativeBounds.height))
         SCLAlertView().showInfo("\(deviceSize)")
         log.info("viewDidLoad")
         tableView.expandableDelegate = self as ExpandableDelegate
@@ -132,23 +132,23 @@ class ViewController: UIViewController {
                         voltConnectNext = voltRetention.voltConnection(inPinNumber: voltConnectNumber, repeatNumber: repeatI)
 
                         /* gyroセンサのいろいろ */
-                        /* [2],[3]がconnected_Arrayの同じ中にあったら */
+                        /* [2],[3]がconnectedArrayの同じ中にあったら */
                         if partsDraw.gyroTranslatePointArray.count == 4 && gyroRan == 0 {
-                            if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[2]) != nil
-                                && voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[3]) != nil {
+                            if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[2]) != nil
+                                && voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[3]) != nil {
                                 if voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[2]) == voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[3])
                                     && voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[2]) > 3 {
                                     // ジャイロX値出力用ピンの管理
-                                    if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[1] + 30) == nil {
+                                    if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[1] + 30) == nil {
                                         voltRetention.voltConnectedArray[repeatI].append(partsDraw.gyroTranslatePointArray[1] + 30)
                                     }
                                     // ジャイロY値出力用ピンの管理
-                                    if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[2] + 30) == nil {
+                                    if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[2] + 30) == nil {
                                         voltRetention.voltConnectedArray[repeatI].append(partsDraw.gyroTranslatePointArray[2] + 30)
                                         voltGyroInValue = voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[3])
                                     }
                                     // ジャイロZ値出力用ピンの管理
-                                    if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[3] + 30) == nil {
+                                    if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[3] + 30) == nil {
                                         voltRetention.voltConnectedArray[repeatI].append(partsDraw.gyroTranslatePointArray[3] + 30)
                                     }
                                     gyroRan = repeatI
@@ -157,11 +157,11 @@ class ViewController: UIViewController {
                         }
 
                         /* 抵抗器が接続されていた場合に電圧値を３下げる */
-                        if partsDraw.resistorTranslatePointArray.index(of: voltConnectNumber) != nil {
+                        if partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
                             voltRetention.voltValue = voltRetention.voltValue - 3
                         }
                         /* LEDがあった場合電圧値を１下げる */
-                        if partsDraw.ledTranslatePointArray.index(of: voltConnectNumber) != nil {
+                        if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
                             voltRetention.voltValue = voltRetention.voltValue - 1
                         }
                         // 電圧値を配列に保存
@@ -172,7 +172,7 @@ class ViewController: UIViewController {
                         // 接続がなかった場合
                     } else {
                         if voltConnectNext != 0 {
-                            iVoltNumber = voltRetention.voltConnectedArray[repeatI].index(of: voltConnectNext)!
+                            iVoltNumber = voltRetention.voltConnectedArray[repeatI].firstIndex(of: voltConnectNext)!
                             iVoltNumber -= 1
                             voltConnectNext = voltRetention.voltConnectedArray[repeatI][iVoltNumber]
                             // 電圧値をもとに戻す
@@ -208,17 +208,17 @@ class ViewController: UIViewController {
                     /* 各値出力ピンがアナログ入力ピンに接続されているかを調べる */
                     for j in 1 ..< 4 {
                         /* 各センサー値出力用ピンがそのままAnalog入力ピンに繋がっているかを調べる */
-                        if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 60) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 60) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
-                        } else if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 90) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        } else if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 90) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
-                        } else if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 120) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        } else if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 120) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
-                        } else if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 150) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        } else if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 150) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
                         }
                     }
@@ -422,6 +422,10 @@ class ViewController: UIViewController {
             if $0 is DangerDraw {
                 $0.removeFromSuperview()
             }
+            // 選択中のマーク削除
+            if $0 is SelectedCircle {
+                $0.removeFromSuperview()
+            }
         }
     }
 
@@ -562,6 +566,11 @@ class ViewController: UIViewController {
         ledDrawRan = 0
         resistorDrawRan = 0
 //        gyroDrawRan = 0
+        view.subviews.forEach {
+            if $0 is SelectedCircle {
+                $0.removeFromSuperview()
+            }
+        }
 
         if runRan == 0 {
             runRan = 1
@@ -586,26 +595,26 @@ class ViewController: UIViewController {
                         // gyroセンサの色々
                         // [2]，[3]がconnectedArrayの同じ中にあったら
                         if partsDraw.gyroTranslatePointArray.count == 4 && gyroRan == 0 {
-                            if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[2]) != nil
-                                && voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[3]) != nil {
+                            if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[2]) != nil
+                                && voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[3]) != nil {
                                 // ジャイロセンサのVDDピン，PSDピンの値が同じ値であり，かつ5V以下なら実行
                                 if voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[2]) == voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[3])
                                     && voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[2]) > 3 {
                                     // ジャイロX値出力用ピンの管理
-                                    if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[1] + 30) == nil {
+                                    if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[1] + 30) == nil {
                                         // ジャイロX値の出力ピンをconnectedArrayに追加
                                         voltRetention.voltConnectedArray[repeatI].append(partsDraw.gyroTranslatePointArray[1] + 30)
                                     }
 
                                     // ジャイロY値出力用ピンの管理
-                                    if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[2] + 30) == nil {
+                                    if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[2] + 30) == nil {
                                         // ジャイロY値の出力ピンをconnectedArrayに追加
                                         voltRetention.voltConnectedArray[repeatI].append(partsDraw.gyroTranslatePointArray[2] + 30)
                                         voltGyroInValue = voltRetention.voltReturnValue(boardNumber: partsDraw.gyroTranslatePointArray[3])
                                     }
 
                                     // ジャイロZ値出力用ピンの管理
-                                    if voltRetention.voltConnectedArray[repeatI].index(of: partsDraw.gyroTranslatePointArray[3] + 30) == nil {
+                                    if voltRetention.voltConnectedArray[repeatI].firstIndex(of: partsDraw.gyroTranslatePointArray[3] + 30) == nil {
                                         /* ジャイロZ値の出力ピンをconnectedArrayに追加 */
                                         voltRetention.voltConnectedArray[repeatI].append(partsDraw.gyroTranslatePointArray[3] + 30)
                                     }
@@ -615,11 +624,11 @@ class ViewController: UIViewController {
                             }
                         }
                         /* 抵抗器があった場合に電圧値の値を3下げる */
-                        if partsDraw.resistorTranslatePointArray.index(of: voltConnectNumber) != nil {
+                        if partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
                             voltRetention.voltValue -= 3
                         }
                         /* LEDがあった場合に電圧値の値を1下げる */
-                        if partsDraw.ledTranslatePointArray.index(of: voltConnectNumber) != nil {
+                        if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
                             voltRetention.voltValue -= 1
                         }
                         /* 電圧の値を配列に保存 */
@@ -630,7 +639,7 @@ class ViewController: UIViewController {
                         /* 接続がなかった場合 */
                     } else {
                         if voltConnectNext != 0 {
-                            iVoltNumber = voltRetention.voltConnectedArray[repeatI].index(of: voltConnectNext)!
+                            iVoltNumber = voltRetention.voltConnectedArray[repeatI].firstIndex(of: voltConnectNext)!
                             iVoltNumber -= 1
                             voltConnectNext = voltRetention.voltConnectedArray[repeatI][iVoltNumber]
                             // 電圧値をもとに戻す
@@ -651,9 +660,9 @@ class ViewController: UIViewController {
             for i in 0 ..< 12 {
                 for j in 0 ..< 12 {
                     /* conectedArrayの中に出力ピンのどれかのナンバーがあればtrue */
-                    if voltRetention.voltConnectedArray[i].index(of: voltRetention.voltConnectedArray[j][0]) != nil {
+                    if voltRetention.voltConnectedArray[i].firstIndex(of: voltRetention.voltConnectedArray[j][0]) != nil {
                         /* conectedArrayの中に見つかった出力ピンのナンバーが0番目以外であればtrue */
-                        if voltRetention.voltConnectedArray[i].index(of: voltRetention.voltConnectedArray[j][0]) != 0 {
+                        if voltRetention.voltConnectedArray[i].firstIndex(of: voltRetention.voltConnectedArray[j][0]) != 0 {
                             arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: voltRetention.voltConnectedArray[j][0])
                             let dangerDraw = DangerDraw(frame: CGRect(x: 0, y: 0,
                                                                       width: arduinoImageView.bounds.width,
@@ -684,17 +693,17 @@ class ViewController: UIViewController {
                 for i in 0 ..< 3 {
                     // 各出力ピンがアナログ入力ピンに接続されているかを調べる
                     for j in 1 ..< 4 {
-                        if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 60) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 60) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
-                        } else if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 90) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        } else if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 90) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
-                        } else if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 120) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        } else if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 120) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
-                        } else if partsDraw.wireTranslatePointArray.index(of: partsDraw.gyroTranslatePointArray[j] + 150) != nil
-                            && partsDraw.wireTranslatePointArray.index(of: voltRetention.voltInPinArray[i]) != nil {
+                        } else if partsDraw.wireTranslatePointArray.firstIndex(of: partsDraw.gyroTranslatePointArray[j] + 150) != nil
+                            && partsDraw.wireTranslatePointArray.firstIndex(of: voltRetention.voltInPinArray[i]) != nil {
                             voltGyroRun += 1
                         }
                     }
@@ -714,7 +723,7 @@ class ViewController: UIViewController {
                     voltLastNumber = voltRetention.voltConnectedArray[iSearch][(voltRetention.voltConnectedArray[iSearch].count) - 2]
                     voltLastValue = voltRetention.voltReturnValue(boardNumber: voltLastNumber)
 
-                    if voltLastValue > 3 && partsDraw.resistorTranslatePointArray.index(of: voltLastNumber) == nil || voltLastValue >= 7 {
+                    if voltLastValue > 3 && partsDraw.resistorTranslatePointArray.firstIndex(of: voltLastNumber) == nil || voltLastValue >= 7 {
                         // 破損の描画
                         arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: voltRetention.voltConnectedArray[iSearch][voltRetention.voltConnectedArray[iSearch].count - 1])
                         let dangerDraw = DangerDraw(frame: CGRect(x: 0, y: 0,
@@ -877,22 +886,28 @@ class ViewController: UIViewController {
         let touch = touches.first
         // Get tapped coordinate
         tapLocation = touch!.location(in: view)
-        point = String(arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
-        pointInt = Int(arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
+        point = String(arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+        pointInt = Int(arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
         arduinoUnoPointControl12_9.coordinateTranslate(
-            translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y)
+            translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y))
         )
 
         // ジャンパワイヤここから
-        if pointInt != 0 && wireDrawRan == 1 && partsDraw.wireTranslatePointArray.index(of: pointInt) == nil {
-            partsDraw.wireDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
+        if pointInt != 0 && wireDrawRan == 1 && partsDraw.wireTranslatePointArray.firstIndex(of: pointInt) == nil {
+            partsDraw.wireDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
             flagDrawWire = 1
+            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
         }
 
         if partsDraw.wireGetPointXArray.count % 2 != 0 && wireDrawRan != 1 {
             partsDraw.wireGetPointXArray.removeLast()
             partsDraw.wireGetPointYArray.removeLast()
             partsDraw.jumperNumber -= 1
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
 
         if pointInt != 0 && partsDraw.flagDraw(flagNumber: 0) == 1 && wireDrawRan == 1 && flagDrawWire == 1 {
@@ -909,19 +924,30 @@ class ViewController: UIViewController {
             view.addSubview(lineDraw)
             backViewArray.append(1)
             flagDrawWire = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
         // ジャンパワイヤここまで
 
         // LEDここから
-        if pointInt != 0 && ledDrawRan == 1 && partsDraw.ledTranslatePointArray.index(of: pointInt) == nil {
-            partsDraw.ledDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
+        if pointInt != 0 && ledDrawRan == 1 && partsDraw.ledTranslatePointArray.firstIndex(of: pointInt) == nil {
+            partsDraw.ledDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
             flagDrawLed = 1
+            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
         }
         /* LEDボタンOFF時に要素が一つだけ残っていた場合消す */
         if partsDraw.ledGetPointXArray.count % 2 != 0 && ledDrawRan != 1 {
             partsDraw.ledGetPointXArray.removeLast()
             partsDraw.ledGetPointYArray.removeLast()
             partsDraw.ledNumber -= 1
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
         /* LED描画部 */
         if pointInt != 0 && partsDraw.flagDraw(flagNumber: 1) == 1 && ledDrawRan == 1 && flagDrawLed == 1 {
@@ -938,18 +964,29 @@ class ViewController: UIViewController {
             view.addSubview(ledDraw)
             backViewArray.append(2)
             flagDrawLed = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
         // LEDここまで
 
         /* 抵抗器描画部 */
-        if pointInt != 0 && resistorDrawRan == 1 && partsDraw.resistorTranslatePointArray.index(of: pointInt) == nil {
-            partsDraw.resistorDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
+        if pointInt != 0 && resistorDrawRan == 1 && partsDraw.resistorTranslatePointArray.firstIndex(of: pointInt) == nil {
+            partsDraw.resistorDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
             flagDrawResistor = 1
+            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
         }
         if partsDraw.resistorGetPointYArray.count % 2 != 0 && resistorDrawRan != 1 {
             partsDraw.resistorGetPointXArray.removeLast()
             partsDraw.resistorGetPointYArray.removeLast()
             partsDraw.resistorNumber -= 1
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
         if pointInt != 0 && partsDraw.flagDraw(flagNumber: 2) == 1 && resistorDrawRan == 1 && flagDrawResistor == 1 {
             let resistorDraw = ResitorDraw(frame: CGRect(x: 0, y: 0,
@@ -965,32 +1002,51 @@ class ViewController: UIViewController {
             view.addSubview(resistorDraw)
             backViewArray.append(3)
             flagDrawResistor = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
         /* 抵抗器ここまで */
 
-        if pointInt != 0 && 171 ... 200 ~= pointInt && gyroDrawRan == 1 && partsDraw.gyroTranslatePointArray.index(of: pointInt) == nil {
+        // ジャイロセンサ描画のための配列に値を入れる
+        if pointInt != 0 && 171 ... 200 ~= pointInt && gyroDrawRan == 1 && partsDraw.gyroTranslatePointArray.firstIndex(of: pointInt) == nil {
             if partsDraw.gyroTranslatePointArray.count % 4 != 0 && pointInt - 1 == partsDraw.gyroTranslatePointArray.last
                 || partsDraw.gyroTranslatePointArray.count % 4 == 0 {
-                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
+                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
                 flagDrawGyro = 1
+                view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation)) // 選択中
             } else if flagDrawGyro != 0 {
                 partsDraw.gyroGetPointXArray.removeLast()
                 partsDraw.gyroGetPointYArray.removeLast()
                 partsDraw.gyroTranslatePointArray.removeLast()
                 partsDraw.gyroNumber -= 1
-                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y))
+                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
                 flagDrawGyro = 0
+//                view.subviews.forEach {
+//                    if $0 is SelectedCircle {
+//                        $0.removeFromSuperview()
+//                    }
+//                }
             }
         }
 
+        // ジャイロセンサ描画モード:OFF時に不必要な要素が残っていれば消す
         if partsDraw.gyroGetPointXArray.count % 4 != 0 && gyroDrawRan != 1 {
             for _ in 0 ..< partsDraw.gyroGetPointXArray.count % 4 {
                 partsDraw.gyroGetPointXArray.removeLast()
                 partsDraw.gyroGetPointYArray.removeLast()
                 partsDraw.gyroNumber -= 1
             }
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
 
+        // ジャイロセンサ描画部
         if pointInt != 0 && 171 ... 200 ~= pointInt && partsDraw.flagDraw(flagNumber: 3) == 1 && gyroDrawRan == 1 && flagDrawGyro == 1 {
             let gyroDraw = GyroDraw(frame: CGRect(x: 0, y: 0,
                                                   width: arduinoImageView.bounds.width,
@@ -1009,6 +1065,11 @@ class ViewController: UIViewController {
             gyroCount += 4
             backViewArray.append(4)
             flagDrawGyro = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
         }
 
         /* Debug */
@@ -1027,7 +1088,7 @@ class ViewController: UIViewController {
     }
 }
 
-func judgeDevice(screenSizeHeight: CGFloat) -> Int {
+func judgeDevice(screenSizeHeight: Double) -> Int {
     if screenSizeHeight == 1024 { // Mini, iPad, iPad2
         return 1
     } else if screenSizeHeight == 2048 { // Mini2, Mini3, Mini4, iPad3, iPad4, Air, Air2, Pro9.7
@@ -1039,4 +1100,15 @@ func judgeDevice(screenSizeHeight: CGFloat) -> Int {
     } else { // Other
         return 0
     }
+}
+
+func selectedCircle(uiImageView: UIImageView, tapLocation: CGPoint) -> SelectedCircle {
+    let arduinoUnoPointControl12_9 = ArduinoUnoPointControl12_9()
+    let selectedCircle = SelectedCircle(frame: CGRect(x: 0, y: 0,
+                                                      width: uiImageView.bounds.width,
+                                                      height: uiImageView.bounds.height))
+    selectedCircle.backgroundColor = UIColor.clear
+    arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+    selectedCircle.intoBoardPoint(startX: arduinoUnoPointControl12_9.coordinateNumberX, startY: arduinoUnoPointControl12_9.coordinateNumberY)
+    return selectedCircle
 }
