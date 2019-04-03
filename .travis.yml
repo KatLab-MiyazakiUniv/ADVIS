@@ -10,5 +10,5 @@ before_install:
     - carthage bootstrap --no-use-binaries --platform ios
 
 script:
-    - xcodebuild -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro(12.9)(2nd generation)' -configuration Debug test | xcpretty -c
+    - xcodebuild -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro(12.9-inch)(3rd generation)' -configuration Debug test | xcpretty -c
     - bash <(curl -s https://codecov.io/bash) t {CODECOV_TOKEN}
