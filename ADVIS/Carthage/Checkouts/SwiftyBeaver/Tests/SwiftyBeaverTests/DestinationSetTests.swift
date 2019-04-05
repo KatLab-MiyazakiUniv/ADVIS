@@ -6,10 +6,11 @@
 //  Copyright © 2016 Sebastian Kreutzberger. All rights reserved.
 //
 
-import SwiftyBeaver
 import XCTest
+import SwiftyBeaver
 
 class DestinationSetTests: XCTestCase {
+
     override func tearDown() {
         super.tearDown()
         SwiftyBeaver.removeAllDestinations()
@@ -80,6 +81,7 @@ class DestinationSetTests: XCTestCase {
 
     static let allTests = [
         ("testChangeDestinationsMinLogLevels", testChangeDestinationsMinLogLevels),
-        ("testRemoveConsoleDestinations", testRemoveConsoleDestinations),
+        ("testRemoveConsoleDestinations", testRemoveConsoleDestinations)
+
     ]
 }

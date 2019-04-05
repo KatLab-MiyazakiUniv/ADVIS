@@ -8,11 +8,13 @@
 import Foundation
 
 protocol PathNode {
-    var pathOutput: PathOutputNode { get }
+  var pathOutput: PathOutputNode { get }
 }
 
 extension PathNode where Self: AnimatorNode {
-    var outputNode: NodeOutput {
-        return pathOutput
-    }
+  
+  var outputNode: NodeOutput {
+    return pathOutput
+  }
+  
 }

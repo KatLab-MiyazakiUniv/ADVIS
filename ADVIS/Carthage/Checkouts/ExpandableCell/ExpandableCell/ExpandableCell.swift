@@ -21,7 +21,7 @@ open class ExpandableCell: UITableViewCell {
         initView()
     }
 
-    public required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -34,49 +34,49 @@ open class ExpandableCell: UITableViewCell {
     func initView() {
         arrowImageView = UIImageView()
         arrowImageView.image = UIImage(named: "expandableCell_arrow", in: Bundle(for: ExpandableCell.self), compatibleWith: nil)
-        contentView.addSubview(arrowImageView)
+        self.contentView.addSubview(arrowImageView)
     }
-
+    
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        let width = bounds.width
-        let height = bounds.height
+        let width = self.bounds.width
+        let height = self.bounds.height
 
-        arrowImageView.frame = CGRect(x: width - rightMargin, y: (height - 11) / 2, width: 22, height: 11)
+        arrowImageView.frame = CGRect(x: width - rightMargin, y: (height - 11)/2, width: 22, height: 11)
     }
 
     func open() {
-        isOpen = true
-        initialExpansionAllowed = false
+        self.isOpen = true
+        self.initialExpansionAllowed = false
         if highlightAnimation == .animated {
-            UIView.animate(withDuration: 0.3) { [weak self] in
+            UIView.animate(withDuration: 0.3) {[weak self] in
                 self?.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 1.0, 0.0, 0.0)
             }
         }
     }
 
     func close() {
-        isOpen = false
+        self.isOpen = false
         if highlightAnimation == .animated {
-            UIView.animate(withDuration: 0.3) { [weak self] in
+            UIView.animate(withDuration: 0.3) {[weak self] in
                 self?.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0.0, 0.0, 0.0)
             }
         }
     }
-
+    
     func isInitiallyExpandedInternal() -> Bool {
-        return initialExpansionAllowed && isInitiallyExpanded()
+        return self.initialExpansionAllowed && self.isInitiallyExpanded()
     }
 
     open func isExpanded() -> Bool {
         return isOpen
     }
-
+    
     open func isInitiallyExpanded() -> Bool {
         return false
     }
-
+    
     open func isSelectable() -> Bool {
         return false
     }

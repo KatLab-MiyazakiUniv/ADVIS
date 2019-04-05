@@ -8,22 +8,23 @@
 //
 
 import Foundation
-@testable import SwiftyBeaver
 import XCTest
+@testable import SwiftyBeaver
 
 class SBPlatformDestinationTests: XCTestCase {
+
     var platform = SBPlatformDestination(appID: "", appSecret: "", encryptionKey: "")
 
     struct SBPlatformCredentials {
         /*
-         use environment variables to inject platform credentials into the tests
-         set in Terminal via:
+            use environment variables to inject platform credentials into the tests
+            set in Terminal via:
 
-         export SBPLATFORM_SERVER_URL=
-         export SBPLATFORM_APP_ID=
-         export SBPLATFORM_APP_SECRET=
-         export SBPLATFORM_ENCRYPTION_KEY=
-         */
+            export SBPLATFORM_SERVER_URL=
+            export SBPLATFORM_APP_ID=
+            export SBPLATFORM_APP_SECRET=
+            export SBPLATFORM_ENCRYPTION_KEY=
+        */
         static let serverURL = ProcessInfo.processInfo.environment["SBPLATFORM_SERVER_URL"] ?? "https://api.swiftybeaver.com/api/entries/"
         static let appID = ProcessInfo.processInfo.environment["SBPLATFORM_APP_ID"] ?? ""
         static let appSecret = ProcessInfo.processInfo.environment["SBPLATFORM_APP_SECRET"] ?? ""
@@ -34,10 +35,10 @@ class SBPlatformDestinationTests: XCTestCase {
         super.setUp()
         SwiftyBeaver.removeAllDestinations()
         platform = SBPlatformDestination(
-            appID: SBPlatformCredentials.appID,
-            appSecret: SBPlatformCredentials.appSecret,
-            encryptionKey: SBPlatformCredentials.encryptionKey,
-            serverURL: URL(string: SBPlatformCredentials.serverURL)
+            appID:          SBPlatformCredentials.appID,
+            appSecret:      SBPlatformCredentials.appSecret,
+            encryptionKey:  SBPlatformCredentials.encryptionKey,
+            serverURL:      URL(string: SBPlatformCredentials.serverURL)
         )
         // uncomment to verify that the env vars "arrive" in the tests
         print("\nTesting SBPlatform using")
@@ -59,7 +60,7 @@ class SBPlatformDestinationTests: XCTestCase {
 
     func testSend() {
         // let dateStr = formatter.stringFromDate(NSDate())
-        // let platform = SBPlatformDestination()
+        //let platform = SBPlatformDestination()
         let msg = "test message\nNewlineäößø"
         let thread = ""
         let file = "/file/path.swift"
@@ -141,20 +142,21 @@ class SBPlatformDestinationTests: XCTestCase {
         }
 
         /*
-         // that should work. deactivated to avoid "foobar" messages on serverpost
-         platform.appID = SBPlatformCredentials.appID
-         platform.appSecret = SBPlatformCredentials.appSecret
-         platform.encryptionKey = SBPlatformCredentials.encryptionKey
-         let exp4 = expectationWithDescription("returns ok on valid request")
+        // that should work. deactivated to avoid "foobar" messages on serverpost
+        platform.appID = SBPlatformCredentials.appID
+        platform.appSecret = SBPlatformCredentials.appSecret
+        platform.encryptionKey = SBPlatformCredentials.encryptionKey
+        let exp4 = expectationWithDescription("returns ok on valid request")
 
-         platform.sendToServerAsync(jsonStr) {
-         ok, status in
-         XCTAssertTrue(ok)
-         XCTAssertEqual(status, 200)
-         exp4.fulfill()
-         }
-         */
+        platform.sendToServerAsync(jsonStr) {
+            ok, status in
+            XCTAssertTrue(ok)
+            XCTAssertEqual(status, 200)
+            exp4.fulfill()
+        }
+        */
         waitForExpectations(timeout: 11, handler: nil)
+
     }
 
     func testSingleSending() {
@@ -162,8 +164,8 @@ class SBPlatformDestinationTests: XCTestCase {
 
         // add logging to SwiftyBeaver Platform
         platform.showNSLog = true
-        // let jsonFile = NSURL(fileURLWithPath: "/tmp/testSBPlatform.json")!
-        // deleteFile(NSURL(string: String(jsonFile) + ".send")!)
+        //let jsonFile = NSURL(fileURLWithPath: "/tmp/testSBPlatform.json")!
+        //deleteFile(NSURL(string: String(jsonFile) + ".send")!)
 
         if platform.appID.isEmpty || platform.appSecret.isEmpty || platform.encryptionKey.isEmpty {
             // leave the test on missing credentials
@@ -172,7 +174,7 @@ class SBPlatformDestinationTests: XCTestCase {
         }
 
         XCTAssertTrue(log.addDestination(platform))
-        // XCTAssertEqual(log.countDestinations(), 2)
+        //XCTAssertEqual(log.countDestinations(), 2)
 
         // send logs in chunks, use high threshold value to test performance
         platform.sendingPoints.threshold = 10
@@ -180,13 +182,13 @@ class SBPlatformDestinationTests: XCTestCase {
         log.debug("a debug message 2")
         log.info("an info message 3")
         log.error("an error message 4")
-
+        
         print("waiting")
         // do some further waiting for sending to complete
-        for _ in 1 ... platform.sendingPoints.threshold + 3 {
+        for _ in 1...platform.sendingPoints.threshold + 3 {
             // simulate work by doing a computing
             var x = 1.0
-            for index2 in 1 ... 50000 {
+            for index2 in 1...50000 {
                 x = sqrt(Double(index2))
                 XCTAssertEqual(x, sqrt(Double(index2)))
             }
@@ -194,47 +196,47 @@ class SBPlatformDestinationTests: XCTestCase {
         sleep(5)
         print("finished")
     }
-
+    
     func testIntegration() {
         let log = SwiftyBeaver.self
         let formatter = DateFormatter()
-
+        
         // add logging to SwiftyBeaver Platform
         platform.showNSLog = true
-        // let jsonFile = NSURL(fileURLWithPath: "/tmp/testSBPlatform.json")!
-        // deleteFile(NSURL(string: String(jsonFile) + ".send")!)
-
+        //let jsonFile = NSURL(fileURLWithPath: "/tmp/testSBPlatform.json")!
+        //deleteFile(NSURL(string: String(jsonFile) + ".send")!)
+        
         if platform.appID.isEmpty || platform.appSecret.isEmpty || platform.encryptionKey.isEmpty {
             // leave the test on missing credentials
             print("leaving SBPlatform test testIntegration() due to empty credentials")
             return
         }
-
+        
         XCTAssertTrue(log.addDestination(platform))
-        // XCTAssertEqual(log.countDestinations(), 2)
-
+        //XCTAssertEqual(log.countDestinations(), 2)
+        
         // send logs in chunks, use high threshold value to test performance
         platform.sendingPoints.threshold = 10
-        for index in 1 ... platform.sendingPoints.threshold + 3 {
+        for index in 1...platform.sendingPoints.threshold + 3 {
             // simulate work by doing a computing
             var x = 1.0
-            for index2 in 1 ... 50000 {
+            for index2 in 1...50000 {
                 x = sqrt(Double(index2))
                 XCTAssertEqual(x, sqrt(Double(index2)))
             }
-
+            
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
             let dateStr = formatter.string(from: Date())
-
+            
             log.debug("msg \(index) - \(dateStr)")
         }
         XCTAssertTrue(log.flush(secondTimeout: 3))
-
+        
         // do some further waiting for sending to complete
-        for _ in 1 ... platform.sendingPoints.threshold + 3 {
+        for _ in 1...platform.sendingPoints.threshold + 3 {
             // simulate work by doing a computing
             var x = 1.0
-            for index2 in 1 ... 50000 {
+            for index2 in 1...50000 {
                 x = sqrt(Double(index2))
                 XCTAssertEqual(x, sqrt(Double(index2)))
             }
@@ -252,7 +254,7 @@ class SBPlatformDestinationTests: XCTestCase {
         XCTAssertEqual(device["hostName"], ProcessInfo.processInfo.hostName)
         XCTAssertEqual(device["deviceName"], DEVICE_NAME)
         XCTAssertEqual(device["deviceModel"], DEVICE_MODEL)
-        // NSLog(stats)
+        //NSLog(stats)
     }
 
     func testAnalytics() {
@@ -311,6 +313,6 @@ class SBPlatformDestinationTests: XCTestCase {
         ("testSendToServerAsync", testSendToServerAsync),
         ("testIntegration", testIntegration),
         ("testDeviceDetails", testDeviceDetails),
-        ("testAnalytics", testAnalytics),
+        ("testAnalytics", testAnalytics)
     ]
 }

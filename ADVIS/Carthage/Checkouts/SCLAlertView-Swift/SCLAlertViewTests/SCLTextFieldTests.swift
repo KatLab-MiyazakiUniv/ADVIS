@@ -11,12 +11,13 @@
 import XCTest
 
 class SCLTextFieldTests: XCTestCase {
-    let alert = SCLAlertView()
 
+    let alert = SCLAlertView()
+    
     override func setUp() {
         super.setUp()
     }
-
+    
     override func tearDown() {
         super.tearDown()
     }
