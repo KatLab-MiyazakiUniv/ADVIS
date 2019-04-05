@@ -1,3 +1,7 @@
+
+
+[![codecov](https://codecov.io/gh/Tatsumi0000/ADVIS/branch/master/graph/badge.svg?token=zkhh3pRyBH)](https://codecov.io/gh/Tatsumi0000/ADVIS)
+
 ADVISのリポジトリです
 ====
 ADVISのリポジトリです．
