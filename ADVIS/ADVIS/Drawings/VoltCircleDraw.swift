@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// 電圧値を表示する丸のを出すクラス
 class VoltCircleDraw: UIView {
     var startX: Double = 0
     var startY: Double = 0

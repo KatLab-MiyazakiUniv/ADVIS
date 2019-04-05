@@ -45,6 +45,15 @@
 		07B8B75920C510A700B7B9EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8B75720C510A700B7B9EE /* LaunchScreen.storyboard */; };
 		07B8B76420C510A700B7B9EE /* ADVISTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B76320C510A700B7B9EE /* ADVISTests.swift */; };
 		07B8B76F20C510A700B7B9EE /* ADVISUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B76E20C510A700B7B9EE /* ADVISUITests.swift */; };
+		07D303A822575E200083F49D /* LineDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303A722575E200083F49D /* LineDrawTests.swift */; };
+		07D303AB22575ED80083F49D /* LineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F624D212EFAE800C6E079 /* LineDraw.swift */; };
+		07D303AC2257638E0083F49D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
+		07D303AD225763920083F49D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
+		07D303AF225763C00083F49D /* LedDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303AE225763C00083F49D /* LedDrawTests.swift */; };
+		07D303B22257672F0083F49D /* ResitorDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FFBED2131583F00CCB252 /* ResitorDraw.swift */; };
+		07D303B4225767540083F49D /* ResitorDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303B3225767540083F49D /* ResitorDrawTests.swift */; };
+		07D303B522576B100083F49D /* VoltDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */; };
+		07D303B722576B240083F49D /* VoltDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303B622576B240083F49D /* VoltDrawTests.swift */; };
 		07DCBD7F2131B9CF002E8C78 /* VoltDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */; };
 		07DCBD812131BB32002E8C78 /* VoltCircleDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */; };
 		07DCBD832131BDF3002E8C78 /* LedLightupDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */; };
@@ -121,6 +130,10 @@
 		07B8B76A20C510A700B7B9EE /* ADVISUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ADVISUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B8B76E20C510A700B7B9EE /* ADVISUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADVISUITests.swift; sourceTree = "<group>"; };
 		07B8B77020C510A700B7B9EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07D303A722575E200083F49D /* LineDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDrawTests.swift; sourceTree = "<group>"; };
+		07D303AE225763C00083F49D /* LedDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDrawTests.swift; sourceTree = "<group>"; };
+		07D303B3225767540083F49D /* ResitorDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResitorDrawTests.swift; sourceTree = "<group>"; };
+		07D303B622576B240083F49D /* VoltDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltDrawTests.swift; sourceTree = "<group>"; };
 		07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltDraw.swift; sourceTree = "<group>"; };
 		07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltCircleDraw.swift; sourceTree = "<group>"; };
 		07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedLightupDraw.swift; sourceTree = "<group>"; };
@@ -329,7 +342,11 @@
 			children = (
 				07B8B76320C510A700B7B9EE /* ADVISTests.swift */,
 				07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */,
+				07D303A722575E200083F49D /* LineDrawTests.swift */,
+				07D303AE225763C00083F49D /* LedDrawTests.swift */,
+				07D303B3225767540083F49D /* ResitorDrawTests.swift */,
 				07B8B76520C510A700B7B9EE /* Info.plist */,
+				07D303B622576B240083F49D /* VoltDrawTests.swift */,
 			);
 			path = ADVISTests;
 			sourceTree = "<group>";
@@ -542,9 +559,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D303B4225767540083F49D /* ResitorDrawTests.swift in Sources */,
 				07E13B6D212DA0FF0056977F /* ArduinoUnoPointControl12_9.swift in Sources */,
+				07D303B722576B240083F49D /* VoltDrawTests.swift in Sources */,
 				07E13B6F212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift in Sources */,
+				07D303B22257672F0083F49D /* ResitorDraw.swift in Sources */,
+				07D303AB22575ED80083F49D /* LineDraw.swift in Sources */,
 				07B8B76420C510A700B7B9EE /* ADVISTests.swift in Sources */,
+				07D303B522576B100083F49D /* VoltDraw.swift in Sources */,
+				07D303A822575E200083F49D /* LineDrawTests.swift in Sources */,
+				07D303AF225763C00083F49D /* LedDrawTests.swift in Sources */,
+				07D303AC2257638E0083F49D /* LedDraw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B8B76F20C510A700B7B9EE /* ADVISUITests.swift in Sources */,
+				07D303AD225763920083F49D /* LedDraw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

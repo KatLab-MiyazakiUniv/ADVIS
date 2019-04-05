@@ -12,80 +12,83 @@ import QuartzCore
  The layer responsible for rendering shape objects
  */
 class ShapeRenderLayer: ShapeContainerLayer {
-    fileprivate(set) var renderer: Renderable & NodeOutput
-
-    let shapeLayer: CAShapeLayer = CAShapeLayer()
-
-    override var renderScale: CGFloat {
-        didSet {
-            renderLayers.forEach({ $0.renderScale = renderScale })
-            contentsScale = renderScale
-        }
+  
+  fileprivate(set) var renderer: Renderable & NodeOutput
+  
+  let shapeLayer: CAShapeLayer = CAShapeLayer()
+  
+  override var renderScale: CGFloat {
+    didSet {
+      renderLayers.forEach( { $0.renderScale = renderScale } )
+      self.contentsScale = renderScale
     }
-
-    init(renderer: Renderable & NodeOutput) {
-        self.renderer = renderer
-        super.init()
-        anchorPoint = .zero
-        actions = [
-            "position": NSNull(),
-            "bounds": NSNull(),
-            "anchorPoint": NSNull(),
-            "path": NSNull(),
-            "transform": NSNull(),
-            "opacity": NSNull(),
-        ]
-        shapeLayer.actions = [
-            "position": NSNull(),
-            "bounds": NSNull(),
-            "anchorPoint": NSNull(),
-            "path": NSNull(),
-            "fillColor": NSNull(),
-            "strokeColor": NSNull(),
-            "lineWidth": NSNull(),
-            "miterLimit": NSNull(),
-            "lineDashPhase": NSNull(),
-        ]
-        addSublayer(shapeLayer)
+  }
+  
+  init(renderer: Renderable & NodeOutput) {
+    self.renderer = renderer
+    super.init()
+    self.anchorPoint = .zero
+    self.actions = [
+      "position" : NSNull(),
+      "bounds" : NSNull(),
+      "anchorPoint" : NSNull(),
+      "path" : NSNull(),
+      "transform" : NSNull(),
+      "opacity" : NSNull()
+    ]
+    shapeLayer.actions = [
+      "position" : NSNull(),
+      "bounds" : NSNull(),
+      "anchorPoint" : NSNull(),
+      "path" : NSNull(),
+      "fillColor" : NSNull(),
+      "strokeColor" : NSNull(),
+      "lineWidth" : NSNull(),
+      "miterLimit" : NSNull(),
+      "lineDashPhase" : NSNull(),
+    ]
+    addSublayer(shapeLayer)
+  }
+  
+  override init(layer: Any) {
+    guard let layer = layer as? ShapeRenderLayer else {
+      fatalError("init(layer:) wrong class.")
     }
-
-    override init(layer: Any) {
-        guard let layer = layer as? ShapeRenderLayer else {
-            fatalError("init(layer:) wrong class.")
-        }
-        renderer = layer.renderer
-        super.init(layer: layer)
+    self.renderer = layer.renderer
+    super.init(layer: layer)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func hasRenderUpdate(forFrame: CGFloat) -> Bool {
+    return renderer.hasRenderUpdates(forFrame)
+  }
+  
+  override func rebuildContents(forFrame: CGFloat) {
+    
+    if renderer.shouldRenderInContext {
+      if let newPath = renderer.outputPath {
+        self.bounds = renderer.renderBoundsFor(newPath.boundingBox)
+      } else {
+        self.bounds = .zero
+      }
+      self.position = bounds.origin
+      self.setNeedsDisplay()
+    } else {
+      shapeLayer.path = renderer.outputPath
+      renderer.updateShapeLayer(layer: shapeLayer)
     }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func draw(in ctx: CGContext) {
+    if let path = renderer.outputPath {
+      if !path.isEmpty {
+        ctx.addPath(path)
+      }
     }
-
-    override func hasRenderUpdate(forFrame: CGFloat) -> Bool {
-        return renderer.hasRenderUpdates(forFrame)
-    }
-
-    override func rebuildContents(forFrame _: CGFloat) {
-        if renderer.shouldRenderInContext {
-            if let newPath = renderer.outputPath {
-                bounds = renderer.renderBoundsFor(newPath.boundingBox)
-            } else {
-                bounds = .zero
-            }
-            position = bounds.origin
-            setNeedsDisplay()
-        } else {
-            shapeLayer.path = renderer.outputPath
-            renderer.updateShapeLayer(layer: shapeLayer)
-        }
-    }
-
-    override func draw(in ctx: CGContext) {
-        if let path = renderer.outputPath {
-            if !path.isEmpty {
-                ctx.addPath(path)
-            }
-        }
-        renderer.render(ctx)
-    }
+    renderer.render(ctx)
+  }
+  
 }

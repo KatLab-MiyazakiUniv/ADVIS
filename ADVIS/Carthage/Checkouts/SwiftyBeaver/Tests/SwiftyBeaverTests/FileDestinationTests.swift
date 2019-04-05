@@ -7,10 +7,11 @@
 //
 
 import Foundation
-@testable import SwiftyBeaver
 import XCTest
+@testable import SwiftyBeaver
 
 class FileDestinationTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         SwiftyBeaver.removeAllDestinations()
@@ -39,13 +40,13 @@ class FileDestinationTests: XCTestCase {
         _ = log.flush(secondTimeout: 3)
 
         // wait a bit until the logs are written to file
-        for i in 1 ... 100_000 {
+        for i in 1...100000 {
             let x = sqrt(Double(i))
             XCTAssertEqual(x, sqrt(Double(i)))
         }
 
         // was the file written and does it contain the lines?
-        let fileLines = linesOfFile(path: path)
+        let fileLines = self.linesOfFile(path: path)
         XCTAssertNotNil(fileLines)
         guard let lines = fileLines else { return }
         XCTAssertEqual(lines.count, 5)
@@ -83,13 +84,13 @@ class FileDestinationTests: XCTestCase {
         _ = log.flush(secondTimeout: 3)
 
         // wait a bit until the logs are written to file
-        for i in 1 ... 100_000 {
+        for i in 1...100000 {
             let x = sqrt(Double(i))
             XCTAssertEqual(x, sqrt(Double(i)))
         }
 
         // was the file written and does it contain the lines?
-        let fileLines = linesOfFile(path: path)
+        let fileLines = self.linesOfFile(path: path)
         XCTAssertNotNil(fileLines)
         guard let lines = fileLines else { return }
         XCTAssertEqual(lines.count, 4)
@@ -133,6 +134,6 @@ class FileDestinationTests: XCTestCase {
 
     static let allTests = [
         ("testFileIsWritten", testFileIsWritten),
-        ("testFileIsWrittenToFolderWithSpaces", testFileIsWrittenToFolderWithSpaces),
+        ("testFileIsWrittenToFolderWithSpaces", testFileIsWrittenToFolderWithSpaces)
     ]
 }
