@@ -8,6 +8,7 @@ before_install:
   #- brew install carthage
   #- brew tap mono0926/license-plist
   #- brew install license-plist
+    - brew install mono0926/license-plist/license-plist
     - cd ./ADVIS
     - carthage bootstrap --no-use-binaries --platform ios
 
