@@ -1,6 +1,7 @@
 
-
+[![Build Status](https://travis-ci.com/Tatsumi0000/ADVIS.svg?token=6SR2wD8r8ZsrunQvmwZJ&branch=master)](https://travis-ci.com/Tatsumi0000/ADVIS)
 [![codecov](https://codecov.io/gh/Tatsumi0000/ADVIS/branch/master/graph/badge.svg?token=zkhh3pRyBH)](https://codecov.io/gh/Tatsumi0000/ADVIS)
+
 
 ADVISのリポジトリです
 ====
