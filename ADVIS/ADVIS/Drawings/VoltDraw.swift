@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// 電圧値の数字を表示するクラス
 class VoltDraw: UIView {
     var startX: Double = 0
     var startY: Double = 0
