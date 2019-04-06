@@ -1,4 +1,5 @@
-
+# Gemfile.lockの削除
+*Gemfile.lock
 
 # ExampleProjectを除外
 *ExampleProject

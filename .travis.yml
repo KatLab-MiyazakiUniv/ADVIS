@@ -11,7 +11,7 @@ script:
     - bash <(curl -s https://codecov.io/bash) t {6bc13b5a-98d9-4eef-bb5c-1418cc68d7e3}
 
 after_success:
-    - bundle exec jazzy --clean -o ./../docs --author "Tatsumi" --min-acl private --xcodebuild-arguments -project,ADVIS.xcodeproj,-scheme,ADVIS --theme fullwidth
+    - bundle exec jazzy
     - cd ./../docs
 
 deploy:

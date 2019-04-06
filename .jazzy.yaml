@@ -1,0 +1,21 @@
+# このレベル以上のものがドキュメント化される
+min_acl: private
+
+# 出力先のフォルダをcleanする
+clean: true
+
+# 出力先のフォルダ
+output: docs
+
+# 著者名
+author: Tatsumi0000
+
+# GitHubのURL指定
+github_url: https://github.com/Tatsumi0000/ADVIS
+
+# xcodebuildの引数指定
+xcodebuild_arguments: [-project,ADVIS.xcodeproj,-scheme,ADVIS]
+
+# ドキュメントのテーマを指定
+theme: fullwidth
+
