@@ -2,10 +2,6 @@ language: objective-c
 osx_image: xcode10.2
 
 before_install:
-  #- brew update
-  #- brew install carthage
-  #- brew tap mono0926/license-plist
-  #- brew install license-plist
     - brew install mono0926/license-plist/license-plist
     - cd ./ADVIS
     - carthage bootstrap --no-use-binaries --platform ios
@@ -15,11 +11,8 @@ script:
     - bash <(curl -s https://codecov.io/bash) t {6bc13b5a-98d9-4eef-bb5c-1418cc68d7e3}
 
 after_success:
-    - pwd 
-    - mkdir docs 
-    - ls
-    - bundle exec jazzy --clean -o ./docs --author "Tatsumi" --min-acl private --xcodebuild-arguments -project,ADVIS.xcodeproj,-scheme,ADVIS --theme fullwidth
-    - cd ./docs
+    - bundle exec jazzy --clean -o ./../docs --author "Tatsumi" --min-acl private --xcodebuild-arguments -project,ADVIS.xcodeproj,-scheme,ADVIS --theme fullwidth
+    - cd ./../docs
 
 deploy:
   provider: pages
