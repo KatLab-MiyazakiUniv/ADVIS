@@ -19,6 +19,7 @@ script:
 after_success:
     - pwd 
     - mkdir docs 
+    - ls
     - bundle exec jazzy --clean -o ./docs --swift-version 5.0 --author "Tatsumi" --min-acl private
     - cd ./docs
 
