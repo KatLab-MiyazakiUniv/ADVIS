@@ -15,3 +15,13 @@ before_install:
 script:
     - xcodebuild test -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro (12.9-inch) (3rd generation)' -configuration Debug | bundle exec xcpretty -c
     - bash <(curl -s https://codecov.io/bash) t {6bc13b5a-98d9-4eef-bb5c-1418cc68d7e3}
+    - bundle exec jazzy --clean -o ./../docs --swift-version 5.0 --author "Tatsumi" --min-acl private
+    - cd ../docs
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
