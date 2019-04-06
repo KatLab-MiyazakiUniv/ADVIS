@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="og8-MS-p7K">
+            <objects>
+                <viewController storyboardIdentifier="Splash" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jC8-pU-IK3" customClass="SplashViewController" customModule="ADVIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VSU-bN-854">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="advis-logo" translatesAutoresizingMaskIntoConstraints="NO" id="RMW-Bb-0rZ">
+                                <rect key="frame" x="675" y="504" width="16" height="16"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RMW-Bb-0rZ" firstAttribute="centerX" secondItem="VSU-bN-854" secondAttribute="centerX" id="lbi-du-XSD"/>
+                            <constraint firstItem="RMW-Bb-0rZ" firstAttribute="centerY" secondItem="VSU-bN-854" secondAttribute="centerY" id="r00-Qz-ck8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KlI-k7-yFF"/>
+                    </view>
+                    <connections>
+                        <outlet property="splashImageView" destination="RMW-Bb-0rZ" id="vwJ-ta-Bap"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihI-EE-aj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="487" y="220"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="advis-logo" width="543" height="478"/>
+    </resources>
+</document>

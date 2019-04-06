@@ -1,0 +1,912 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070421312127064900688D05 /* CustomMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070421302127064900688D05 /* CustomMenuButton.swift */; };
+		0704213421272F9300688D05 /* CALayer+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704213321272F9300688D05 /* CALayer+UIColor.swift */; };
+		070D81452129BE7A0026FD0A /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070D81442129BE7A0026FD0A /* Splash.storyboard */; };
+		070D81472129BEFB0026FD0A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D81462129BEFB0026FD0A /* SplashViewController.swift */; };
+		071F77BF2125EE8B00534F87 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071F77BE2125EE8B00534F87 /* MyTableViewCell.xib */; };
+		071F77C42126C60300534F87 /* CustomArduinoUno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F77C32126C60300534F87 /* CustomArduinoUno.swift */; };
+		071F77C72126C7A200534F87 /* CustomArduinoUno.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071F77C62126C7A200534F87 /* CustomArduinoUno.xib */; };
+		071FFBEE2131583F00CCB252 /* ResitorDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FFBED2131583F00CCB252 /* ResitorDraw.swift */; };
+		0723F023212EE68400F79CBC /* ViewController+ExpandableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0723F022212EE68400F79CBC /* ViewController+ExpandableDelegate.swift */; };
+		072E9C0D20C6C31C00D8B02A /* ArduinoUnoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072E9C0C20C6C31C00D8B02A /* ArduinoUnoView.xib */; };
+		072E9C0F20C6C33400D8B02A /* ArduinoUnoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E9C0E20C6C33400D8B02A /* ArduinoUnoView.swift */; };
+		072E9C1220CC4A9200D8B02A /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072E9C1120CC4A9200D8B02A /* Lottie.framework */; };
+		072E9C1F20CC4F1100D8B02A /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 072E9C1E20CC4F1000D8B02A /* img_0.png */; };
+		072E9C2120CC505B00D8B02A /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 072E9C2020CC505B00D8B02A /* data.json */; };
+		072E9C2320CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E9C2220CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift */; };
+		0741908A2127DD2E00B8E7E1 /* ExpandableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074190892127DD2E00B8E7E1 /* ExpandableCell.framework */; };
+		0741908C212813AC00B8E7E1 /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0741908B212813AC00B8E7E1 /* ExpandableCell.xib */; };
+		0741908E2128147400B8E7E1 /* ExpandableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741908D2128147400B8E7E1 /* ExpandableCells.swift */; };
+		07419090212815FB00B8E7E1 /* ExpandedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0741908F212815FB00B8E7E1 /* ExpandedCell.xib */; };
+		074190922128209D00B8E7E1 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074190912128209D00B8E7E1 /* NormalCell.xib */; };
+		07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07560DC1223423C000CB43DA /* AmpereRetention.swift */; };
+		076E946D2130440B0005C52D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
+		077C9BC621273F9D00ECE0C6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077C9BC521273F9D00ECE0C6 /* Settings.bundle */; };
+		077EC9952120844F00DFEC20 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */; };
+		077F575821259F7F008F2606 /* MyTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F575721259F7F008F2606 /* MyTableViewSectionHeader.swift */; };
+		077F575C21259FC5008F2606 /* MyTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077F575B21259FC5008F2606 /* MyTableViewSectionHeader.xib */; };
+		077F575E2125ABFC008F2606 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F575D2125ABFC008F2606 /* MyTableViewCell.swift */; };
+		078F624E212EFAE800C6E079 /* LineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F624D212EFAE800C6E079 /* LineDraw.swift */; };
+		078F6250212F030500C6E079 /* PartsDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F624F212F030500C6E079 /* PartsDraw.swift */; };
+		07999A3D21207DFA005C7730 /* LUExpandableTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07999A3C21207DFA005C7730 /* LUExpandableTableView.framework */; };
+		07B7C66A22530F9300275CE0 /* SelectedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7C66922530F9300275CE0 /* SelectedCircle.swift */; };
+		07B8B74F20C510A500B7B9EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B74E20C510A500B7B9EE /* AppDelegate.swift */; };
+		07B8B75120C510A500B7B9EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B75020C510A500B7B9EE /* ViewController.swift */; };
+		07B8B75420C510A500B7B9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8B75220C510A500B7B9EE /* Main.storyboard */; };
+		07B8B75620C510A700B7B9EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07B8B75520C510A700B7B9EE /* Assets.xcassets */; };
+		07B8B75920C510A700B7B9EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8B75720C510A700B7B9EE /* LaunchScreen.storyboard */; };
+		07B8B76420C510A700B7B9EE /* ADVISTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B76320C510A700B7B9EE /* ADVISTests.swift */; };
+		07B8B76F20C510A700B7B9EE /* ADVISUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8B76E20C510A700B7B9EE /* ADVISUITests.swift */; };
+		07D303A822575E200083F49D /* LineDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303A722575E200083F49D /* LineDrawTests.swift */; };
+		07D303AB22575ED80083F49D /* LineDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F624D212EFAE800C6E079 /* LineDraw.swift */; };
+		07D303AC2257638E0083F49D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
+		07D303AD225763920083F49D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
+		07D303AF225763C00083F49D /* LedDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303AE225763C00083F49D /* LedDrawTests.swift */; };
+		07D303B22257672F0083F49D /* ResitorDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071FFBED2131583F00CCB252 /* ResitorDraw.swift */; };
+		07D303B4225767540083F49D /* ResitorDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303B3225767540083F49D /* ResitorDrawTests.swift */; };
+		07D303B522576B100083F49D /* VoltDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */; };
+		07D303B722576B240083F49D /* VoltDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303B622576B240083F49D /* VoltDrawTests.swift */; };
+		07DCBD7F2131B9CF002E8C78 /* VoltDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */; };
+		07DCBD812131BB32002E8C78 /* VoltCircleDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */; };
+		07DCBD832131BDF3002E8C78 /* LedLightupDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */; };
+		07DCBD852131C00F002E8C78 /* DangerDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD842131C00F002E8C78 /* DangerDraw.swift */; };
+		07DCBD872131C8B2002E8C78 /* VoltRetention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD862131C8B2002E8C78 /* VoltRetention.swift */; };
+		07DCBD8B2131CD47002E8C78 /* GyroDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD8A2131CD47002E8C78 /* GyroDraw.swift */; };
+		07E13B6D212DA0FF0056977F /* ArduinoUnoPointControl12_9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072E9C2220CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift */; };
+		07E13B6F212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */; };
+		07EC7212212C159C008DCF61 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC7211212C159C008DCF61 /* MaterialButton.swift */; };
+		07EC7214212C36B3008DCF61 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EC7213212C36B3008DCF61 /* SCLAlertView.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07B8B76020C510A700B7B9EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07B8B74320C510A500B7B9EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07B8B74A20C510A500B7B9EE;
+			remoteInfo = ADVIS;
+		};
+		07B8B76B20C510A700B7B9EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07B8B74320C510A500B7B9EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07B8B74A20C510A500B7B9EE;
+			remoteInfo = ADVIS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		070421302127064900688D05 /* CustomMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuButton.swift; sourceTree = "<group>"; };
+		0704213321272F9300688D05 /* CALayer+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+UIColor.swift"; sourceTree = "<group>"; };
+		070D81442129BE7A0026FD0A /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		070D81462129BEFB0026FD0A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		071F77BE2125EE8B00534F87 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		071F77C32126C60300534F87 /* CustomArduinoUno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomArduinoUno.swift; sourceTree = "<group>"; };
+		071F77C62126C7A200534F87 /* CustomArduinoUno.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomArduinoUno.xib; sourceTree = "<group>"; };
+		071FFBED2131583F00CCB252 /* ResitorDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResitorDraw.swift; sourceTree = "<group>"; };
+		0723F022212EE68400F79CBC /* ViewController+ExpandableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ExpandableDelegate.swift"; sourceTree = "<group>"; };
+		072E9C0C20C6C31C00D8B02A /* ArduinoUnoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArduinoUnoView.xib; sourceTree = "<group>"; };
+		072E9C0E20C6C33400D8B02A /* ArduinoUnoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoUnoView.swift; sourceTree = "<group>"; };
+		072E9C1120CC4A9200D8B02A /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		072E9C1420CC4BC600D8B02A /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		072E9C1E20CC4F1000D8B02A /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		072E9C2020CC505B00D8B02A /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		072E9C2220CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoUnoPointControl12_9.swift; sourceTree = "<group>"; usesTabs = 0; };
+		074190872127DD0100B8E7E1 /* ExpandableCell.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ExpandableCell.framework.dSYM; path = Carthage/Build/iOS/ExpandableCell.framework.dSYM; sourceTree = "<group>"; };
+		074190892127DD2E00B8E7E1 /* ExpandableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExpandableCell.framework; path = Carthage/Build/iOS/ExpandableCell.framework; sourceTree = "<group>"; };
+		0741908B212813AC00B8E7E1 /* ExpandableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
+		0741908D2128147400B8E7E1 /* ExpandableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCells.swift; sourceTree = "<group>"; };
+		0741908F212815FB00B8E7E1 /* ExpandedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedCell.xib; sourceTree = "<group>"; };
+		074190912128209D00B8E7E1 /* NormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
+		07560DC1223423C000CB43DA /* AmpereRetention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpereRetention.swift; sourceTree = "<group>"; };
+		076E946C2130440B0005C52D /* LedDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDraw.swift; sourceTree = "<group>"; };
+		077C9BC521273F9D00ECE0C6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		077F575721259F7F008F2606 /* MyTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		077F575B21259FC5008F2606 /* MyTableViewSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewSectionHeader.xib; sourceTree = "<group>"; };
+		077F575D2125ABFC008F2606 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		078F624D212EFAE800C6E079 /* LineDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDraw.swift; sourceTree = "<group>"; };
+		078F624F212F030500C6E079 /* PartsDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsDraw.swift; sourceTree = "<group>"; };
+		07999A3C21207DFA005C7730 /* LUExpandableTableView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LUExpandableTableView.framework; path = Carthage/Build/iOS/LUExpandableTableView.framework; sourceTree = "<group>"; };
+		07B7C66922530F9300275CE0 /* SelectedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCircle.swift; sourceTree = "<group>"; };
+		07B8B74B20C510A500B7B9EE /* ADVIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B8B74E20C510A500B7B9EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07B8B75020C510A500B7B9EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07B8B75320C510A500B7B9EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07B8B75520C510A700B7B9EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07B8B75820C510A700B7B9EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07B8B75A20C510A700B7B9EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07B8B75F20C510A700B7B9EE /* ADVISTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ADVISTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B8B76320C510A700B7B9EE /* ADVISTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADVISTests.swift; sourceTree = "<group>"; };
+		07B8B76520C510A700B7B9EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07B8B76A20C510A700B7B9EE /* ADVISUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ADVISUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B8B76E20C510A700B7B9EE /* ADVISUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADVISUITests.swift; sourceTree = "<group>"; };
+		07B8B77020C510A700B7B9EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07D303A722575E200083F49D /* LineDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDrawTests.swift; sourceTree = "<group>"; };
+		07D303AE225763C00083F49D /* LedDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDrawTests.swift; sourceTree = "<group>"; };
+		07D303B3225767540083F49D /* ResitorDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResitorDrawTests.swift; sourceTree = "<group>"; };
+		07D303B622576B240083F49D /* VoltDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltDrawTests.swift; sourceTree = "<group>"; };
+		07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltDraw.swift; sourceTree = "<group>"; };
+		07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltCircleDraw.swift; sourceTree = "<group>"; };
+		07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedLightupDraw.swift; sourceTree = "<group>"; };
+		07DCBD842131C00F002E8C78 /* DangerDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerDraw.swift; sourceTree = "<group>"; };
+		07DCBD862131C8B2002E8C78 /* VoltRetention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltRetention.swift; sourceTree = "<group>"; };
+		07DCBD8A2131CD47002E8C78 /* GyroDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroDraw.swift; sourceTree = "<group>"; };
+		07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoUnoPointControl12_9Tests.swift; sourceTree = "<group>"; };
+		07EC7211212C159C008DCF61 /* MaterialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		07EC7213212C36B3008DCF61 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07B8B74820C510A500B7B9EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07EC7214212C36B3008DCF61 /* SCLAlertView.framework in Frameworks */,
+				0741908A2127DD2E00B8E7E1 /* ExpandableCell.framework in Frameworks */,
+				077EC9952120844F00DFEC20 /* SwiftyBeaver.framework in Frameworks */,
+				07999A3D21207DFA005C7730 /* LUExpandableTableView.framework in Frameworks */,
+				072E9C1220CC4A9200D8B02A /* Lottie.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B8B75C20C510A700B7B9EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B8B76720C510A700B7B9EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0704212B212700A400688D05 /* Extantions */ = {
+			isa = PBXGroup;
+			children = (
+				0723F021212EE5D000F79CBC /* ViewController */,
+				0704213221272F6C00688D05 /* CALayer */,
+			);
+			path = Extantions;
+			sourceTree = "<group>";
+		};
+		0704212F212705D800688D05 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				070421302127064900688D05 /* CustomMenuButton.swift */,
+				07EC7211212C159C008DCF61 /* MaterialButton.swift */,
+				071F77C52126C60C00534F87 /* CustomArduinoBoard */,
+				071F77C02126C47700534F87 /* MyTableViewCell */,
+				071F77C12126C4B300534F87 /* MyTableViewSectionHeader */,
+				071F77C22126C4E400534F87 /* ArduinoUnoView */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		0704213221272F6C00688D05 /* CALayer */ = {
+			isa = PBXGroup;
+			children = (
+				0704213321272F9300688D05 /* CALayer+UIColor.swift */,
+			);
+			path = CALayer;
+			sourceTree = "<group>";
+		};
+		071F77C02126C47700534F87 /* MyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				077F575D2125ABFC008F2606 /* MyTableViewCell.swift */,
+				0741908D2128147400B8E7E1 /* ExpandableCells.swift */,
+				071F77BE2125EE8B00534F87 /* MyTableViewCell.xib */,
+				0741908B212813AC00B8E7E1 /* ExpandableCell.xib */,
+				0741908F212815FB00B8E7E1 /* ExpandedCell.xib */,
+				074190912128209D00B8E7E1 /* NormalCell.xib */,
+			);
+			path = MyTableViewCell;
+			sourceTree = "<group>";
+		};
+		071F77C12126C4B300534F87 /* MyTableViewSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				077F575721259F7F008F2606 /* MyTableViewSectionHeader.swift */,
+				077F575B21259FC5008F2606 /* MyTableViewSectionHeader.xib */,
+			);
+			path = MyTableViewSectionHeader;
+			sourceTree = "<group>";
+		};
+		071F77C22126C4E400534F87 /* ArduinoUnoView */ = {
+			isa = PBXGroup;
+			children = (
+				072E9C0E20C6C33400D8B02A /* ArduinoUnoView.swift */,
+				072E9C0C20C6C31C00D8B02A /* ArduinoUnoView.xib */,
+			);
+			path = ArduinoUnoView;
+			sourceTree = "<group>";
+		};
+		071F77C52126C60C00534F87 /* CustomArduinoBoard */ = {
+			isa = PBXGroup;
+			children = (
+				071F77C32126C60300534F87 /* CustomArduinoUno.swift */,
+				071F77C62126C7A200534F87 /* CustomArduinoUno.xib */,
+			);
+			path = CustomArduinoBoard;
+			sourceTree = "<group>";
+		};
+		0723F021212EE5D000F79CBC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0723F022212EE68400F79CBC /* ViewController+ExpandableDelegate.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		072E9C1020CC4A9100D8B02A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07EC7213212C36B3008DCF61 /* SCLAlertView.framework */,
+				074190892127DD2E00B8E7E1 /* ExpandableCell.framework */,
+				074190872127DD0100B8E7E1 /* ExpandableCell.framework.dSYM */,
+				077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */,
+				07999A3C21207DFA005C7730 /* LUExpandableTableView.framework */,
+				072E9C1120CC4A9200D8B02A /* Lottie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		072E9C1520CC4CA100D8B02A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				072E9C2020CC505B00D8B02A /* data.json */,
+				072E9C1E20CC4F1000D8B02A /* img_0.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		076E946B213043990005C52D /* Drawings */ = {
+			isa = PBXGroup;
+			children = (
+				078F624F212F030500C6E079 /* PartsDraw.swift */,
+				078F624D212EFAE800C6E079 /* LineDraw.swift */,
+				076E946C2130440B0005C52D /* LedDraw.swift */,
+				071FFBED2131583F00CCB252 /* ResitorDraw.swift */,
+				07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */,
+				07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */,
+				07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */,
+				07DCBD842131C00F002E8C78 /* DangerDraw.swift */,
+				07DCBD862131C8B2002E8C78 /* VoltRetention.swift */,
+				07DCBD8A2131CD47002E8C78 /* GyroDraw.swift */,
+				07560DC1223423C000CB43DA /* AmpereRetention.swift */,
+				07B7C66922530F9300275CE0 /* SelectedCircle.swift */,
+			);
+			path = Drawings;
+			sourceTree = "<group>";
+		};
+		07B8B74220C510A500B7B9EE = {
+			isa = PBXGroup;
+			children = (
+				07B8B74D20C510A500B7B9EE /* ADVIS */,
+				07B8B76220C510A700B7B9EE /* ADVISTests */,
+				07B8B76D20C510A700B7B9EE /* ADVISUITests */,
+				07B8B74C20C510A500B7B9EE /* Products */,
+				072E9C1020CC4A9100D8B02A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		07B8B74C20C510A500B7B9EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07B8B74B20C510A500B7B9EE /* ADVIS.app */,
+				07B8B75F20C510A700B7B9EE /* ADVISTests.xctest */,
+				07B8B76A20C510A700B7B9EE /* ADVISUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07B8B74D20C510A500B7B9EE /* ADVIS */ = {
+			isa = PBXGroup;
+			children = (
+				076E946B213043990005C52D /* Drawings */,
+				0704212F212705D800688D05 /* CustomView */,
+				0704212B212700A400688D05 /* Extantions */,
+				07B8B74E20C510A500B7B9EE /* AppDelegate.swift */,
+				07B8B75020C510A500B7B9EE /* ViewController.swift */,
+				07B8B75220C510A500B7B9EE /* Main.storyboard */,
+				07B8B75520C510A700B7B9EE /* Assets.xcassets */,
+				07B8B75720C510A700B7B9EE /* LaunchScreen.storyboard */,
+				07B8B75A20C510A700B7B9EE /* Info.plist */,
+				072E9C1420CC4BC600D8B02A /* Bridging-Header.h */,
+				072E9C2220CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift */,
+				070D81442129BE7A0026FD0A /* Splash.storyboard */,
+				070D81462129BEFB0026FD0A /* SplashViewController.swift */,
+				072E9C1520CC4CA100D8B02A /* Resources */,
+				077C9BC521273F9D00ECE0C6 /* Settings.bundle */,
+			);
+			path = ADVIS;
+			sourceTree = "<group>";
+		};
+		07B8B76220C510A700B7B9EE /* ADVISTests */ = {
+			isa = PBXGroup;
+			children = (
+				07B8B76320C510A700B7B9EE /* ADVISTests.swift */,
+				07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */,
+				07D303A722575E200083F49D /* LineDrawTests.swift */,
+				07D303AE225763C00083F49D /* LedDrawTests.swift */,
+				07D303B3225767540083F49D /* ResitorDrawTests.swift */,
+				07B8B76520C510A700B7B9EE /* Info.plist */,
+				07D303B622576B240083F49D /* VoltDrawTests.swift */,
+			);
+			path = ADVISTests;
+			sourceTree = "<group>";
+		};
+		07B8B76D20C510A700B7B9EE /* ADVISUITests */ = {
+			isa = PBXGroup;
+			children = (
+				07B8B76E20C510A700B7B9EE /* ADVISUITests.swift */,
+				07B8B77020C510A700B7B9EE /* Info.plist */,
+			);
+			path = ADVISUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07B8B74A20C510A500B7B9EE /* ADVIS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B8B77320C510A700B7B9EE /* Build configuration list for PBXNativeTarget "ADVIS" */;
+			buildPhases = (
+				07B8B74720C510A500B7B9EE /* Sources */,
+				07B8B74820C510A500B7B9EE /* Frameworks */,
+				07B8B74920C510A500B7B9EE /* Resources */,
+				072E9C1320CC4A9E00D8B02A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ADVIS;
+			productName = ADVIS;
+			productReference = 07B8B74B20C510A500B7B9EE /* ADVIS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07B8B75E20C510A700B7B9EE /* ADVISTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B8B77620C510A700B7B9EE /* Build configuration list for PBXNativeTarget "ADVISTests" */;
+			buildPhases = (
+				07B8B75B20C510A700B7B9EE /* Sources */,
+				07B8B75C20C510A700B7B9EE /* Frameworks */,
+				07B8B75D20C510A700B7B9EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07B8B76120C510A700B7B9EE /* PBXTargetDependency */,
+			);
+			name = ADVISTests;
+			productName = ADVISTests;
+			productReference = 07B8B75F20C510A700B7B9EE /* ADVISTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07B8B76920C510A700B7B9EE /* ADVISUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B8B77920C510A700B7B9EE /* Build configuration list for PBXNativeTarget "ADVISUITests" */;
+			buildPhases = (
+				07B8B76620C510A700B7B9EE /* Sources */,
+				07B8B76720C510A700B7B9EE /* Frameworks */,
+				07B8B76820C510A700B7B9EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07B8B76C20C510A700B7B9EE /* PBXTargetDependency */,
+			);
+			name = ADVISUITests;
+			productName = ADVISUITests;
+			productReference = 07B8B76A20C510A700B7B9EE /* ADVISUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07B8B74320C510A500B7B9EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Tatsumi;
+				TargetAttributes = {
+					07B8B74A20C510A500B7B9EE = {
+						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1020;
+					};
+					07B8B75E20C510A700B7B9EE = {
+						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1020;
+						TestTargetID = 07B8B74A20C510A500B7B9EE;
+					};
+					07B8B76920C510A700B7B9EE = {
+						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1020;
+						TestTargetID = 07B8B74A20C510A500B7B9EE;
+					};
+				};
+			};
+			buildConfigurationList = 07B8B74620C510A500B7B9EE /* Build configuration list for PBXProject "ADVIS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07B8B74220C510A500B7B9EE;
+			productRefGroup = 07B8B74C20C510A500B7B9EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07B8B74A20C510A500B7B9EE /* ADVIS */,
+				07B8B75E20C510A700B7B9EE /* ADVISTests */,
+				07B8B76920C510A700B7B9EE /* ADVISUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07B8B74920C510A500B7B9EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B8B75920C510A700B7B9EE /* LaunchScreen.storyboard in Resources */,
+				072E9C2120CC505B00D8B02A /* data.json in Resources */,
+				077C9BC621273F9D00ECE0C6 /* Settings.bundle in Resources */,
+				072E9C1F20CC4F1100D8B02A /* img_0.png in Resources */,
+				07B8B75620C510A700B7B9EE /* Assets.xcassets in Resources */,
+				071F77C72126C7A200534F87 /* CustomArduinoUno.xib in Resources */,
+				07419090212815FB00B8E7E1 /* ExpandedCell.xib in Resources */,
+				077F575C21259FC5008F2606 /* MyTableViewSectionHeader.xib in Resources */,
+				071F77BF2125EE8B00534F87 /* MyTableViewCell.xib in Resources */,
+				072E9C0D20C6C31C00D8B02A /* ArduinoUnoView.xib in Resources */,
+				074190922128209D00B8E7E1 /* NormalCell.xib in Resources */,
+				0741908C212813AC00B8E7E1 /* ExpandableCell.xib in Resources */,
+				07B8B75420C510A500B7B9EE /* Main.storyboard in Resources */,
+				070D81452129BE7A0026FD0A /* Splash.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B8B75D20C510A700B7B9EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B8B76820C510A700B7B9EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		072E9C1320CC4A9E00D8B02A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/LUExpandableTableView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ExpandableCell.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SCLAlertView.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\nif [ $CONFIGURATION = \"Debug\" ]; then\ncd $SRCROOT\n/usr/local/bin/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07B8B74720C510A500B7B9EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				072E9C2320CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift in Sources */,
+				07DCBD812131BB32002E8C78 /* VoltCircleDraw.swift in Sources */,
+				072E9C0F20C6C33400D8B02A /* ArduinoUnoView.swift in Sources */,
+				07EC7212212C159C008DCF61 /* MaterialButton.swift in Sources */,
+				077F575821259F7F008F2606 /* MyTableViewSectionHeader.swift in Sources */,
+				071FFBEE2131583F00CCB252 /* ResitorDraw.swift in Sources */,
+				07B8B75120C510A500B7B9EE /* ViewController.swift in Sources */,
+				0704213421272F9300688D05 /* CALayer+UIColor.swift in Sources */,
+				0723F023212EE68400F79CBC /* ViewController+ExpandableDelegate.swift in Sources */,
+				07DCBD7F2131B9CF002E8C78 /* VoltDraw.swift in Sources */,
+				07DCBD852131C00F002E8C78 /* DangerDraw.swift in Sources */,
+				07DCBD872131C8B2002E8C78 /* VoltRetention.swift in Sources */,
+				076E946D2130440B0005C52D /* LedDraw.swift in Sources */,
+				07DCBD832131BDF3002E8C78 /* LedLightupDraw.swift in Sources */,
+				0741908E2128147400B8E7E1 /* ExpandableCells.swift in Sources */,
+				07B8B74F20C510A500B7B9EE /* AppDelegate.swift in Sources */,
+				07B7C66A22530F9300275CE0 /* SelectedCircle.swift in Sources */,
+				070421312127064900688D05 /* CustomMenuButton.swift in Sources */,
+				07DCBD8B2131CD47002E8C78 /* GyroDraw.swift in Sources */,
+				07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */,
+				077F575E2125ABFC008F2606 /* MyTableViewCell.swift in Sources */,
+				071F77C42126C60300534F87 /* CustomArduinoUno.swift in Sources */,
+				070D81472129BEFB0026FD0A /* SplashViewController.swift in Sources */,
+				078F6250212F030500C6E079 /* PartsDraw.swift in Sources */,
+				078F624E212EFAE800C6E079 /* LineDraw.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B8B75B20C510A700B7B9EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07D303B4225767540083F49D /* ResitorDrawTests.swift in Sources */,
+				07E13B6D212DA0FF0056977F /* ArduinoUnoPointControl12_9.swift in Sources */,
+				07D303B722576B240083F49D /* VoltDrawTests.swift in Sources */,
+				07E13B6F212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift in Sources */,
+				07D303B22257672F0083F49D /* ResitorDraw.swift in Sources */,
+				07D303AB22575ED80083F49D /* LineDraw.swift in Sources */,
+				07B8B76420C510A700B7B9EE /* ADVISTests.swift in Sources */,
+				07D303B522576B100083F49D /* VoltDraw.swift in Sources */,
+				07D303A822575E200083F49D /* LineDrawTests.swift in Sources */,
+				07D303AF225763C00083F49D /* LedDrawTests.swift in Sources */,
+				07D303AC2257638E0083F49D /* LedDraw.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B8B76620C510A700B7B9EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B8B76F20C510A700B7B9EE /* ADVISUITests.swift in Sources */,
+				07D303AD225763920083F49D /* LedDraw.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07B8B76120C510A700B7B9EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07B8B74A20C510A500B7B9EE /* ADVIS */;
+			targetProxy = 07B8B76020C510A700B7B9EE /* PBXContainerItemProxy */;
+		};
+		07B8B76C20C510A700B7B9EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07B8B74A20C510A500B7B9EE /* ADVIS */;
+			targetProxy = 07B8B76B20C510A700B7B9EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07B8B75220C510A500B7B9EE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B8B75320C510A500B7B9EE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07B8B75720C510A700B7B9EE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B8B75820C510A700B7B9EE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07B8B77120C510A700B7B9EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		07B8B77220C510A700B7B9EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07B8B77420C510A700B7B9EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFK6H9F3FH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ADVIS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVIS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ADVIS/Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		07B8B77520C510A700B7B9EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFK6H9F3FH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ADVIS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVIS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ADVIS/Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		07B8B77720C510A700B7B9EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFK6H9F3FH;
+				INFOPLIST_FILE = ADVISTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADVIS.app/ADVIS";
+			};
+			name = Debug;
+		};
+		07B8B77820C510A700B7B9EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFK6H9F3FH;
+				INFOPLIST_FILE = ADVISTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADVIS.app/ADVIS";
+			};
+			name = Release;
+		};
+		07B8B77A20C510A700B7B9EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFK6H9F3FH;
+				INFOPLIST_FILE = ADVISUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ADVIS;
+			};
+			name = Debug;
+		};
+		07B8B77B20C510A700B7B9EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFK6H9F3FH;
+				INFOPLIST_FILE = ADVISUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Miyazaki.Univercity.ADVISUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ADVIS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07B8B74620C510A500B7B9EE /* Build configuration list for PBXProject "ADVIS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B8B77120C510A700B7B9EE /* Debug */,
+				07B8B77220C510A700B7B9EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07B8B77320C510A700B7B9EE /* Build configuration list for PBXNativeTarget "ADVIS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B8B77420C510A700B7B9EE /* Debug */,
+				07B8B77520C510A700B7B9EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07B8B77620C510A700B7B9EE /* Build configuration list for PBXNativeTarget "ADVISTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B8B77720C510A700B7B9EE /* Debug */,
+				07B8B77820C510A700B7B9EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07B8B77920C510A700B7B9EE /* Build configuration list for PBXNativeTarget "ADVISUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B8B77A20C510A700B7B9EE /* Debug */,
+				07B8B77B20C510A700B7B9EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07B8B74320C510A500B7B9EE /* Project object */;
+}
