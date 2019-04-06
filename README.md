@@ -12,7 +12,7 @@ ADVISのリポジトリです．
 このプロジェクトの使い方は[こちら](https://github.com/Tatsumi0000/ADVIS/blob/master/MEMO.md)を参照
 
 ## ドキュメント
-[ADVISのドキュメント](https://codecov.io/gh/Tatsumi0000/ADVIS)
+[ADVISのドキュメント](https://tatsumi0000.github.io/ADVIS/)
 
 ## Issues
 - 一覧: https://github.com/Tatsumi0000/ADVIS/issues
