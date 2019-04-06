@@ -62,7 +62,7 @@ LicensePlistのインストール（これがないとRun時にエラー出る�
  
 - Travis CIでテストに通ると**jazzy**がドキュメントを生成．（設定ファイルは，.jazzy.yamlに記述）
 - その後，自動で`gh-pages`ブランチにデプロイする．
-- ドキュメントのURLは[こちら](https://codecov.io/gh/Tatsumi0000/ADVIS)
+- ドキュメントのURLは[こちら](https://tatsumi0000.github.io/ADVIS/)
  
  # このプロジェクトのテストコードとか
  
