@@ -20,7 +20,7 @@ after_success:
     - pwd 
     - mkdir docs 
     - ls
-    - jazzy --clean -o ./docs --swift-version 5.0 --author "Tatsumi" --min-acl private --xcodebuild-arguments -scheme,ADVIS
+    - bundle exec jazzy --clean -o ./docs --swift-version 5.0 --author "Tatsumi" --min-acl private --xcodebuild-arguments -scheme,ADVIS
     - cd ./docs
 
 deploy:
