@@ -11,13 +11,12 @@
 import XCTest
 
 class SCLAlertViewInitTests: XCTestCase {
-
     let alert = SCLAlertView()
-    
+
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
@@ -25,15 +24,15 @@ class SCLAlertViewInitTests: XCTestCase {
     func testViewFrame() {
         XCTAssertTrue(alert.view.frame == UIScreen.main.bounds)
     }
-    
+
     func testViewResizingMask() {
         XCTAssertTrue(alert.view.autoresizingMask == [UIView.AutoresizingMask.flexibleHeight, UIView.AutoresizingMask.flexibleWidth])
     }
-    
+
     func testViewBackgroundColor() {
-        XCTAssertTrue(alert.view.backgroundColor == UIColor(red:0, green:0, blue:0, alpha:0.7))
+        XCTAssertTrue(alert.view.backgroundColor == UIColor(red: 0, green: 0, blue: 0, alpha: 0.7))
     }
-    
+
     func testViewSubViews() {
         XCTAssertTrue(alert.view.subviews.count == 1)
         let subview = alert.view.subviews[0]
@@ -43,15 +42,15 @@ class SCLAlertViewInitTests: XCTestCase {
     func testContentViewCornerRadius() {
         XCTAssertTrue(alert.contentView.layer.cornerRadius == 5.0)
     }
-    
+
     func testContentViewMaskToBounds() {
         XCTAssertTrue(alert.contentView.layer.masksToBounds == true)
     }
-    
+
     func testContentViewBorderWidth() {
         XCTAssertTrue(alert.contentView.layer.borderWidth == 0.5)
     }
-    
+
     func testContentViewLabeltitle() {
         XCTAssertTrue(alert.contentView.subviews.count == 2)
         let subview1 = alert.contentView.subviews[0]

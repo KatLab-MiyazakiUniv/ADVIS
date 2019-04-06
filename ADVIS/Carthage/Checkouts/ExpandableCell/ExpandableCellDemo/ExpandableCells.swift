@@ -6,9 +6,8 @@
 //  Copyright © 2017년 SeungyounYi. All rights reserved.
 //
 
-import UIKit
 import ExpandableCell
-
+import UIKit
 
 class NormalCell: UITableViewCell {
     static let ID = "NormalCell"
@@ -17,6 +16,7 @@ class NormalCell: UITableViewCell {
 class ExpandableCell2: ExpandableCell {
     static let ID = "ExpandableCell"
 }
+
 class ExpandableSelectableCell2: ExpandableCell {
     static let ID = "ExpandableSelectableCell2"
 
@@ -27,11 +27,11 @@ class ExpandableSelectableCell2: ExpandableCell {
 
 class ExpandableInitiallyExpanded: ExpandableCell {
     static let ID = "InitiallyExpandedExpandableCell"
-    
+
     override func isSelectable() -> Bool {
         return true
     }
-    
+
     override func isInitiallyExpanded() -> Bool {
         return true
     }
@@ -39,6 +39,6 @@ class ExpandableInitiallyExpanded: ExpandableCell {
 
 class ExpandedCell: UITableViewCell {
     static let ID = "ExpandedCell"
-    
+
     @IBOutlet var titleLabel: UILabel!
 }

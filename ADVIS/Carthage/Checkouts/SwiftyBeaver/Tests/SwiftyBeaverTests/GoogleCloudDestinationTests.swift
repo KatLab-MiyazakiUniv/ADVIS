@@ -6,11 +6,10 @@
 //  Copyright © 2017 Sebastian Kreutzberger. All rights reserved.
 //
 import Foundation
-import XCTest
 @testable import SwiftyBeaver
+import XCTest
 
 class GoogleCloudDestinationTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
         SwiftyBeaver.removeAllDestinations()
@@ -29,7 +28,7 @@ class GoogleCloudDestinationTests: XCTestCase {
 
     func testSend() {
         // let dateStr = formatter.stringFromDate(NSDate())
-        //let platform = SBPlatformDestination()
+        // let platform = SBPlatformDestination()
         let msg = "test message\nNewlineäößø"
         let thread = ""
         let file = "/file/path.swift"
@@ -59,7 +58,7 @@ class GoogleCloudDestinationTests: XCTestCase {
         let gcd = GoogleCloudDestination(serviceName: "SwiftyBeaver")
 
         let str = gcd.send(.verbose, msg: msg, thread: thread, file: file, function: function, line: line,
-                           context:  ["user": "Beaver", "httpRequest": ["method": "GET", "responseStatusCode": 200]])
+                           context: ["user": "Beaver", "httpRequest": ["method": "GET", "responseStatusCode": 200]])
 
         XCTAssertNotNil(str)
         if let str = str {
@@ -73,13 +72,11 @@ class GoogleCloudDestinationTests: XCTestCase {
             XCTAssertNotNil(str.range(of: "\"method\":\"GET\""))
             XCTAssertNotNil(str.range(of: "\"responseStatusCode\":200"))
         }
-
     }
 
     static var allTests = [
         ("testUseGoogleCloudPDestination", testUseGoogleCloudPDestination),
         ("testSend", testSend),
-        ("testContextMessage", testContextMessage)
+        ("testContextMessage", testContextMessage),
     ]
-
 }

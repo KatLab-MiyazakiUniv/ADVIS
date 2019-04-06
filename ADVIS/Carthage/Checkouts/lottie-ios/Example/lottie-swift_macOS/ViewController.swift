@@ -10,26 +10,22 @@ import Cocoa
 import Lottie
 
 class ViewController: NSViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    let animation = Animation.named("LottieLogo1", subdirectory: "TestAnimations")
-    let animationView = AnimationView(animation: animation)
-    view.addSubview(animationView)
-    self.preferredContentSize = animationView.bounds.size
-    animationView.loopMode = .loop
-    animationView.play()
-    
-    // Do any additional setup after loading the view.
-  }
+        let animation = Animation.named("LottieLogo1", subdirectory: "TestAnimations")
+        let animationView = AnimationView(animation: animation)
+        view.addSubview(animationView)
+        preferredContentSize = animationView.bounds.size
+        animationView.loopMode = .loop
+        animationView.play()
 
-  override var representedObject: Any? {
-    didSet {
-    // Update the view, if already loaded.
+        // Do any additional setup after loading the view.
     }
-  }
 
-
+    override var representedObject: Any? {
+        didSet {
+            // Update the view, if already loaded.
+        }
+    }
 }
-

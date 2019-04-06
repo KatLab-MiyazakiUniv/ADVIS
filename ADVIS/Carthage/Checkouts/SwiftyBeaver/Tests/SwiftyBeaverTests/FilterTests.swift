@@ -4,11 +4,10 @@
 //
 
 import Foundation
-import XCTest
 @testable import SwiftyBeaver
+import XCTest
 
 class FilterTests: XCTestCase {
-
     //
     // Path filtering tests (identity)
     //
@@ -16,7 +15,7 @@ class FilterTests: XCTestCase {
         let filter = Filters.Path.startsWith("/some/path")
         let isCorrectTargetType: Bool
         switch filter.getTarget() {
-        case .Path(_):
+        case .Path:
             isCorrectTargetType = true
 
         default:
@@ -316,7 +315,7 @@ class FilterTests: XCTestCase {
         let filter = Filters.Function.startsWith("myFunc")
         let isCorrectTargetType: Bool
         switch filter.getTarget() {
-        case .Function(_):
+        case .Function:
             isCorrectTargetType = true
 
         default:
@@ -606,7 +605,7 @@ class FilterTests: XCTestCase {
         let filter = Filters.Message.startsWith("Hello there, SwiftyBeaver!")
         let isCorrectTargetType: Bool
         switch filter.getTarget() {
-        case .Message(_):
+        case .Message:
             isCorrectTargetType = true
 
         default:
@@ -934,11 +933,10 @@ class FilterTests: XCTestCase {
 
         case let .Equals(_, caseSensitive):
             isCaseSensitive = caseSensitive
-        case .Custom(_):
+        case .Custom:
             isCaseSensitive = false
         }
 
         return isCaseSensitive
     }
-
 }

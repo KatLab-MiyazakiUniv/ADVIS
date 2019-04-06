@@ -6,42 +6,38 @@
 //  Copyright © 2018 SeungyounYi. All rights reserved.
 //
 
-import XCTest
 @testable import ExpandableCellDemo
+import XCTest
 class MemoryLeakTest: XCTestCase {
-
     weak var viewController: ViewController?
     weak var navigationController: UINavigationController?
     override func setUp() {
         if let nav = (UIApplication.shared.keyWindow?.rootViewController as? UINavigationController) {
-            self.navigationController = nav
-            self.viewController = nav.visibleViewController as? ViewController
+            navigationController = nav
+            viewController = nav.visibleViewController as? ViewController
         }
-        
-        XCTAssertNotNil(self.navigationController)
-        XCTAssertNotNil(self.viewController)
+
+        XCTAssertNotNil(navigationController)
+        XCTAssertNotNil(viewController)
     }
 
     override func tearDown() {
-        self.viewController = nil
-        self.navigationController = nil
+        viewController = nil
+        navigationController = nil
     }
 
     func testNotLeakingExpandableDelegate() {
-        XCTAssertNotNil(self.viewController?.tableView.expandableDelegate)
-        self.viewController?.performSegue(withIdentifier: "replace", sender: nil)
+        XCTAssertNotNil(viewController?.tableView.expandableDelegate)
+        viewController?.performSegue(withIdentifier: "replace", sender: nil)
         let expectation = self.expectation(description: "wait for view controller to load")
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let visibleVC = self.navigationController?.visibleViewController
             XCTAssertTrue(visibleVC != self.viewController)
             expectation.fulfill()
         }
-        
-        self.wait(for: [expectation], timeout: 5)
-        XCTAssertNil(self.viewController?.tableView.expandableDelegate)
-        
+
+        wait(for: [expectation], timeout: 5)
+        XCTAssertNil(viewController?.tableView.expandableDelegate)
     }
-
-
 }

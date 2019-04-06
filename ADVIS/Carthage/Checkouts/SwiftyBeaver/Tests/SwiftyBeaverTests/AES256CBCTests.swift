@@ -6,11 +6,10 @@
 //  Copyright © 2016 SwiftyBeaver. All rights reserved.
 //
 
-import XCTest
 @testable import SwiftyBeaver
+import XCTest
 
 class AES256CBCTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
     }
@@ -25,15 +24,15 @@ class AES256CBCTests: XCTestCase {
         let password = AES256CBC.randomText(32)
         let encrypted = AES256CBC.encryptString(str, password: password)
         XCTAssertNotNil(encrypted)
-        //print("str: \(str)")
-        //print("password: \(password)")
-        //printn("encrypted secret (IV is at first 16 chars): \(encrypted)")
+        // print("str: \(str)")
+        // print("password: \(password)")
+        // printn("encrypted secret (IV is at first 16 chars): \(encrypted)")
 
         if let encrypted = encrypted {
             XCTAssertGreaterThan(encrypted.length, 16)
             // decrypt
             let decrypted = AES256CBC.decryptString(encrypted, password: password)
-            //print("decrypted str: \(decrypted)")
+            // print("decrypted str: \(decrypted)")
             XCTAssertNotNil(decrypted)
             XCTAssertEqual(decrypted, str)
         }
@@ -67,9 +66,9 @@ class AES256CBCTests: XCTestCase {
         password = AES256CBC.randomText(32)
         encrypted = AES256CBC.encryptString(str, password: password)
         XCTAssertNotNil(encrypted)
-        //NSLog("str: \(str)")
-        //NSLog("password: \(password)")
-        //NSLog("encrypted: \(encrypted)")
+        // NSLog("str: \(str)")
+        // NSLog("password: \(password)")
+        // NSLog("encrypted: \(encrypted)")
 
         if let encrypted = encrypted {
             XCTAssertGreaterThan(encrypted.length, 16)
@@ -133,6 +132,6 @@ class AES256CBCTests: XCTestCase {
         ("testEncryptString", testEncryptString),
         ("testDecryptString", testDecryptString),
         ("testRandomText", testRandomText),
-        ("testGeneratePassword", testGeneratePassword)
+        ("testGeneratePassword", testGeneratePassword),
     ]
 }

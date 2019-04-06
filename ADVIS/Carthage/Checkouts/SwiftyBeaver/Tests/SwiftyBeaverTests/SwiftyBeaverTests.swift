@@ -8,11 +8,10 @@
 //
 
 import Foundation
-import XCTest
 @testable import SwiftyBeaver
+import XCTest
 
 class SwiftyBeaverTests: XCTestCase {
-
     var instanceVar = "an instance variable"
 
     override func setUp() {
@@ -212,28 +211,28 @@ class SwiftyBeaverTests: XCTestCase {
 
         XCTAssertEqual(log.countDestinations(), 2)
     }
-    
+
     func testUptime() {
         let log = SwiftyBeaver.self
         log.verbose("that should lead to nowhere")
-        
+
         // add console
         let console = ConsoleDestination()
         console.format = "$U: $M"
         XCTAssertTrue(log.addDestination(console))
-        
+
         // add file
         let file = FileDestination()
         file.logFileURL = URL(string: "file:///tmp/testSwiftyBeaver.log")!
         file.format = "$U: $M"
         XCTAssertTrue(log.addDestination(file))
-        
+
         log.verbose("not so important")
         log.debug("something to debug")
         log.info("a nice information")
         log.warning("oh no, that won’t be good")
         log.error("ouch, an error did occur!")
-        
+
         XCTAssertEqual(log.countDestinations(), 2)
     }
 
@@ -299,7 +298,6 @@ class SwiftyBeaverTests: XCTestCase {
     }
 
     func testLongRunningTaskIsNotExecutedWhenLoggingUnderMinLevel() {
-
         let log = SwiftyBeaver.self
 
         // add console
@@ -341,9 +339,9 @@ class SwiftyBeaverTests: XCTestCase {
         ("testDifferentMessageTypes", testDifferentMessageTypes),
         ("testAutoClosure", testAutoClosure),
         ("testLongRunningTaskIsNotExecutedWhenLoggingUnderMinLevel",
-            testLongRunningTaskIsNotExecutedWhenLoggingUnderMinLevel),
+         testLongRunningTaskIsNotExecutedWhenLoggingUnderMinLevel),
         ("testVersionAndBuild", testVersionAndBuild),
-        ("testStripParams", testStripParams)
+        ("testStripParams", testStripParams),
     ]
 }
 
