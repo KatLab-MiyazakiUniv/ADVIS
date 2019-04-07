@@ -17,5 +17,5 @@ github_url: https://github.com/Tatsumi0000/ADVIS
 xcodebuild_arguments: [-project,ADVIS.xcodeproj,-scheme,ADVIS]
 
 # ドキュメントのテーマを指定
-theme: fullwidth
+# theme: fullwidth
 
