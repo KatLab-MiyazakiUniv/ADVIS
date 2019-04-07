@@ -763,6 +763,7 @@ class ViewController: UIViewController {
 //                                                          width: arduinoImageView.bounds.width,
 //                                                          height: arduinoImageView.bounds.height))
                     var voltLabel = UILabel()
+
                     voltLabel.isOpaque = false
                     // 電圧を表示
                     let voltDraw = VoltDraw(frame: CGRect(x: 0, y: 0,
@@ -891,6 +892,8 @@ class ViewController: UIViewController {
         arduinoUnoPointControl12_9.coordinateTranslate(
             translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y))
         )
+        log.info("X座標: \(tapLocation.x)")
+        log.info("Y座標: \(tapLocation.y)")
 
         // ジャンパワイヤここから
         if pointInt != 0 && wireDrawRan == 1 && partsDraw.wireTranslatePointArray.firstIndex(of: pointInt) == nil {

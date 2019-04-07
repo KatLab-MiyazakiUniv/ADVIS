@@ -1,4 +1,4 @@
-# Gemfile.lockの削除
+# Gemfile.lockを除外
 *Gemfile.lock
 
 # ExampleProjectを除外
@@ -134,6 +134,7 @@ playground.xcworkspace
 # Carthage/Checkouts
 
 Carthage/Build
+Cartahge/Checkouts
 
 # fastlane
 #

@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF0902641DE38E1900C7C70A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0902631DE38E1900C7C70A /* AppDelegate.swift */; };
+		CF0902661DE38E1900C7C70A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0902651DE38E1900C7C70A /* ViewController.swift */; };
+		CF0902691DE38E1900C7C70A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0902671DE38E1900C7C70A /* Main.storyboard */; };
+		CF09026B1DE38E1900C7C70A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF09026A1DE38E1900C7C70A /* Assets.xcassets */; };
+		CF09026E1DE38E1900C7C70A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF09026C1DE38E1900C7C70A /* LaunchScreen.storyboard */; };
+		CFD90F981DE782CB00D886F0 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD90F971DE782CB00D886F0 /* MyTableViewCell.swift */; };
+		CFD90F9A1DE783DD00D886F0 /* MyExpandableTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD90F991DE783DD00D886F0 /* MyExpandableTableViewSectionHeader.swift */; };
+		CFD90F9C1DE7843600D886F0 /* MyExpandableTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD90F9B1DE7843600D886F0 /* MyExpandableTableViewSectionHeader.xib */; };
+		DF6AD8559F68E2C86B220B36 /* Pods_LUExpandableTableViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1585201ED8A480F8308237 /* Pods_LUExpandableTableViewExample.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		192201ECDEE67E6171FA4DF6 /* Pods-LUExpandableTableViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LUExpandableTableViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-LUExpandableTableViewExample/Pods-LUExpandableTableViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		3A1585201ED8A480F8308237 /* Pods_LUExpandableTableViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LUExpandableTableViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5754D783043338E6400977E9 /* Pods-LUExpandableTableViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LUExpandableTableViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LUExpandableTableViewExample/Pods-LUExpandableTableViewExample.debug.xcconfig"; sourceTree = "<group>"; };
+		CF0902601DE38E1900C7C70A /* LUExpandableTableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LUExpandableTableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF0902631DE38E1900C7C70A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF0902651DE38E1900C7C70A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF0902681DE38E1900C7C70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF09026A1DE38E1900C7C70A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF09026D1DE38E1900C7C70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF09026F1DE38E1900C7C70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD90F971DE782CB00D886F0 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		CFD90F991DE783DD00D886F0 /* MyExpandableTableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExpandableTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		CFD90F9B1DE7843600D886F0 /* MyExpandableTableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyExpandableTableViewSectionHeader.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF09025D1DE38E1900C7C70A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF6AD8559F68E2C86B220B36 /* Pods_LUExpandableTableViewExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44084B91F48BABEBD1BAA909 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5754D783043338E6400977E9 /* Pods-LUExpandableTableViewExample.debug.xcconfig */,
+				192201ECDEE67E6171FA4DF6 /* Pods-LUExpandableTableViewExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5EB8C28285EE8A685B014746 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A1585201ED8A480F8308237 /* Pods_LUExpandableTableViewExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF0902571DE38E1900C7C70A = {
+			isa = PBXGroup;
+			children = (
+				CF0902621DE38E1900C7C70A /* LUExpandableTableViewExample */,
+				5EB8C28285EE8A685B014746 /* Frameworks */,
+				44084B91F48BABEBD1BAA909 /* Pods */,
+				CF0902611DE38E1900C7C70A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF0902611DE38E1900C7C70A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF0902601DE38E1900C7C70A /* LUExpandableTableViewExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF0902621DE38E1900C7C70A /* LUExpandableTableViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				CF0902631DE38E1900C7C70A /* AppDelegate.swift */,
+				CF09026A1DE38E1900C7C70A /* Assets.xcassets */,
+				CF09026F1DE38E1900C7C70A /* Info.plist */,
+				CF09026C1DE38E1900C7C70A /* LaunchScreen.storyboard */,
+				CF0902671DE38E1900C7C70A /* Main.storyboard */,
+				CFD90F991DE783DD00D886F0 /* MyExpandableTableViewSectionHeader.swift */,
+				CFD90F9B1DE7843600D886F0 /* MyExpandableTableViewSectionHeader.xib */,
+				CFD90F971DE782CB00D886F0 /* MyTableViewCell.swift */,
+				CF0902651DE38E1900C7C70A /* ViewController.swift */,
+			);
+			path = LUExpandableTableViewExample;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF09025F1DE38E1900C7C70A /* LUExpandableTableViewExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF0902721DE38E1900C7C70A /* Build configuration list for PBXNativeTarget "LUExpandableTableViewExample" */;
+			buildPhases = (
+				8B4A85699DE368115718C267 /* [CP] Check Pods Manifest.lock */,
+				CF09025C1DE38E1900C7C70A /* Sources */,
+				CF09025D1DE38E1900C7C70A /* Frameworks */,
+				CF09025E1DE38E1900C7C70A /* Resources */,
+				7445E7608F18A2415A68977B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LUExpandableTableViewExample;
+			productName = LUExpandableTableViewExample;
+			productReference = CF0902601DE38E1900C7C70A /* LUExpandableTableViewExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF0902581DE38E1900C7C70A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Laurentiu Ungur";
+				TargetAttributes = {
+					CF09025F1DE38E1900C7C70A = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CF09025B1DE38E1900C7C70A /* Build configuration list for PBXProject "LUExpandableTableViewExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF0902571DE38E1900C7C70A;
+			productRefGroup = CF0902611DE38E1900C7C70A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF09025F1DE38E1900C7C70A /* LUExpandableTableViewExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF09025E1DE38E1900C7C70A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD90F9C1DE7843600D886F0 /* MyExpandableTableViewSectionHeader.xib in Resources */,
+				CF09026E1DE38E1900C7C70A /* LaunchScreen.storyboard in Resources */,
+				CF09026B1DE38E1900C7C70A /* Assets.xcassets in Resources */,
+				CF0902691DE38E1900C7C70A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7445E7608F18A2415A68977B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LUExpandableTableViewExample/Pods-LUExpandableTableViewExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LUExpandableTableView/LUExpandableTableView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LUExpandableTableView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LUExpandableTableViewExample/Pods-LUExpandableTableViewExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B4A85699DE368115718C267 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LUExpandableTableViewExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF09025C1DE38E1900C7C70A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF0902661DE38E1900C7C70A /* ViewController.swift in Sources */,
+				CF0902641DE38E1900C7C70A /* AppDelegate.swift in Sources */,
+				CFD90F9A1DE783DD00D886F0 /* MyExpandableTableViewSectionHeader.swift in Sources */,
+				CFD90F981DE782CB00D886F0 /* MyTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CF0902671DE38E1900C7C70A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF0902681DE38E1900C7C70A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CF09026C1DE38E1900C7C70A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF09026D1DE38E1900C7C70A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF0902701DE38E1900C7C70A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF0902711DE38E1900C7C70A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF0902731DE38E1900C7C70A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5754D783043338E6400977E9 /* Pods-LUExpandableTableViewExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LUExpandableTableViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LU.LUExpandableTableViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		CF0902741DE38E1900C7C70A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 192201ECDEE67E6171FA4DF6 /* Pods-LUExpandableTableViewExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LUExpandableTableViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LU.LUExpandableTableViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF09025B1DE38E1900C7C70A /* Build configuration list for PBXProject "LUExpandableTableViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0902701DE38E1900C7C70A /* Debug */,
+				CF0902711DE38E1900C7C70A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF0902721DE38E1900C7C70A /* Build configuration list for PBXNativeTarget "LUExpandableTableViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0902731DE38E1900C7C70A /* Debug */,
+				CF0902741DE38E1900C7C70A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF0902581DE38E1900C7C70A /* Project object */;
+}
