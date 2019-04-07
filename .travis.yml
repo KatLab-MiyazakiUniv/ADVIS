@@ -1,25 +1,43 @@
+# 使用言語（Swiftでもobjective-cでおｋ）
 language: objective-c
+# Xcodeのバージョン指定
 osx_image: xcode10.2
 
+# インストールする前に実行する
 before_install:
+    # ADVISのRun Scriptに記述している使用ライブラリのライセンスを自動生成するやつをDL
     - brew install mono0926/license-plist/license-plist
+    # ADVIS.xcodeprojのあるとこに移動
     - cd ./ADVIS
+    # Carthageで使用ライブラリをDL
     - carthage bootstrap --no-use-binaries --platform ios
 
+# ここでテスト用のスクリプト実行
 script:
     - xcodebuild test -scheme ADVIS -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.2,name=iPad Pro (12.9-inch) (3rd generation)' -configuration Debug | bundle exec xcpretty -c
-    - bash <(curl -s https://codecov.io/bash) t {CODECOV_TOKEN}
 
+# 成功したらここを実行
 after_success:
+    # codecovにカバレッジの結果を送信
+    - bash <(curl -s https://codecov.io/bash) t {CODECOV_TOKEN}
+    # ドキュメント生成（設定ファイルは，jazzy.yaml）
     - bundle exec jazzy
+    # 生成したドキュメントフォルダに移動
     - cd ./../docs
 
+#  デプロイの設定
 deploy:
+  # リリースに使うサービスの設定（他には，HerokuやAWSがある．今回は，GitHub Pagesを使う）  
   provider: pages
+  # ビルド中に作られたファイルを破棄するか（今回は，破棄しない）
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  # GitHubにあげるためのトークン
+  github_token: $GITHUB_TOKEN
+  # force push（強制プッシュ）を無効
   keep_history: true
+  # プッシュするディレクトリを指定（今回はドキュメントのみをプッシュするのでdocsディレクトリを指定）
   local_dir: docs
+  # デプロイを行う条件
   on:
     branch: master
 
