@@ -464,7 +464,7 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/DangerDraw.swift",
-      "line": 28,
+      "line": 29,
       "symbol": "DangerDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -618,7 +618,7 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LedDraw.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "LedDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -632,7 +632,7 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LedLightupDraw.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "LedLightupDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -786,7 +786,7 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltCircleDraw.swift",
-      "line": 28,
+      "line": 29,
       "symbol": "VoltCircleDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -800,7 +800,7 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltDraw.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "VoltDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
