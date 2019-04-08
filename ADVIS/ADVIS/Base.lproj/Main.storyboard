@@ -201,9 +201,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arduino-uno-advis" translatesAutoresizingMaskIntoConstraints="NO" id="EEl-La-sGR">
                                 <rect key="frame" x="0.0" y="24" width="1116" height="1000"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ArduinoUniImageView"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="RootView"/>
                         <constraints>
                             <constraint firstItem="K8V-K9-5LI" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="ZU8-XW-uXD"/>
                             <constraint firstItem="K8V-K9-5LI" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="ft0-ky-Fs8"/>

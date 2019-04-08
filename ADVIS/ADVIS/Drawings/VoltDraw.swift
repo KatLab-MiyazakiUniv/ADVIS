@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-// 電圧値の数字を表示するクラス
+/// 電圧値の数字を表示するクラス
 class VoltDraw: UIView {
-    var startX: Double = 0
-    var startY: Double = 0
-    var endX: Double = 0
-    var endY: Double = 0
+    var startX: Double = 0 /// 起点のX座標
+    var startY: Double = 0 /// 起点のY座標
+    var endX: Double = 0 /// 終点のX座標
+    var endY: Double = 0 /// 終点のY座標
 
     /// 線を描画するための座標を設定
     ///

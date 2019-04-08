@@ -9,19 +9,25 @@
 import Foundation
 import UIKit
 
-/// 選択中の箇所を示すクラス
-class SelectedCircle: UIView {
-    var startX: Double = 0
-    var startY: Double = 0
-    var endX: Double = 0
-    var endY: Double = 0
+/**
+ 選択中の箇所を示すクラス
 
-    /// 線を描画するための座標を設定
-    ///
-    /// - Parameters:
-    ///   - startX: X座標
-    ///   - startY: Y座標
-    /// メンバ変数にそれぞれ代入
+ */
+class SelectedCircle: UIView {
+    /// X座標
+    var startX: Double = 0
+    /// Y座標
+    var startY: Double = 0
+
+    /**
+     線を描画するための座標を設定
+
+     - Parameters:
+     - startX: X座標
+     - startY: Y座標
+
+     メンバ変数にそれぞれ代入
+     */
     func intoBoardPoint(startX: Double, startY: Double) {
         self.startX = startX
         self.startY = startY

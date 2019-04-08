@@ -27,40 +27,43 @@ class ADVISUITests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-//        let app = XCUIApplication()
-//        let doneButton = app/*@START_MENU_TOKEN@*/.buttons["Done"]/*[[".otherElements[\"SCLAlertView\"].buttons[\"Done\"]",".buttons[\"Done\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        doneButton.tap()
-//
-//        let tablesQuery = app.tables
-//        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["MODULE"]/*[[".cells.staticTexts[\"MODULE\"]",".staticTexts[\"MODULE\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["ジャンパワイヤ"]/*[[".cells.staticTexts[\"ジャンパワイヤ\"]",".staticTexts[\"ジャンパワイヤ\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        doneButton.tap()
-//
-//        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element
-//        element.tap()
-//        element.tap()
-//
-//        let element2 = element.children(matching: .other).element(boundBy: 0)
-//        element2.tap()
-//        element2.tap()
-//        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["LED"]/*[[".cells.staticTexts[\"LED\"]",".staticTexts[\"LED\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        doneButton.tap()
-//
-//        let element3 = element.children(matching: .other).element(boundBy: 1)
-//        element3.tap()
-//        element3.tap()
-//
-//        let voltRunButton = app.buttons["VOLT RUN"]
-//        voltRunButton.tap()
-//        voltRunButton.tap()
-//
-//        let runButton = app.buttons["RUN"]
-//        runButton.tap()
-//        runButton.tap()
-//        app.buttons["CLEAN"].tap()
+    func testVoltRun() {
+        let app = XCUIApplication()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let doneButton = app/*@START_MENU_TOKEN@*/.buttons["Done"]/*[[".otherElements[\"SCLAlertView\"].buttons[\"Done\"]",".buttons[\"Done\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        doneButton.tap()
+
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["MODULE"]/*[[".cells.staticTexts[\"MODULE\"]",".staticTexts[\"MODULE\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["ジャンパワイヤ"]/*[[".cells.staticTexts[\"ジャンパワイヤ\"]",".staticTexts[\"ジャンパワイヤ\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        doneButton.tap()
+
+        let rootviewElement = app.otherElements["RootView"]
+        let volt33Point = CGPoint(x: 593, y: 973) // 3.3V
+        let gndPoint = CGPoint(x: 491, y: 54) // a15
+        let a15Point = CGPoint(x: 560, y: 654) // GND
+        let j15Point = CGPoint(x: 560, y: 327) // j15
+        rootviewElement.tapAtPosition(position: volt33Point)
+        rootviewElement.tapAtPosition(position: a15Point)
+        rootviewElement.tapAtPosition(position: gndPoint)
+        rootviewElement.tapAtPosition(position: j15Point)
+
+        app.buttons["VOLT RUN"].tap()
+        var voltLabel = app.staticTexts["3"]
+        XCTAssertEqual(voltLabel.label, "3")
+        sleep(3)
+        app.buttons["VOLT RUN"].tap()
+
+        tablesQuery.staticTexts["LED"].tap()
+        doneButton.tap()
+        let e15Point = CGPoint(x: 560, y: 530) // e15
+        let f15Point = CGPoint(x: 560, y: 452) // f15
+        rootviewElement.tapAtPosition(position: e15Point)
+        rootviewElement.tapAtPosition(position: f15Point)
+
+        app.buttons["VOLT RUN"].tap()
+        voltLabel = app.staticTexts["2"]
+        XCTAssertEqual(voltLabel.label, "2")
+        sleep(5)
     }
 }

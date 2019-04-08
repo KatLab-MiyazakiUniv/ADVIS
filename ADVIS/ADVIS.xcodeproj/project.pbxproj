@@ -54,6 +54,8 @@
 		07D303B4225767540083F49D /* ResitorDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303B3225767540083F49D /* ResitorDrawTests.swift */; };
 		07D303B522576B100083F49D /* VoltDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */; };
 		07D303B722576B240083F49D /* VoltDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D303B622576B240083F49D /* VoltDrawTests.swift */; };
+		07D43CA5225A4A33000DB061 /* XCUIElement+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D43C9F225A4379000DB061 /* XCUIElement+Extentions.swift */; };
+		07D43CA6225A4A35000DB061 /* XCUIElement+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D43C9F225A4379000DB061 /* XCUIElement+Extentions.swift */; };
 		07DCBD7F2131B9CF002E8C78 /* VoltDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */; };
 		07DCBD812131BB32002E8C78 /* VoltCircleDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */; };
 		07DCBD832131BDF3002E8C78 /* LedLightupDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */; };
@@ -134,6 +136,7 @@
 		07D303AE225763C00083F49D /* LedDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDrawTests.swift; sourceTree = "<group>"; };
 		07D303B3225767540083F49D /* ResitorDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResitorDrawTests.swift; sourceTree = "<group>"; };
 		07D303B622576B240083F49D /* VoltDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltDrawTests.swift; sourceTree = "<group>"; };
+		07D43C9F225A4379000DB061 /* XCUIElement+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extentions.swift"; sourceTree = "<group>"; };
 		07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltDraw.swift; sourceTree = "<group>"; };
 		07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltCircleDraw.swift; sourceTree = "<group>"; };
 		07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedLightupDraw.swift; sourceTree = "<group>"; };
@@ -175,13 +178,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0704212B212700A400688D05 /* Extantions */ = {
+		0704212B212700A400688D05 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				07D43C9F225A4379000DB061 /* XCUIElement+Extentions.swift */,
 				0723F021212EE5D000F79CBC /* ViewController */,
 				0704213221272F6C00688D05 /* CALayer */,
 			);
-			path = Extantions;
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		0704212F212705D800688D05 /* CustomView */ = {
@@ -320,7 +324,7 @@
 			children = (
 				076E946B213043990005C52D /* Drawings */,
 				0704212F212705D800688D05 /* CustomView */,
-				0704212B212700A400688D05 /* Extantions */,
+				0704212B212700A400688D05 /* Extentions */,
 				07B8B74E20C510A500B7B9EE /* AppDelegate.swift */,
 				07B8B75020C510A500B7B9EE /* ViewController.swift */,
 				07B8B75220C510A500B7B9EE /* Main.storyboard */,
@@ -569,6 +573,7 @@
 				07D303B522576B100083F49D /* VoltDraw.swift in Sources */,
 				07D303A822575E200083F49D /* LineDrawTests.swift in Sources */,
 				07D303AF225763C00083F49D /* LedDrawTests.swift in Sources */,
+				07D43CA6225A4A35000DB061 /* XCUIElement+Extentions.swift in Sources */,
 				07D303AC2257638E0083F49D /* LedDraw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B8B76F20C510A700B7B9EE /* ADVISUITests.swift in Sources */,
+				07D43CA5225A4A33000DB061 /* XCUIElement+Extentions.swift in Sources */,
 				07D303AD225763920083F49D /* LedDraw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
