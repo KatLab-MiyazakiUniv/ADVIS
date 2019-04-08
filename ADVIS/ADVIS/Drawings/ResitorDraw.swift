@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// 抵抗器を描画するクラス
 class ResitorDraw: UIView {
     var startX: Double = 0
     var startY: Double = 0

@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-extension XCUIElement /* TapAtPosition */ {
+extension XCUIElement {
     /// 座標をタップするためのメソッド
     ///
     /// - Parameter position: タップする座標

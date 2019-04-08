@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
+/// 危険箇所を丸で表するクラス
 class DangerDraw: UIView {
-    var startX: Double = 0
-    var startY: Double = 0
+    var startX: Double = 0 /// 円の中心のX座標
+    var startY: Double = 0 /// 円の中心のY座標
 
     /// 線を描画するための座標を設定
     ///

@@ -13,6 +13,7 @@ import SCLAlertView
 import SwiftyBeaver
 import UIKit
 
+/// いろいろするメインのクラス（別名**神クラス**）
 class ViewController: UIViewController {
     private var tapLocation: CGPoint = CGPoint()
     private var uiView = UIView()

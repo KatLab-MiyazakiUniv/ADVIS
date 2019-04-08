@@ -32,9 +32,10 @@ class VoltRetention {
     var voltConnectedArray: [[Int]] = [[404], [405], [408], [409], [410], [411], [419], [420], [421], [422], [423], [424]]
     var voltInPinArray: [Int] = [412, 413, 414]
 
-    /*
-     voltPowerIn
-     役割:powerピンまたはデジタルI/Oにパーツの接続があるかどうかを調べ、接続があった場合にはflagPowerInから1(Int)を返り値として返す
+    /**
+     powerピンまたはデジタルI/Oにパーツの接続があるかどうかを調べ、接続があった場合にはflagPowerInから1(Int)を返り値として返す
+     - Parameter repeatNumber: 調べる番号
+     - Returns: 0もしくは，1を返す
      */
     func voltPowerIn(repeatNumber: Int) -> Int {
         if flagPowerIn == 0 {

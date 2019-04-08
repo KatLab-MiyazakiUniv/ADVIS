@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// ジャイロセンサを描画するためのクラス
 class GyroDraw: UIView {
     /* 描画用の座標保持変数 */
     var x1: Double = 0

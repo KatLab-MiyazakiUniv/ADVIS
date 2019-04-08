@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-// 電圧値を表示する丸のを出すクラス
+// 電圧値を表示する丸を表示するクラス
 class VoltCircleDraw: UIView {
-    var startX: Double = 0
-    var startY: Double = 0
+    var startX: Double = 0 /// 円の中心のX座標
+    var startY: Double = 0 /// 円の中心のY座標
 
     /// 線を描画するための座標を設定
     ///
     /// - Parameters:
-    ///   - startX: X座標
-    ///   - startY: Y座標
+    ///   - startX: 円の中心のX座標
+    ///   - startY: 円の中心のY座標
     /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double) {
         self.startX = startX

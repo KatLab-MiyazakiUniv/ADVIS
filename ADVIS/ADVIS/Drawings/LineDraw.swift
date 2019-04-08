@@ -9,20 +9,21 @@
 import Foundation
 import UIKit
 
-/// 線を描画するクラス
+/// ジャンパワイヤを描画するクラス
 class LineDraw: UIView {
-    var startX: Double = 0
-    var startY: Double = 0
-    var endX: Double = 0
-    var endY: Double = 0
+    var startX: Double = 0 /// 起点のX座標
+    var startY: Double = 0 /// 起点のY座標
+    var endX: Double = 0 /// 終点のX座標
+    var endY: Double = 0 /// 終点のY座標
 
-    /// 線を描画するための座標を設定
+    /// ジャンパワイヤを描画するための座標を設定
     ///
     /// - Parameters:
     ///   - startX: 起点のX座標
     ///   - startY: 起点のY座標
     ///   - endX: 終点のX座標
     ///   - endY: 週手のY座標
+    ///
     /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double, endX: Double, endY: Double) {
         self.startX = startX
@@ -31,7 +32,7 @@ class LineDraw: UIView {
         self.endY = endY
     }
 
-    /// 線を描画するメソッド
+    /// ジャンパワイヤを描画するメソッド
     ///
     /// - Parameter _: なし
     /// 1. UIBezierPathインスタンス生成（UIBezierPathについては，[こちら](https://dev.classmethod.jp/smartphone/iphone/play-uibezierpath-1/)）
