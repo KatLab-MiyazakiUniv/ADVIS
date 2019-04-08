@@ -23,6 +23,7 @@ class LedDraw: UIView {
     ///   - startY: 起点のY座標
     ///   - endX: 終点のX座標
     ///   - endY: 週手のY座標
+    ///
     /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double, endX: Double, endY: Double) {
         self.startX = startX
