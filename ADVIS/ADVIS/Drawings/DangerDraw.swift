@@ -19,6 +19,7 @@ class DangerDraw: UIView {
     /// - Parameters:
     ///   - startX: X座標
     ///   - startY: Y座標
+    ///
     /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double) {
         self.startX = startX

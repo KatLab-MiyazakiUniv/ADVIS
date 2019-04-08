@@ -19,6 +19,7 @@ class VoltCircleDraw: UIView {
     /// - Parameters:
     ///   - startX: 円の中心のX座標
     ///   - startY: 円の中心のY座標
+    ///
     /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double) {
         self.startX = startX
