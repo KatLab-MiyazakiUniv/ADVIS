@@ -2,13 +2,6 @@
   "warnings": [
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
-      "line": 13,
-      "symbol": "log",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
       "line": 16,
       "symbol": "AppDelegate",
       "symbol_kind": "source.lang.swift.decl.class",
@@ -29,48 +22,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
-      "line": 47,
-      "symbol": "AppDelegate.applicationWillResignActive(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
-      "line": 52,
-      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
-      "line": 57,
-      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
-      "line": 61,
-      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/AppDelegate.swift",
-      "line": 65,
-      "symbol": "AppDelegate.applicationWillTerminate(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ArduinoUnoPointControl12_9.swift",
-      "line": 13,
-      "symbol": "ArduinoUnoPointControl12_9",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ArduinoUnoPointControl12_9.swift",
       "line": 14,
       "symbol": "ArduinoUnoPointControl12_9.coordinateNumberX",
@@ -82,20 +33,6 @@
       "line": 15,
       "symbol": "ArduinoUnoPointControl12_9.coordinateNumberY",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ArduinoUnoPointControl12_9.swift",
-      "line": 17,
-      "symbol": "ArduinoUnoPointControl12_9.pointTranslate(pointX:pointY:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ArduinoUnoPointControl12_9.swift",
-      "line": 961,
-      "symbol": "ArduinoUnoPointControl12_9.coordinateTranslate(translatePoint:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -443,28 +380,21 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/AmpereRetention.swift",
-      "line": 16,
-      "symbol": "AmpereRetention.i",
+      "line": 36,
+      "symbol": "AmpereRetention.ampere_total_value",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/AmpereRetention.swift",
-      "line": 27,
+      "line": 37,
       "symbol": "AmpereRetention.ampere_total_unit",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/DangerDraw.swift",
-      "line": 14,
-      "symbol": "DangerDraw.startX",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/DangerDraw.swift",
-      "line": 29,
+      "line": 31,
       "symbol": "DangerDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -611,37 +541,16 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LedDraw.swift",
-      "line": 14,
-      "symbol": "LedDraw.startX",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LedDraw.swift",
-      "line": 35,
+      "line": 39,
       "symbol": "LedDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LedLightupDraw.swift",
-      "line": 14,
-      "symbol": "LedLightupDraw.startX",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LedLightupDraw.swift",
-      "line": 35,
+      "line": 39,
       "symbol": "LedLightupDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/LineDraw.swift",
-      "line": 14,
-      "symbol": "LineDraw.startX",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -669,13 +578,6 @@
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/PartsDraw.swift",
       "line": 23,
       "symbol": "PartsDraw.gyroNumber",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/PartsDraw.swift",
-      "line": 25,
-      "symbol": "PartsDraw.wireGetPointXArray",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -751,21 +653,14 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/ResitorDraw.swift",
-      "line": 25,
-      "symbol": "ResitorDraw.intoBoardPoint(startX:startY:endX:endY:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/ResitorDraw.swift",
-      "line": 32,
+      "line": 41,
       "symbol": "ResitorDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/SelectedCircle.swift",
-      "line": 36,
+      "line": 34,
       "symbol": "SelectedCircle.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -779,28 +674,14 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltCircleDraw.swift",
-      "line": 14,
-      "symbol": "VoltCircleDraw.startX",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltCircleDraw.swift",
-      "line": 29,
+      "line": 31,
       "symbol": "VoltCircleDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltDraw.swift",
-      "line": 14,
-      "symbol": "VoltDraw.startX",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltDraw.swift",
-      "line": 35,
+      "line": 39,
       "symbol": "VoltDraw.draw(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1003,189 +884,168 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 14,
-      "symbol": "expandableTableViewHeader",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 15,
-      "symbol": "expandableTableViewCell",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 18,
+      "line": 20,
       "symbol": "wireDrawRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 19,
+      "line": 21,
       "symbol": "ledDrawRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "resistorDrawRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 21,
+      "line": 23,
       "symbol": "gyroDrawRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 22,
+      "line": 24,
       "symbol": "naturalRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 23,
+      "line": 25,
       "symbol": "gyroRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 24,
+      "line": 26,
       "symbol": "dangerDrawRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 25,
+      "line": 27,
       "symbol": "runRan",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 29,
+      "line": 31,
       "symbol": "partsDraw",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 32,
+      "line": 34,
       "symbol": "ViewController.expandableTableView(_:expandedCellsForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 71,
+      "line": 73,
       "symbol": "ViewController.expandableTableView(_:heightsForExpandedRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 96,
+      "line": 98,
       "symbol": "ViewController.numberOfSections(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 100,
+      "line": 102,
       "symbol": "ViewController.expandableTableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 104,
+      "line": 106,
       "symbol": "ViewController.expandableTableView(_:didSelectRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 108,
+      "line": 110,
       "symbol": "ViewController.expandableTableView(_:didSelectExpandedRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 112,
+      "line": 114,
       "symbol": "ViewController.expandableTableView(_:expandedCell:didSelectExpandedRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 182,
+      "line": 184,
       "symbol": "ViewController.expandableTableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 214,
+      "line": 216,
       "symbol": "ViewController.expandableTableView(_:heightForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 232,
+      "line": 234,
       "symbol": "ViewController.expandableTableView(_:didHighlightRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
-      "line": 238,
+      "line": 240,
       "symbol": "ViewController.expandableTableView(_:shouldHighlightRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/SplashViewController.swift",
-      "line": 11,
-      "symbol": "SplashViewController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/SplashViewController.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "SplashViewController.splashImageView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/SplashViewController.swift",
-      "line": 13,
+      "line": 14,
       "symbol": "SplashViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/SplashViewController.swift",
-      "line": 19,
+      "line": 20,
       "symbol": "SplashViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/SplashViewController.swift",
-      "line": 49,
+      "line": 50,
       "symbol": "SplashViewController.didReceiveMemoryWarning()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
