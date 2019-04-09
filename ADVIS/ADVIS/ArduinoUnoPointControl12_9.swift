@@ -9,11 +9,18 @@
 import Foundation
 import UIKit
 
-// ArduinoUnoの座標をコントロールするクラス
+/// ArduinoUnoの座標をコントロールするクラス
 class ArduinoUnoPointControl12_9 {
     var coordinateNumberX: Double = 0.0
     var coordinateNumberY: Double = 0.0
 
+    /**
+     タップされた座標に応じて特定の数字に変換
+
+     - Parameter pointX: X座標
+     - Parameter pointY: Y座標
+     - Returns: 正しい座標がタップされると各ピンの番号を返す
+     */
     func pointTranslate(pointX: Double, pointY: Double) -> Int {
         // Digital Pin
         if 54 ... 77 ~= pointY { //  Y-cordinate
@@ -958,6 +965,11 @@ class ArduinoUnoPointControl12_9 {
         return 0
     }
 
+    /**
+     特定の数値を各ピンの中心に設定する
+
+     - Parameter translatePoint: Arduino，ブレッドボード上の数値
+     */
     func coordinateTranslate(translatePoint: Int) {
         if translatePoint == 0 {
             coordinateNumberX = 0

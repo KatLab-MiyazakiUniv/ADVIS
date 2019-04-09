@@ -11,7 +11,9 @@ import Foundation
 import SCLAlertView
 import UIKit
 
+/// 各TableViewのヘッダ
 private let expandableTableViewHeader: [String] = ["Arduino Board", "MODULE", "SETTINGS"]
+/// 各TableViewのヘッダの中のセル
 private let expandableTableViewCell: [[String]] = [["Arduino Uno", "Arduino Leonard"],
                                                    ["ジャンパワイヤ", "LED", "抵抗器", "ジャイロセンサ"],
                                                    ["サーバーに送信", "サーバーから取得"]]

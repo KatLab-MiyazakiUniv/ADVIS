@@ -11,8 +11,10 @@ import UIKit
 
 // 電圧値を表示する丸を表示するクラス
 class VoltCircleDraw: UIView {
-    var startX: Double = 0 /// 円の中心のX座標
-    var startY: Double = 0 /// 円の中心のY座標
+    /// 円の中心のX座標
+    var startX: Double = 0
+    /// 円の中心のY座標
+    var startY: Double = 0
 
     /// 線を描画するための座標を設定
     ///

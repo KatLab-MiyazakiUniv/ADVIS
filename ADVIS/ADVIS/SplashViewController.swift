@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// おしゃれにす起動するためだけのViewController
 class SplashViewController: UIViewController {
     @IBOutlet var splashImageView: UIImageView!
     override func viewDidLoad() {

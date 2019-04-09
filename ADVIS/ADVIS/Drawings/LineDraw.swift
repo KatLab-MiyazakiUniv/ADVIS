@@ -11,10 +11,14 @@ import UIKit
 
 /// ジャンパワイヤを描画するクラス
 class LineDraw: UIView {
-    var startX: Double = 0 /// 起点のX座標
-    var startY: Double = 0 /// 起点のY座標
-    var endX: Double = 0 /// 終点のX座標
-    var endY: Double = 0 /// 終点のY座標
+    /// 起点のX座標
+    var startX: Double = 0
+    /// 起点のY座標
+    var startY: Double = 0
+    /// 終点のX座標
+    var endX: Double = 0
+    /// 終点のY座標
+    var endY: Double = 0
 
     /// ジャンパワイヤを描画するための座標を設定
     ///
