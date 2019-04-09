@@ -22,23 +22,36 @@ class PartsDraw {
     var resistorNumber = 0
     var gyroNumber = 0
 
-    var wireGetPointXArray: Array<Double> = [] /// ジャンパワイヤを描画する点のx座標用配列
-    var wireGetPointYArray: Array<Double> = [] /// ジャンパワイヤを描画する点のy座標用配列
-    var wireTranslatePointArray: Array<Int> = [] /// ジャンパワイヤを描画する点を保持する配列
+    /// ジャンパワイヤを描画する点のx座標用配列
+    var wireGetPointXArray: Array<Double> = []
+    /// ジャンパワイヤを描画する点のy座標用配列
+    var wireGetPointYArray: Array<Double> = []
+    /// ジャンパワイヤを描画する点を保持する配列
+    var wireTranslatePointArray: Array<Int> = []
 
-    var ledGetPointXArray: [Double] = [] /// LEDを描画する点のx座標用配列
-    var ledGetPointYArray: [Double] = [] /// LEDを描画する点のy座標用配列
-    var ledTranslatePointArray: [Int] = [] /// LEDを描画する点を保持する配列
+    /// LEDを描画する点のx座標用配列
+    var ledGetPointXArray: [Double] = []
+    /// LEDを描画する点のy座標用配列
+    var ledGetPointYArray: [Double] = []
+    /// LEDを描画する点を保持する配列
+    var ledTranslatePointArray: [Int] = []
 
-    var resistorGetPointXArray: [Double] = [] /// 抵抗器を描画する点のx座標用配列
-    var resistorGetPointYArray: [Double] = [] /// 抵抗器を描画する点のy座標用配列
-    var resistorTranslatePointArray: [Int] = [] /// 抵抗器を描画する点を保持する配列
+    /// 抵抗器を描画する点のx座標用配列
+    var resistorGetPointXArray: [Double] = []
+    /// 抵抗器を描画する点のy座標用配列
+    var resistorGetPointYArray: [Double] = []
+    /// 抵抗器を描画する点を保持する配列
+    var resistorTranslatePointArray: [Int] = []
 
-    var gyroGetPointXArray: [Double] = [] /// ジャイロセンサを描画する点のx座標用配列
-    var gyroGetPointYArray: [Double] = [] /// ジャイロセンサを描画する点のy座標用配列
-    var gyroTranslatePointArray: [Int] = [] /// ジャイロセンサを描画する点を保持する配列
+    /// ジャイロセンサを描画する点のx座標用配列
+    var gyroGetPointXArray: [Double] = []
+    /// ジャイロセンサを描画する点のy座標用配列
+    var gyroGetPointYArray: [Double] = []
+    /// ジャイロセンサを描画する点を保持する配列
+    var gyroTranslatePointArray: [Int] = []
 
-    var pointControl = ArduinoUnoPointControl12_9() /// 画面上の座標をいい感じにするインスタンスせ
+    /// 画面上の座標をいい感じにするインスタンスせ
+    var pointControl = ArduinoUnoPointControl12_9()
 
     /// ジャンパワイヤ描画用の配列に値を入れる
     ///
@@ -104,8 +117,6 @@ class PartsDraw {
         gyroTranslatePointArray.insert(translatePoint, at: gyroNumber)
         gyroNumber += 1
     }
-
-    /* */
 
     /// 配列の中身が2の倍数の時に描画を開始するためのメソッド
     ///

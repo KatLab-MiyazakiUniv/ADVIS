@@ -22,6 +22,15 @@ class ResitorDraw: UIView {
     var resistorLengthX: Double = 0
     var resistorLengthY: Double = 0
 
+    /// 抵抗器を描画するための座標を設定
+    ///
+    /// - Parameters:
+    ///   - startX: 起点のX座標
+    ///   - startY: 起点のY座標
+    ///   - endX: 終点のX座標
+    ///   - endY: 終点のY座標
+    ///
+    /// メンバ変数にそれぞれ代入
     func intoBoardPoint(startX: Double, startY: Double, endX: Double, endY: Double) {
         self.startX = startX
         self.startY = startY

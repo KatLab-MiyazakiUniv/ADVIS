@@ -11,7 +11,6 @@ import UIKit
 
 /**
  選択中の箇所を示すクラス
-
  */
 class SelectedCircle: UIView {
     /// X座標
@@ -22,9 +21,8 @@ class SelectedCircle: UIView {
     /**
      線を描画するための座標を設定
 
-     - Parameters:
-     - startX: X座標
-     - startY: Y座標
+     - Parameter startX: X座標
+     - Parameter startY: Y座標
 
      メンバ変数にそれぞれ代入
      */
