@@ -96,7 +96,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let deviceSize = judgeDevice(screenSizeHeight: Double(UIScreen.main.nativeBounds.height))
         SCLAlertView().showInfo("\(deviceSize)")
-        log.info("viewDidLoad")
+        logger.info("viewDidLoad")
         tableView.expandableDelegate = self as ExpandableDelegate
         tableView.animation = .automatic
         tableView.register(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: NormalCell.ID)
@@ -893,8 +893,8 @@ class ViewController: UIViewController {
         arduinoUnoPointControl12_9.coordinateTranslate(
             translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y))
         )
-        log.info("X座標: \(tapLocation.x)")
-        log.info("Y座標: \(tapLocation.y)")
+        logger.info("X座標: \(tapLocation.x)")
+        logger.info("Y座標: \(tapLocation.y)")
 
         // ジャンパワイヤここから
         if pointInt != 0 && wireDrawRan == 1 && partsDraw.wireTranslatePointArray.firstIndex(of: pointInt) == nil {
@@ -1079,11 +1079,11 @@ class ViewController: UIViewController {
         /* Debug */
         //        let debug = self.arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y)
         //        SCLAlertView().showInfo("\(debug)")
-        ////        log.debug("\(debug)")
+        ////        logger.debug("\(debug)")
         //        /* Debug */
-        ////        log.info(tapLocation)
-        //        log.debug("X-cordinate: \(Double(tapLocation.x))")
-        //        log.debug("Y-cordinate: \(Double(tapLocation.y))")
+        ////        logger.info(tapLocation)
+        //        logger.debug("X-cordinate: \(Double(tapLocation.x))")
+        //        logger.debug("Y-cordinate: \(Double(tapLocation.y))")
     }
 
     override func didReceiveMemoryWarning() {

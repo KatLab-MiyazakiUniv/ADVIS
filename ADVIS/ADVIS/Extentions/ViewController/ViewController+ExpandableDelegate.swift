@@ -113,10 +113,10 @@ extension ViewController: ExpandableDelegate {
 
     func expandableTableView(_: ExpandableTableView, expandedCell: UITableViewCell, didSelectExpandedRowAt indexPath: IndexPath) {
         if let cell = expandedCell as? ExpandedCell {
-            log.info("\(cell.titleLabel.text ?? "")")
+            logger.info("\(cell.titleLabel.text ?? "")")
             let cellValue = cell.titleLabel.text ?? ""
-            // log.info("\(indexPath.section)")
-            log.info("\(indexPath.row)")
+            // logger.info("\(indexPath.section)")
+            logger.info("\(indexPath.row)")
             if cellValue == "Arduino Uno" {
                 // SCLAlertView().showInfo("\(cell.titleLabel.text ?? "")")
                 arduinoImageView.image = UIImage(named: "arduino-uno-advis")
