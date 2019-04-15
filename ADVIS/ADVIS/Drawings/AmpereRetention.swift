@@ -36,8 +36,8 @@ class AmpereRetention {
     var ampereTotalVoltArray: [Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     /// 電流計算用の抵抗値
     var ampereTotalResistorArray: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-    var ampere_total_value: Double = 0.0
-    var ampere_total_unit = ""
+    var ampereTotalValue: Double = 0.0
+    var ampereTotalUnit = ""
 
     /**
      電流描画用の配列に値を入れる
@@ -285,6 +285,49 @@ class AmpereRetention {
 
         ampereValue[choice].insert(ampereResult, at: i[choice] / 2)
         ampereUnit[choice].insert(ampereCharacter, at: i[choice] / 2)
+    }
+
+    /// 電流値の計算
+    func ampereValueText(choice _: Int, voltValue: Int, resistorValue: Double) {
+        var ampereTotalResult = Double(voltValue * 1000) / Double(resistorValue)
+        var ampereTotalTolerance = -3
+        var ampereTotalCharacter = ""
+        let log10 = logWithBase(base: 10)
+
+        while log10(ampereTotalResult) < 0 {
+            ampereTotalResult = ampereTotalResult * 1000
+            ampereTotalTolerance = ampereTotalTolerance - 3
+        }
+
+        while log10(ampereTotalResult) >= 3 {
+            ampereTotalResult = ampereTotalResult / 1000
+            ampereTotalTolerance = ampereTotalTolerance + 3
+        }
+        ampereTotalResult = round(ampereTotalResult / pow(10, floor(log10(ampereTotalResult) - 1)) * pow(10, log10(ampereTotalResult)) - 1)
+
+        if ampereTotalTolerance == 3 {
+            ampereTotalCharacter = "kA"
+        } else if ampereTotalTolerance == 0 {
+            ampereTotalCharacter = "A"
+        } else if ampereTotalTolerance == -3 {
+            ampereTotalCharacter = "mA"
+        } else if ampereTotalTolerance == -6 {
+            ampereTotalCharacter = "μA"
+        } else if ampereTotalTolerance == -9 {
+            ampereTotalCharacter = "nA"
+        } else if ampereTotalTolerance == -12 {
+            ampereTotalCharacter = "pA"
+        } else if ampereTotalTolerance == -15 {
+            ampereTotalCharacter = "fA"
+        }
+
+        if resistorValue == 0.0 {
+            ampereTotalValue = 20.0
+            ampereTotalUnit = "mA"
+        } else {
+            ampereTotalValue = ampereTotalResult
+            ampereTotalUnit = ampereTotalCharacter
+        }
     }
 
     func logWithBase(base: Double) -> (Double) -> Double {
