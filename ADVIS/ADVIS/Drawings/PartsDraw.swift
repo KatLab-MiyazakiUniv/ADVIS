@@ -42,6 +42,8 @@ class PartsDraw {
     var resistorGetPointYArray: [Double] = []
     /// 抵抗器を描画する点を保持する配列
     var resistorTranslatePointArray: [Int] = []
+    /// 抵抗器のカラーコードを保持するための配列
+    var resistorCodeNumberArray: [Double] = []
 
     /// ジャイロセンサを描画する点のx座標用配列
     var gyroGetPointXArray: [Double] = []
@@ -101,6 +103,81 @@ class PartsDraw {
         resistorGetPointYArray.insert(pointControl.coordinateNumberY, at: resistorNumber)
         resistorTranslatePointArray.insert(translatePoint, at: resistorNumber)
         resistorNumber += 1
+    }
+
+    func resistorColorTranslateValue(colorCode: String) -> Int {
+        switch colorCode {
+        case "黒":
+            return 0
+        case "茶":
+            return 1
+        case "赤":
+            return 2
+        case "橙":
+            return 3
+        case "黄":
+            return 4
+        case "緑":
+            return 5
+        case "青":
+            return 6
+        case "紫":
+            return 7
+        case "灰":
+            return 8
+        case "白":
+            return 9
+        default:
+            return 0
+        }
+    }
+
+    func resistorColorTranslateMultiplier(colorCode: String) -> Int {
+        switch colorCode {
+        case "黒":
+            return 0
+        case "茶":
+            return 1
+        case "赤":
+            return 2
+        case "橙":
+            return 3
+        case "黄":
+            return 4
+        case "緑":
+            return 5
+        case "青":
+            return 6
+        case "紫":
+            return 7
+        case "灰":
+            return 8
+        case "白":
+            return 9
+        case "金":
+            return -1
+        case "銀":
+            return -2
+        default:
+            return 0
+        }
+    }
+
+    func resistorColorTranslateTolerance(colorCode: String) -> Int {
+        switch colorCode {
+        case "茶":
+            return 1
+        case "赤":
+            return 2
+        case "金":
+            return 5
+        case "銀":
+            return 10
+        case "無色":
+            return 20
+        default:
+            return 0
+        }
     }
 
     /// ジャイロセンサ描画用の配列に値を入れる

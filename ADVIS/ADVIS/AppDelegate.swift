@@ -10,7 +10,7 @@ import SwiftyBeaver
 import UIKit
 
 /// SwiftyBeaver.Type
-let log = SwiftyBeaver.self
+let logger = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appSecret: "Secret",
             encryptionKey: "Secret"
         )
-        log.addDestination(console)
-        log.addDestination(platform)
+        logger.addDestination(console)
+        logger.addDestination(platform)
 
         // windowを生成
         window = UIWindow(frame: UIScreen.main.bounds)
