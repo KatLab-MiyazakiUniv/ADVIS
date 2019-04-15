@@ -303,7 +303,7 @@ class AmpereRetention {
             ampereTotalResult = ampereTotalResult / 1000
             ampereTotalTolerance = ampereTotalTolerance + 3
         }
-        ampereTotalResult = round(ampereTotalResult / pow(10, floor(log10(ampereTotalResult) - 1)) * pow(10, log10(ampereTotalResult)) - 1)
+        ampereTotalResult = round(ampereTotalResult / pow(10, floor(log10(ampereTotalResult)) - 1)) * pow(10, floor(log10(ampereTotalResult)) - 1)
 
         if ampereTotalTolerance == 3 {
             ampereTotalCharacter = "kA"
@@ -329,10 +329,10 @@ class AmpereRetention {
             ampereTotalUnit = ampereTotalCharacter
         }
     }
+}
 
-    func logWithBase(base: Double) -> (Double) -> Double {
-        return { x in log(x) / log(base) }
-    }
+func logWithBase(base: Double) -> (Double) -> Double {
+    return { x in log(x) / log(base) }
 }
 
 // func logWithBase(_ base: Double) -> (Double) -> Double {
