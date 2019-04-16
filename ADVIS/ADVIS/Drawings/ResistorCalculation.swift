@@ -38,9 +38,9 @@ class ResistorCalculation {
     var ampereTotalUnit = ""
 
     /// 電流値のカラーコードの計算
-    func resistorCalculator(resistorValue: Int, resistorTolerance: Int) -> String {
+    func resistorCalculate(resistorValue: Int, resistorTolerance: Int) -> String {
         var ampereResult = Double(resistorValue)
-        var ampereTolerance = -resistorTolerance - 3
+        var ampereTolerance = resistorTolerance
         var ampereCharacter = ""
         let log10 = logWithBase(base: 10)
 

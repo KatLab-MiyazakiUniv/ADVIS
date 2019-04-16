@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     // private var arduinoUnoView: ArduinoUnoView? = nil
     var arduinoUnoPointControl12_9 = ArduinoUnoPointControl12_9()
     var voltRetention = VoltRetention()
+    let uiPickerView = UIPickerView()
 
     var wireCount = 0
     var ledCount = 0
@@ -104,6 +105,8 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "ExpandableCell", bundle: nil), forCellReuseIdentifier: ExpandableCell2.ID)
         // Delete Empty Cell separator
         tableView.tableFooterView = UIView(frame: .zero)
+        uiPickerView.delegate = self
+        uiPickerView.dataSource = self
     }
 
     // RUNボタンを押した場合

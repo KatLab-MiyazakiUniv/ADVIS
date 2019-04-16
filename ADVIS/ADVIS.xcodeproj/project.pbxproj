@@ -33,6 +33,9 @@
 		0748DE69226515BF00D27302 /* AmpereCircleDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748DE67226515BF00D27302 /* AmpereCircleDraw.swift */; };
 		0748DE6B2265171200D27302 /* ResistorCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748DE6A2265171200D27302 /* ResistorCalculation.swift */; };
 		0748DE6C2265171200D27302 /* ResistorCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748DE6A2265171200D27302 /* ResistorCalculation.swift */; };
+		0748DE6E2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748DE6D2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift */; };
+		0748DE6F2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748DE6D2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift */; };
+		0748DE702265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748DE6D2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift */; };
 		07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07560DC1223423C000CB43DA /* AmpereRetention.swift */; };
 		076E946D2130440B0005C52D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
 		077C9BC621273F9D00ECE0C6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077C9BC521273F9D00ECE0C6 /* Settings.bundle */; };
@@ -117,6 +120,7 @@
 		0748DE64226514A400D27302 /* AmpereDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpereDraw.swift; sourceTree = "<group>"; };
 		0748DE67226515BF00D27302 /* AmpereCircleDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpereCircleDraw.swift; sourceTree = "<group>"; };
 		0748DE6A2265171200D27302 /* ResistorCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistorCalculation.swift; sourceTree = "<group>"; };
+		0748DE6D2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		07560DC1223423C000CB43DA /* AmpereRetention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpereRetention.swift; sourceTree = "<group>"; };
 		076E946C2130440B0005C52D /* LedDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDraw.swift; sourceTree = "<group>"; };
 		077C9BC521273F9D00ECE0C6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				0723F022212EE68400F79CBC /* ViewController+ExpandableDelegate.swift */,
+				0748DE6D2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 				078F6250212F030500C6E079 /* PartsDraw.swift in Sources */,
 				0748DE6B2265171200D27302 /* ResistorCalculation.swift in Sources */,
 				078F624E212EFAE800C6E079 /* LineDraw.swift in Sources */,
+				0748DE6E2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +592,7 @@
 				07D303B22257672F0083F49D /* ResitorDraw.swift in Sources */,
 				07D303AB22575ED80083F49D /* LineDraw.swift in Sources */,
 				07B8B76420C510A700B7B9EE /* ADVISTests.swift in Sources */,
+				0748DE6F2265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift in Sources */,
 				07D303B522576B100083F49D /* VoltDraw.swift in Sources */,
 				07D303A822575E200083F49D /* LineDrawTests.swift in Sources */,
 				07D303AF225763C00083F49D /* LedDrawTests.swift in Sources */,
@@ -600,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0748DE702265F13300D27302 /* ViewController+UIPickerViewDataSource+UIPickerViewDelegate.swift in Sources */,
 				07B8B76F20C510A700B7B9EE /* ADVISUITests.swift in Sources */,
 				07D43CA5225A4A33000DB061 /* XCUIElement+Extentions.swift in Sources */,
 				07D303AD225763920083F49D /* LedDraw.swift in Sources */,

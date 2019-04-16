@@ -17,6 +17,10 @@ private let expandableTableViewHeader: [String] = ["Arduino Board", "MODULE", "S
 private let expandableTableViewCell: [[String]] = [["Arduino Uno", "Arduino Leonard"],
                                                    ["ジャンパワイヤ", "LED", "抵抗器", "ジャイロセンサ"],
                                                    ["サーバーに送信", "サーバーから取得"]]
+private let pickerViewTitle = "抵抗値"
+private let pickerViewMessage = "カラーコードを選択してください.\n\n\n\n\n\n\n\n" // 改行入れないとOKCancelがかぶる
+var resistorCalculation = ResistorCalculation()
+
 var wireDrawRan = 0
 var ledDrawRan = 0
 var resistorDrawRan = 0
@@ -154,11 +158,44 @@ extension ViewController: ExpandableDelegate {
                     resistorDrawRan = 0
                     SCLAlertView().showInfo("抵抗器\nOFF")
                 } else if resistorDrawRan == 0 {
+                    resistorCode1 = 1
+                    resistorCode2 = 5
+                    resistorCode3 = 1
+                    resistorCode4 = 5
+                    let alert = UIAlertController(title: pickerViewTitle, message: pickerViewMessage, preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+                        (_: UIAlertAction!) -> Void in
+                        logger.debug("\(resistorCode1)\(resistorCode2)×10^\(resistorCode3)±\(resistorCode4)%です．")
+                        let subTitle = "入力された抵抗値"
+                        let subMessage = "\(resistorCalculation.resistorCalculate(resistorValue: resistorCode1 * 10 + resistorCode2, resistorTolerance: resistorCode3)) ± \(resistorCode4)%"
+                        let subAlert = UIAlertController(title: subTitle, message: subMessage, preferredStyle: UIAlertController.Style.alert)
+                        let subCancelAction = UIAlertAction(title: "OK", style: .cancel) {
+                            _ in
+                        }
+                        subAlert.addAction(subCancelAction)
+                        self.present(subAlert, animated: true, completion: nil)
+                    })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+                        _ in
+                        resistorDrawRan = 0
+                    }
+
+                    uiPickerView.frame = CGRect(x: 0, y: 50, width: 250, height: 150) // 配置、サイズ
+                    uiPickerView.dataSource = self
+                    uiPickerView.delegate = self
+                    uiPickerView.selectRow(1, inComponent: 0, animated: true) // 初期値
+                    uiPickerView.selectRow(5, inComponent: 1, animated: true) // 初期値
+                    uiPickerView.selectRow(1, inComponent: 2, animated: true) // 初期値
+                    uiPickerView.selectRow(2, inComponent: 3, animated: true) // 初期値
+                    alert.view.addSubview(uiPickerView)
+
+                    alert.addAction(okAction)
+                    alert.addAction(cancelAction)
+                    present(alert, animated: true, completion: nil)
                     resistorDrawRan = 1
                     wireDrawRan = 0
                     ledDrawRan = 0
                     gyroDrawRan = 0
-                    SCLAlertView().showInfo("抵抗器\nON")
                 }
 
             } else if cellValue == "ジャイロセンサ" {
