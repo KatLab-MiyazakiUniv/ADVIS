@@ -10,26 +10,44 @@ import Foundation
 
 class VoltRetention {
 //    var partsDraw = PartsDraw()
+    /// PowerピンまたはデジタルI/Oにパーツが接続されているかどうかを調べるときに使用
     var flagPowerIn = 0
+    /// パーツ同士のつながりを調べるときに使用
     var flagPartIn = 0
+    /// GNDピンに接続があるかどうかを調べる
     var flagGndIn = 0
+    var ampereRetention = AmpereRetention()
 
+    /// power_in用
     var searchInput = 0
     var voltBoardNumber = 0
+
     var thirtyValue = 0
+    /// 電圧の値を保持
     var voltValue = 0
+    /// ピンの値を保持
     var pinNumber = 0
+    /// voltConectionで使う:ピンが配列の何番目を調べる
     var pinNumberConnection = 0
+    /// voltConnectionで使う:接続先のピンの番号を調べる
     var pinValue = 0
+    /// voltThisValueの値を返す用
     var thisValue = 0
+    /// searchNearConnetctionで使う:同じ行or列内で接続が見つかった際に返り値として返す
     var returnPinValue = 0
     var returnControlNumber = 0
 
+    /// controlArrayではボードを独自で解釈しているため，描画するにはボードナンバーに直す必要がある
     var voltDrawStart = 0
+    /// controlArrayではボードを独自で解釈しているため，描画するにはボードナンバーに直す必要がある
     var voltDrawEnd = 0
+    /// 入力ピンに接続した抵抗器にかかる電圧値
+    var ampereResistorVolt = 0
 
+    /// 回路内部の電圧管理用配列
     var voltControlArray = Array(repeating: 0, count: 90)
     var voltConnectedArray: [[Int]] = [[404], [405], [408], [409], [410], [411], [419], [420], [421], [422], [423], [424]]
+    /// 入力ピンナンバー保持用
     var voltInPinArray: [Int] = [412, 413, 414]
 
     /**
@@ -71,35 +89,68 @@ class VoltRetention {
 
             /* 404~418で動作しないようにする */
             if partsDraw.ledTranslatePointArray.firstIndex(of: searchInput) != nil {
+                // 入力ピンに接続したLEDので抵抗値を配列に代入
+                ampereRetention.ampereResistorValue[repeatNumber].insert(100, at: ampereRetention.i[repeatNumber])
+                ampereRetention.ampereResistorValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] + 1)
+
                 if partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
                     pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! + 1]
-                    flagPowerIn = 1
+//                    flagPowerIn = 1
+                    // LED1つ分電圧値を減らす
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
-                        voltValue = 3
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(1, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 3 - 1
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(1, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 5 - 1
                     } else if searchInput == 408 {
-                        voltValue = 10
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(1, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 10 - 1
                     } else {
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] / 2)
                         voltValue = 0
                     }
                     flagPowerIn = 1
                 } else {
                     pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! + 1]
+
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
-                        voltValue = 3
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(1, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 3 - 1
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(1, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 5 - 1
                     } else if searchInput == 408 {
-                        voltValue = 10
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(1, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 10 - 1
                     } else {
+                        // LEDにかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] / 2)
                         flagPowerIn = 0
                     }
                     flagPowerIn = 1
                 }
+                // 電流表示用の配列に必要な要素を代入
+                ampereRetention.ampereInsertLed(j: repeatNumber,
+                                                index: partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)!)
             }
 
+            // MARK: - ジャンパワイヤの描画 -
+
             if partsDraw.wireTranslatePointArray.firstIndex(of: searchInput) != nil {
+                // 入力ピンに接続したジャンパワイヤの抵抗値を配列に代入
+                ampereRetention.ampereResistorValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber])
+                ampereRetention.ampereResistorValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] + 1)
+                // LEDにかかる電圧値を代入
+                ampereRetention.ampereVoltValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] / 2)
+
                 if partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
                     pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! + 1]
 
@@ -113,6 +164,7 @@ class VoltRetention {
                         voltValue = 0
                     }
                     flagPowerIn = 1
+
                 } else {
                     pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! - 1]
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
@@ -126,37 +178,70 @@ class VoltRetention {
                     }
                     flagPowerIn = 1
                 }
+                // 電流表示用の配列に必要な要素を代入
+                ampereRetention.ampereInsertWire(j: repeatNumber, index: partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)!)
             }
 
+            // MARK: - 抵抗器の描画 -
+
             if partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput) != nil {
+                // 入力ピンに接続した抵抗器の抵抗値を配列に代入
+                ampereRetention.ampereResistorValue[repeatNumber].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! / 2 * 4] * 10 + partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! / 2 * 4 + 1], at: ampereRetention.i[repeatNumber])
+                ampereRetention.ampereResistorValue[repeatNumber].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: repeatNumber)! / 2 * 4 + 2], at: ampereRetention.i[repeatNumber] + 1)
+
+                if ampereRetention.ampereResistorValue[repeatNumber][ampereRetention.i[repeatNumber]] != 0 {
+                    ampereResistorVolt = 3
+                } else {
+                    ampereResistorVolt = 0
+                }
+
                 if partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
                     pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! + 1]
 
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
-                        voltValue = 3
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(ampereResistorVolt, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 3 - ampereResistorVolt
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(ampereResistorVolt, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 5 - ampereResistorVolt
                     } else if searchInput == 408 {
-                        voltValue = 10
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(ampereResistorVolt, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 10 - ampereResistorVolt
                     } else {
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] / 2)
                         voltValue = 0
                     }
                     flagPowerIn = 1
                 } else {
                     pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! + 1]
                     if searchInput == 404 || 409 ... 411 ~= searchInput {
-                        voltValue = 3
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(ampereResistorVolt, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 3 - ampereResistorVolt
                     } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(ampereResistorVolt, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 5 - ampereResistorVolt
                     } else if searchInput == 408 {
-                        voltValue = 10
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(ampereResistorVolt, at: ampereRetention.i[repeatNumber] / 2)
+                        voltValue = 10 - ampereResistorVolt
                     } else {
+                        // 抵抗器にかかる電圧値を配列に代入
+                        ampereRetention.ampereVoltValue[repeatNumber].insert(0, at: ampereRetention.i[repeatNumber] / 2)
                         voltValue = 0
                     }
                     flagPowerIn = 1
                 }
+                // 電流表示用の配列に必要な要素を代入
+                ampereRetention.ampereInsertResistor(j: repeatNumber, index: partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)!)
             }
         }
+
         for iSearch in 0 ..< repeatNumber {
             if voltConnectedArray[iSearch].firstIndex(of: pinNumber) != nil && repeatNumber != 0 {
                 pinNumber = 0
@@ -175,7 +260,7 @@ class VoltRetention {
      */
 
     func voltConnection(inPinNumber: Int, repeatNumber: Int) -> Int {
-        if pinNumber != 0 {
+        if inPinNumber != 0 {
             /* inPinNumberが描画用配列の何番目かを調べる */
             if partsDraw.wireTranslatePointArray.firstIndex(of: inPinNumber) != nil {
                 pinNumberConnection = partsDraw.wireTranslatePointArray.firstIndex(of: inPinNumber)!

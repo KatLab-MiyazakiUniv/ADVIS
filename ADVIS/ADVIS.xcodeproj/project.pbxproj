@@ -305,12 +305,12 @@
 				07DCBD822131BDF3002E8C78 /* LedLightupDraw.swift */,
 				078F624D212EFAE800C6E079 /* LineDraw.swift */,
 				078F624F212F030500C6E079 /* PartsDraw.swift */,
+				0748DE6A2265171200D27302 /* ResistorCalculation.swift */,
 				071FFBED2131583F00CCB252 /* ResitorDraw.swift */,
 				07B7C66922530F9300275CE0 /* SelectedCircle.swift */,
 				07DCBD802131BB32002E8C78 /* VoltCircleDraw.swift */,
 				07DCBD7E2131B9CF002E8C78 /* VoltDraw.swift */,
 				07DCBD862131C8B2002E8C78 /* VoltRetention.swift */,
-				0748DE6A2265171200D27302 /* ResistorCalculation.swift */,
 			);
 			path = Drawings;
 			sourceTree = "<group>";

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
 
     var wireCount = 0
     var ledCount = 0
+    var codeCount = 0
     var resistorCount = 0
     var gyroCount = 0
     var pointInt = 0
@@ -59,6 +60,22 @@ class ViewController: UIViewController {
     //    var backRegistor = 0
     //    var backWire = 0
     //    var backJyro = 0
+
+    /* 電流関係の変数 */
+    /// 電流配列の要素数
+    var i_ampere = 0
+    /// 電流線のx方向の始点
+    var ampere_start_x = 0
+    /// 電流線のy方向の始点
+    var ampere_start_y = 0
+    /// 電流線のx方向の終点
+    var ampere_end_x = 0
+    /// 電流線のy方向の終点
+    var ampere_end_y = 0
+    /// 電流線のx方向の中間点
+    var ampere_long_x = 0
+    /// 電流線のy方向の中間点
+    var ampere_long_y = 0
 
     var backViewArray: Array<Int> = []
     var ledLightupArrayX: [Double] = []
@@ -109,7 +126,8 @@ class ViewController: UIViewController {
         uiPickerView.dataSource = self
     }
 
-    // RUNボタンを押した場合
+    // MARK: - RUNボタン -
+
     @IBAction func runButtonAction(sender _: Any) {
         wireDrawRan = 0
         ledDrawRan = 0
@@ -162,13 +180,79 @@ class ViewController: UIViewController {
 
                         /* 抵抗器が接続されていた場合に電圧値を３下げる */
                         if partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
-                            voltRetention.voltValue = voltRetention.voltValue - 3
+                            // 抵抗器にかかる電圧値を配列に代入
+                            if voltRetention.voltValue >= 0 {
+                                if voltRetention.voltValue - 3 >= 0 {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(3, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                } else {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(voltRetention.voltValue, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                }
+                            } else {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(-1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            }
+                            // 抵抗器の抵抗値を配列に代入
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4] * 10 + partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 1], at: voltRetention.ampereRetention.i[repeatI])
+
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 2], at: voltRetention.ampereRetention.i[repeatI] + 1)
+
+                            if voltRetention.ampereRetention.ampereResistorValue[repeatI][voltRetention.ampereRetention.i[repeatI]] > 0 {
+                                if voltRetention.voltValue > 0 && voltRetention.voltValue - 3 < 0 {
+                                    voltRetention.voltValue = 0
+                                } else {
+                                    voltRetention.voltValue = voltRetention.voltValue - 3
+                                }
+                            }
+
+                            // 存在していなければ抵抗の座標を配列に代入
+                            if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
+                                voltRetention.ampereRetention.ampereInsertResistor(j: repeatI, index: partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)!)
+                            }
                         }
+
                         /* LEDがあった場合電圧値を１下げる */
                         if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
+                            // LEDにかかる電圧値を配列に代入
+                            if voltRetention.voltValue >= 0 {
+                                if voltRetention.voltValue - 1 >= 0 {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                } else {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(voltRetention.voltValue, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                }
+                            } else {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(-1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            }
+
+                            // LEDの抵抗値を配列に代入
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(100, at: voltRetention.ampereRetention.i[repeatI])
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI] + 1)
                             voltRetention.voltValue = voltRetention.voltValue - 1
+
+                            // 存在していなければLEDの座標を電流に配列に代入
+                            if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
+                                voltRetention.ampereRetention.ampereInsertLed(j: repeatI, index: partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber)!)
+                            }
                         }
-                        // 電圧値を配列に保存
+
+                        // ジャンパワイヤがあった場合
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
+                            // ジャンパワイヤにかかる電圧値を代入
+                            if voltRetention.voltValue >= 0 {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            } else {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(-1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            }
+
+                            // ジャンパワイヤの抵抗値を配列に代入
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI])
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI] + 1)
+
+                            // 存在していなければジャンパワイヤの座標を電流の配列に代入
+                            if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
+                                voltRetention.ampereRetention.ampereInsertWire(j: repeatI, index: partsDraw.wireTranslatePointArray.firstIndex(of: voltConnectNumber)!)
+                            }
+                        }
+
+                        // 電圧値を配列に代入
                         if voltRetention.voltReturnValue(boardNumber: voltConnectNext) < voltRetention.voltValue {
                             voltRetention.voltValueControl(pinNumber: voltConnectNext)
                         }
@@ -385,6 +469,7 @@ class ViewController: UIViewController {
         backViewArray = []
         wireCount = 0
         ledCount = 0
+        codeCount = 0
         resistorCount = 0
         gyroCount = 0
         wireDrawRan = 0
@@ -433,7 +518,7 @@ class ViewController: UIViewController {
         }
     }
 
-    // バックボタンを押した場合
+    /// バックボタンを押した場合
     @IBAction func backButtonAction(sender _: Any) {
         if backViewArray.count > 0 {
             flagBackBegin = 1
@@ -476,12 +561,15 @@ class ViewController: UIViewController {
                 partsDraw.resistorTranslatePointArray.removeLast(2)
                 partsDraw.resistorNumber -= 2
                 resistorCount = 0
+                codeCount = 0
+
                 /* viewの削除 */
                 view.subviews.forEach {
                     if $0 is ResitorDraw {
                         $0.removeFromSuperview()
                     }
                 }
+
                 /* viewの再描画 */
                 for _ in 0 ..< partsDraw.resistorNumber / 2 {
                     let resistorDraw = ResitorDraw(frame: CGRect(x: 0, y: 0,
@@ -489,11 +577,18 @@ class ViewController: UIViewController {
                                                                  height: arduinoImageView.bounds.height))
                     resistorDraw.isOpaque = false
                     resistorDraw.backgroundColor = UIColor.clear
+
                     resistorDraw.intoBoardPoint(startX: partsDraw.resistorGetPointXArray[resistorCount],
                                                 startY: partsDraw.resistorGetPointYArray[resistorCount],
                                                 endX: partsDraw.resistorGetPointXArray[resistorCount + 1],
                                                 endY: partsDraw.resistorGetPointYArray[resistorCount + 1])
+
+                    resistorDraw.resistorNumber(code1: partsDraw.resistorCodeNumberArray[codeCount],
+                                                code2: partsDraw.resistorCodeNumberArray[codeCount + 1],
+                                                code3: partsDraw.resistorCodeNumberArray[codeCount + 2],
+                                                code4: partsDraw.resistorCodeNumberArray[codeCount + 3])
                     resistorCount += 2
+                    codeCount += 2
                     view.addSubview(resistorDraw)
                 }
                 backViewArray.removeLast()
@@ -564,7 +659,8 @@ class ViewController: UIViewController {
         }
     }
 
-    // とりあえずVOLT RUNにしとく
+    // MARK: - VOLT RUNボタン -
+
     @IBAction func compileButtonAction(sender _: Any) {
         wireDrawRan = 0
         ledDrawRan = 0
@@ -629,13 +725,81 @@ class ViewController: UIViewController {
                         }
                         /* 抵抗器があった場合に電圧値の値を3下げる */
                         if partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
-                            voltRetention.voltValue -= 3
+                            // 抵抗器の抵抗値を配列に代入
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4] * 10 + partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 1], at: voltRetention.ampereRetention.i[repeatI] + 1)
+
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 2], at: voltRetention.ampereRetention.i[repeatI] + 1)
+
+                            // 抵抗器にかかる電圧値をだ配列に代入
+                            if voltRetention.ampereRetention.ampereResistorValue[repeatI][voltRetention.ampereRetention.i[repeatI]] != 0 {
+                                voltRetention.ampereResistorVolt = 3
+                            } else {
+                                voltRetention.ampereResistorVolt = 0
+                            }
+                            if voltRetention.voltValue >= 0 {
+                                if voltRetention.voltValue - voltRetention.ampereResistorVolt >= 0 {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(voltRetention.ampereResistorVolt, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                } else {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(voltRetention.voltValue, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                }
+                            } else {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(-1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            }
+
+                            if voltRetention.ampereRetention.ampereResistorValue[repeatI][voltRetention.ampereRetention.i[repeatI]] > 0 {
+                                if voltRetention.voltValue > 0 && voltRetention.voltValue - 3 < 0 {
+                                    voltRetention.voltValue = 0
+                                } else {
+                                    voltRetention.voltValue = voltRetention.voltValue - 3
+                                }
+                            }
+                            // 存在していなければ抵抗の座標を配列に代入
+                            if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
+                                voltRetention.ampereRetention.ampereInsertResistor(j: repeatI, index: partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)!)
+                            }
+//                            voltRetention.voltValue -= 3
                         }
                         /* LEDがあった場合に電圧値の値を1下げる */
                         if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
+                            // LEDにかかる電圧値を配列に代入
+                            if voltRetention.voltValue >= 0 {
+                                if voltRetention.voltValue - 1 >= 0 {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                } else {
+                                    voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(voltRetention.voltValue, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                                }
+                            } else {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(-1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            }
+                            // LEDの抵抗値を配列に代入
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(100, at: voltRetention.ampereRetention.i[repeatI])
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI] + 1)
                             voltRetention.voltValue -= 1
+                            // 存在していなければLEDの座標を電流の配列に代入
+                            if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
+                                voltRetention.ampereRetention.ampereInsertLed(j: repeatI, index: partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber)!)
+                            }
                         }
-                        /* 電圧の値を配列に保存 */
+
+                        // ジャンパワイヤがあった場合
+                        if partsDraw.wireTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
+                            // ジャンパワイヤにかかる電圧値を配列に代入
+                            if voltRetention.voltValue >= 0 {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            } else {
+                                voltRetention.ampereRetention.ampereVoltValue[repeatI].insert(-1, at: voltRetention.ampereRetention.i[repeatI] / 2)
+                            }
+
+                            // ジャンパワイヤの抵抗値を配列に代入
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI])
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(0, at: voltRetention.ampereRetention.i[repeatI] + 1)
+
+                            // 存在していなければジャンパワイヤの座標を電流の配列に代入
+                            if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
+                                voltRetention.ampereRetention.ampereInsertWire(j: repeatI, index: partsDraw.wireTranslatePointArray.firstIndex(of: voltConnectNumber)!)
+                            }
+                        }
+                        /* 電圧値を配列に保存 */
                         if voltRetention.voltReturnValue(boardNumber: voltConnectNext) < voltRetention.voltValue {
                             voltRetention.voltValueControl(pinNumber: voltConnectNext)
                         }
@@ -667,6 +831,7 @@ class ViewController: UIViewController {
                     if voltRetention.voltConnectedArray[i].firstIndex(of: voltRetention.voltConnectedArray[j][0]) != nil {
                         /* conectedArrayの中に見つかった出力ピンのナンバーが0番目以外であればtrue */
                         if voltRetention.voltConnectedArray[i].firstIndex(of: voltRetention.voltConnectedArray[j][0]) != 0 {
+                            // 破損の表示
                             arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: voltRetention.voltConnectedArray[j][0])
                             let dangerDraw = DangerDraw(frame: CGRect(x: 0, y: 0,
                                                                       width: arduinoImageView.bounds.width,
@@ -729,6 +894,18 @@ class ViewController: UIViewController {
 
                     if voltLastValue > 3 && partsDraw.resistorTranslatePointArray.firstIndex(of: voltLastNumber) == nil || voltLastValue >= 7 {
                         // 破損の描画
+                        arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: voltRetention.voltConnectedArray[iSearch][voltRetention.voltConnectedArray[iSearch].count - 1])
+                        let dangerDraw = DangerDraw(frame: CGRect(x: 0, y: 0,
+                                                                  width: arduinoImageView.bounds.width,
+                                                                  height: arduinoImageView.bounds.height))
+                        dangerDraw.isOpaque = false
+                        dangerDraw.intoBoardPoint(startX: arduinoUnoPointControl12_9.coordinateNumberX - 10,
+                                                  startY: arduinoUnoPointControl12_9.coordinateNumberY - 10)
+                        view.addSubview(dangerDraw)
+                    }
+
+                    // 0.2Aより大きい電流値が入力ピンに送られた場合
+                    if Double(voltRetention.ampereRetention.ampereTotalVoltArray[iSearch]) / voltRetention.ampereRetention.ampereTotalResistorArray[iSearch] > 0.2 {
                         arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: voltRetention.voltConnectedArray[iSearch][voltRetention.voltConnectedArray[iSearch].count - 1])
                         let dangerDraw = DangerDraw(frame: CGRect(x: 0, y: 0,
                                                                   width: arduinoImageView.bounds.width,

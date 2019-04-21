@@ -82,6 +82,23 @@
             ReferencedContainer = "container:ADVIS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "AppSecret"
+            value = "MnigflBolidaugsAugkllsia5ex59dor"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "EncryptionKey"
+            value = "kgevmoGkbhszlXGzn5hvzfjpygroYvqh"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "AppID"
+            value = "r7xGmp"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

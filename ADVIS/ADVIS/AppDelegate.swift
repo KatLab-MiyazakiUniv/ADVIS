@@ -21,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Settings SwiftyBeaver
         let console = ConsoleDestination()
+        /// 環境変数を使う
+        let env = ProcessInfo.processInfo.environment
         console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:No.$l $M"
         let platform = SBPlatformDestination(
-            appID: "Secret",
-            appSecret: "Secret",
-            encryptionKey: "Secret"
+            appID: env["appID"] ?? "APP_KEY",
+            appSecret: env["appSecret"] ?? "APP_SECRET",
+            encryptionKey: env["EncryptionKey"] ?? "EncryptionKey"
         )
         logger.addDestination(console)
         logger.addDestination(platform)

@@ -43,7 +43,7 @@ class PartsDraw {
     /// 抵抗器を描画する点を保持する配列
     var resistorTranslatePointArray: [Int] = []
     /// 抵抗器のカラーコードを保持するための配列
-    var resistorCodeNumberArray: [Double] = []
+    var resistorCodeNumberArray: [Int] = []
 
     /// ジャイロセンサを描画する点のx座標用配列
     var gyroGetPointXArray: [Double] = []
