@@ -37,6 +37,13 @@ class ViewController: UIViewController {
     var flagDrawGyro = 0
     var flagBackBegin = 0
 
+    /// 電流値表示用のフラグ
+    var flagAmpereAction = 0
+    /// 電圧値表示用のフラグ
+    var flagVoltAction = 0
+    /// 電流の計算範囲用のフラグ
+    var flagAmpereRange = 0
+
     var repeatI = 0
     var voltConnectNext = 0
     var voltControlValue = 0
@@ -63,19 +70,19 @@ class ViewController: UIViewController {
 
     /* 電流関係の変数 */
     /// 電流配列の要素数
-    var i_ampere = 0
+    var iAmpere = 0
     /// 電流線のx方向の始点
-    var ampere_start_x = 0
+    var ampereStartX: Double = 0
     /// 電流線のy方向の始点
-    var ampere_start_y = 0
+    var ampereStartY: Double = 0
     /// 電流線のx方向の終点
-    var ampere_end_x = 0
+    var ampereEndX: Double = 0
     /// 電流線のy方向の終点
-    var ampere_end_y = 0
+    var ampereEndY: Double = 0
     /// 電流線のx方向の中間点
-    var ampere_long_x = 0
+    var ampereLongX: Double = 0
     /// 電流線のy方向の中間点
-    var ampere_long_y = 0
+    var ampereLongY: Double = 0
 
     var backViewArray: Array<Int> = []
     var ledLightupArrayX: [Double] = []
@@ -588,7 +595,7 @@ class ViewController: UIViewController {
                                                 code3: partsDraw.resistorCodeNumberArray[codeCount + 2],
                                                 code4: partsDraw.resistorCodeNumberArray[codeCount + 3])
                     resistorCount += 2
-                    codeCount += 2
+                    codeCount += 4
                     view.addSubview(resistorDraw)
                 }
                 backViewArray.removeLast()
@@ -665,13 +672,319 @@ class ViewController: UIViewController {
         wireDrawRan = 0
         ledDrawRan = 0
         resistorDrawRan = 0
-//        gyroDrawRan = 0
         view.subviews.forEach {
             if $0 is SelectedCircle {
                 $0.removeFromSuperview()
             }
         }
+        if runRan == 0 {
+            // アラートの設定
+            let title = "回路の値"
+            let message = "表示する回路の値を選択してください"
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            let voltAction = UIAlertAction(title: "電圧値", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) -> Void in
+                self.flagVoltAction = 1
+                self.runVoltAction()
+            })
+            let ampereAction = UIAlertAction(title: "電流値", style: UIAlertAction.Style.default, handler: {
+                (_: UIAlertAction!) -> Void in
+                self.flagAmpereAction = 1
+                let subTitle = "電流の計算範囲"
+                let subMessage = "電流の計算範囲を選択してください。"
+                let subAlert = UIAlertController(title: subTitle, message: subMessage, preferredStyle: UIAlertController.Style.alert)
+                let overallAction = UIAlertAction(title: "全体", style: UIAlertAction.Style.default, handler: {
+                    (_: UIAlertAction!) -> Void in
+                    self.flagAmpereRange = 0
+                    self.runVoltAction()
+                })
+                let partsAction = UIAlertAction(title: "モジュール", style: UIAlertAction.Style.default, handler: {
+                    (_: UIAlertAction!) -> Void in
+                    self.flagAmpereRange = 1
+                    self.runVoltAction()
+                })
+                let subCancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+                    _ in
+                    self.flagAmpereAction = 0
+                    self.flagAmpereAction = 0
+                }
+                subAlert.addAction(overallAction)
+                subAlert.addAction(partsAction)
+                subAlert.addAction(subCancelAction)
+                self.present(subAlert, animated: true, completion: nil)
+            })
 
+            let allAction = UIAlertAction(title: "全部", style: UIAlertAction.Style.default, handler: {
+                (_: UIAlertAction!) -> Void in
+                self.flagVoltAction = 1
+                self.flagAmpereAction = 1
+                let subTitle = "電流の計算範囲"
+                let subMessage = "表示する電流の計算範囲を選択してください。"
+                let subAlert = UIAlertController(title: subTitle, message: subMessage, preferredStyle: UIAlertController.Style.alert)
+                let overAllAction = UIAlertAction(title: "全体", style: UIAlertAction.Style.default, handler: {
+                    (_: UIAlertAction!) -> Void in
+                    self.flagAmpereRange = 0
+                    self.runVoltAction()
+                })
+                let partsAction = UIAlertAction(title: "モジュール", style: UIAlertAction.Style.default, handler: {
+                    (_: UIAlertAction!) -> Void in
+                    self.flagAmpereRange = 1
+                    self.runVoltAction()
+                })
+                let subCancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+                    _ in
+                    self.flagVoltAction = 0
+                    self.flagAmpereAction = 0
+                }
+
+                subAlert.addAction(overAllAction)
+                subAlert.addAction(partsAction)
+                subAlert.addAction(subCancelAction)
+                self.present(subAlert, animated: true, completion: nil)
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+                _ in
+            }
+            alert.addAction(voltAction)
+            alert.addAction(ampereAction)
+            alert.addAction(allAction)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+
+        } else {
+            runVoltAction()
+        }
+    }
+
+//    func runVoltAction()
+
+    @IBAction func editButtonAction(sender _: Any) {}
+
+    @IBAction func generateButtonAction(sender _: Any) {}
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {
+        // Get touch event
+        let touch = touches.first
+        // Get tapped coordinate
+        tapLocation = touch!.location(in: view)
+        point = String(arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+        pointInt = Int(arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+        arduinoUnoPointControl12_9.coordinateTranslate(
+            translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y))
+        )
+        logger.info("X座標: \(tapLocation.x)")
+        logger.info("Y座標: \(tapLocation.y)")
+
+        // ジャンパワイヤここから
+        if pointInt != 0 && wireDrawRan == 1 && partsDraw.wireTranslatePointArray.firstIndex(of: pointInt) == nil {
+            partsDraw.wireDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+            flagDrawWire = 1
+            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
+        }
+
+        if partsDraw.wireGetPointXArray.count % 2 != 0 && wireDrawRan != 1 {
+            partsDraw.wireGetPointXArray.removeLast()
+            partsDraw.wireGetPointYArray.removeLast()
+            partsDraw.jumperNumber -= 1
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+
+        if pointInt != 0 && partsDraw.flagDraw(flagNumber: 0) == 1 && wireDrawRan == 1 && flagDrawWire == 1 {
+            let lineDraw = LineDraw(frame: CGRect(x: 0, y: 0,
+                                                  width: arduinoImageView.bounds.width,
+                                                  height: arduinoImageView.bounds.height))
+            lineDraw.isOpaque = false
+            lineDraw.backgroundColor = UIColor.clear
+            lineDraw.intoBoardPoint(startX: partsDraw.wireGetPointXArray[wireCount],
+                                    startY: partsDraw.wireGetPointYArray[wireCount],
+                                    endX: partsDraw.wireGetPointXArray[wireCount + 1],
+                                    endY: partsDraw.wireGetPointYArray[wireCount + 1])
+            wireCount += 2
+            view.addSubview(lineDraw)
+            backViewArray.append(1)
+            flagDrawWire = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+        // ジャンパワイヤここまで
+
+        // LEDここから
+        if pointInt != 0 && ledDrawRan == 1 && partsDraw.ledTranslatePointArray.firstIndex(of: pointInt) == nil {
+            partsDraw.ledDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+            flagDrawLed = 1
+            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
+        }
+        /* LEDボタンOFF時に要素が一つだけ残っていた場合消す */
+        if partsDraw.ledGetPointXArray.count % 2 != 0 && ledDrawRan != 1 {
+            partsDraw.ledGetPointXArray.removeLast()
+            partsDraw.ledGetPointYArray.removeLast()
+            partsDraw.ledNumber -= 1
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+        /* LED描画部 */
+        if pointInt != 0 && partsDraw.flagDraw(flagNumber: 1) == 1 && ledDrawRan == 1 && flagDrawLed == 1 {
+            let ledDraw = LedDraw(frame: CGRect(x: 0, y: 0,
+                                                width: arduinoImageView.bounds.width,
+                                                height: arduinoImageView.bounds.height))
+            ledDraw.isOpaque = false
+            ledDraw.backgroundColor = UIColor.clear
+            ledDraw.intoBoardPoint(startX: partsDraw.ledGetPointXArray[ledCount],
+                                   startY: partsDraw.ledGetPointYArray[ledCount],
+                                   endX: partsDraw.ledGetPointXArray[ledCount + 1],
+                                   endY: partsDraw.ledGetPointYArray[ledCount + 1])
+            ledCount += 2
+            view.addSubview(ledDraw)
+            backViewArray.append(2)
+            flagDrawLed = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+        // LEDここまで
+
+        /* 抵抗器描画部 */
+        if pointInt != 0 && resistorDrawRan == 1 && partsDraw.resistorTranslatePointArray.firstIndex(of: pointInt) == nil {
+            partsDraw.resistorDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+            flagDrawResistor = 1
+            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
+        }
+        if partsDraw.resistorGetPointYArray.count % 2 != 0 && resistorDrawRan != 1 {
+            partsDraw.resistorGetPointXArray.removeLast()
+            partsDraw.resistorGetPointYArray.removeLast()
+            partsDraw.resistorNumber -= 1
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+        if pointInt != 0 && partsDraw.flagDraw(flagNumber: 2) == 1 && resistorDrawRan == 1 && flagDrawResistor == 1 {
+            let resistorDraw = ResitorDraw(frame: CGRect(x: 0, y: 0,
+                                                         width: arduinoImageView.bounds.width,
+                                                         height: arduinoImageView.bounds.height))
+            resistorDraw.isOpaque = false
+            resistorDraw.backgroundColor = UIColor.clear
+            resistorDraw.intoBoardPoint(startX: partsDraw.resistorGetPointXArray[resistorCount],
+                                        startY: partsDraw.resistorGetPointYArray[resistorCount],
+                                        endX: partsDraw.resistorGetPointXArray[resistorCount + 1],
+                                        endY: partsDraw.resistorGetPointYArray[resistorCount + 1])
+            // カラーコードの保持
+            partsDraw.resistorCodeNumberArray.insert(resistorCode1, at: codeCount)
+            partsDraw.resistorCodeNumberArray.insert(resistorCode2, at: codeCount + 1)
+            partsDraw.resistorCodeNumberArray.insert(resistorCode3, at: codeCount + 2)
+            partsDraw.resistorCodeNumberArray.insert(resistorCode4, at: codeCount + 3)
+
+            resistorDraw.resistorNumber(code1: partsDraw.resistorCodeNumberArray[codeCount],
+                                        code2: partsDraw.resistorCodeNumberArray[codeCount + 1],
+                                        code3: partsDraw.resistorCodeNumberArray[codeCount + 2],
+                                        code4: partsDraw.resistorCodeNumberArray[codeCount + 3])
+
+            resistorCount += 2
+            codeCount += 4
+            view.addSubview(resistorDraw)
+            backViewArray.append(3)
+            flagDrawResistor = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+        /* 抵抗器ここまで */
+
+        // ジャイロセンサ描画のための配列に値を入れる
+        if pointInt != 0 && 171 ... 200 ~= pointInt && gyroDrawRan == 1 && partsDraw.gyroTranslatePointArray.firstIndex(of: pointInt) == nil {
+            if partsDraw.gyroTranslatePointArray.count % 4 != 0 && pointInt - 1 == partsDraw.gyroTranslatePointArray.last
+                || partsDraw.gyroTranslatePointArray.count % 4 == 0 {
+                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+                flagDrawGyro = 1
+                view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation)) // 選択中
+            } else if flagDrawGyro != 0 {
+                partsDraw.gyroGetPointXArray.removeLast()
+                partsDraw.gyroGetPointYArray.removeLast()
+                partsDraw.gyroTranslatePointArray.removeLast()
+                partsDraw.gyroNumber -= 1
+                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
+                flagDrawGyro = 0
+//                view.subviews.forEach {
+//                    if $0 is SelectedCircle {
+//                        $0.removeFromSuperview()
+//                    }
+//                }
+            }
+        }
+
+        // ジャイロセンサ描画モード:OFF時に不必要な要素が残っていれば消す
+        if partsDraw.gyroGetPointXArray.count % 4 != 0 && gyroDrawRan != 1 {
+            for _ in 0 ..< partsDraw.gyroGetPointXArray.count % 4 {
+                partsDraw.gyroGetPointXArray.removeLast()
+                partsDraw.gyroGetPointYArray.removeLast()
+                partsDraw.gyroNumber -= 1
+            }
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+
+        // ジャイロセンサ描画部
+        if pointInt != 0 && 171 ... 200 ~= pointInt && partsDraw.flagDraw(flagNumber: 3) == 1 && gyroDrawRan == 1 && flagDrawGyro == 1 {
+            let gyroDraw = GyroDraw(frame: CGRect(x: 0, y: 0,
+                                                  width: arduinoImageView.bounds.width,
+                                                  height: arduinoImageView.bounds.height))
+            gyroDraw.isOpaque = false
+            gyroDraw.backgroundColor = UIColor.clear
+            gyroDraw.intoBoardPoint(x1: partsDraw.gyroGetPointXArray[gyroCount],
+                                    y1: partsDraw.gyroGetPointYArray[gyroCount],
+                                    x2: partsDraw.gyroGetPointXArray[gyroCount + 1],
+                                    y2: partsDraw.gyroGetPointYArray[gyroCount + 1],
+                                    x3: partsDraw.gyroGetPointXArray[gyroCount + 2],
+                                    y3: partsDraw.gyroGetPointYArray[gyroCount + 2],
+                                    x4: partsDraw.gyroGetPointXArray[gyroCount + 3],
+                                    y4: partsDraw.gyroGetPointYArray[gyroCount + 3])
+            view.addSubview(gyroDraw)
+            gyroCount += 4
+            backViewArray.append(4)
+            flagDrawGyro = 0
+            view.subviews.forEach {
+                if $0 is SelectedCircle {
+                    $0.removeFromSuperview()
+                }
+            }
+        }
+
+        /* Debug */
+        //        let debug = self.arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y)
+        //        SCLAlertView().showInfo("\(debug)")
+        ////        logger.debug("\(debug)")
+        //        /* Debug */
+        ////        logger.info(tapLocation)
+        //        logger.debug("X-cordinate: \(Double(tapLocation.x))")
+        //        logger.debug("Y-cordinate: \(Double(tapLocation.y))")
+    }
+
+    func runVoltAction() {
         if runRan == 0 {
             runRan = 1
             // powerの接続を調べる
@@ -726,7 +1039,7 @@ class ViewController: UIViewController {
                         /* 抵抗器があった場合に電圧値の値を3下げる */
                         if partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
                             // 抵抗器の抵抗値を配列に代入
-                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4] * 10 + partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 1], at: voltRetention.ampereRetention.i[repeatI] + 1)
+                            voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4] * 10 + partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 1], at: voltRetention.ampereRetention.i[repeatI])
 
                             voltRetention.ampereRetention.ampereResistorValue[repeatI].insert(partsDraw.resistorCodeNumberArray[partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)! / 2 * 4 + 2], at: voltRetention.ampereRetention.i[repeatI] + 1)
 
@@ -757,7 +1070,7 @@ class ViewController: UIViewController {
                             if voltRetention.ampereRetention.ampereTranslatePointArray[repeatI].firstIndex(of: voltConnectNumber) == nil {
                                 voltRetention.ampereRetention.ampereInsertResistor(j: repeatI, index: partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber)!)
                             }
-//                            voltRetention.voltValue -= 3
+                            //                            voltRetention.voltValue -= 3
                         }
                         /* LEDがあった場合に電圧値の値を1下げる */
                         if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
@@ -940,9 +1253,9 @@ class ViewController: UIViewController {
                     voltDrawArrayY.append(arduinoUnoPointControl12_9.coordinateNumberY)
                     // 電圧を文字で描画
                     voltValue = voltRetention.voltReturnValue(boardNumber: testArray[iTest2])
-//                    let voltLabel = UILabel(frame: CGRect(x: 0, y: 0,
-//                                                          width: arduinoImageView.bounds.width,
-//                                                          height: arduinoImageView.bounds.height))
+                    //                    let voltLabel = UILabel(frame: CGRect(x: 0, y: 0,
+                    //                                                          width: arduinoImageView.bounds.width,
+                    //                                                          height: arduinoImageView.bounds.height))
                     var voltLabel = UILabel()
 
                     voltLabel.isOpaque = false
@@ -998,6 +1311,99 @@ class ViewController: UIViewController {
                     iTest2 += 2
                 }
             }
+
+            // 電流ライン（青色）の描画
+            if flagAmpereAction == 1 {
+                for i in 0 ..< 12 {
+                    for j in 0 ..< voltRetention.ampereRetention.ampereTranslatePointArray[i].count / 2 {
+                        if voltRetention.ampereRetention.ampereVoltValue[i][j] >= 0 && voltRetention.ampereRetention.ampereValue[i][j] != 0 {
+                            let ampereLabel = UILabel(frame: CGRect(x: 0, y: 0,
+                                                                    width: arduinoImageView.bounds.width,
+                                                                    height: arduinoImageView.bounds.height))
+                            ampereLabel.isOpaque = false
+                            iAmpere = j * 2
+                            ampereStartX = voltRetention.ampereRetention.ampereGetPointXArray[i][iAmpere]
+                            ampereStartY = voltRetention.ampereRetention.ampereGetPointYArray[i][iAmpere]
+                            ampereEndX = voltRetention.ampereRetention.ampereGetPointXArray[i][iAmpere + 1]
+                            ampereEndY = voltRetention.ampereRetention.ampereGetPointYArray[i][iAmpere + 1]
+
+                            // 電流を表示
+                            let ampereDraw = AmpereDraw(frame: CGRect(x: 0, y: 0,
+                                                                      width: arduinoImageView.bounds.width,
+                                                                      height: arduinoImageView.bounds.height))
+                            if j == 0 {
+                                if iVoltDraw == 0 || flagVoltAction == 0 {
+                                    if flagAmpereAction == 1 {
+                                        ampereDraw.backgroundColor = UIColor(white: 0.5, alpha: 0.6)
+                                        flagAmpereAction = 2
+                                    } else {
+                                        ampereDraw.backgroundColor = UIColor.clear
+                                    }
+                                } else {
+                                    ampereDraw.backgroundColor = UIColor.clear
+                                }
+                            } else {
+                                ampereDraw.isOpaque = false
+                            }
+                            ampereDraw.intoBoardPoint(startX: voltRetention.ampereRetention.ampereGetPointXArray[i][iAmpere],
+                                                      startY: voltRetention.ampereRetention.ampereGetPointYArray[i][iAmpere],
+                                                      endX: voltRetention.ampereRetention.ampereGetPointXArray[i][iAmpere + 1],
+                                                      endY: voltRetention.ampereRetention.ampereGetPointYArray[i][iAmpere + 1])
+                            view.addSubview(ampereDraw)
+
+                            // 文字の位置
+                            if ampereStartX > ampereEndX {
+                                ampereLongX = fabs(ampereStartX - ampereEndX) / 2 + ampereEndX
+                            } else if ampereStartX < ampereEndX {
+                                ampereLongX = fabs(ampereStartX - ampereEndX) / 2 + ampereStartX
+                            } else {
+                                ampereLongX = ampereStartX
+                            }
+                            if ampereStartY > ampereEndY {
+                                ampereLongY = fabs(ampereStartY - ampereEndY) / 2 + ampereEndY
+                            } else if ampereStartY < ampereEndY {
+                                ampereLongY = fabs(ampereStartY - ampereEndY) / 2 + ampereStartY
+                            } else {
+                                ampereLongY = ampereStartY
+                            }
+                            if voltRetention.ampereRetention.ampereValue[i][j] >= 100 {
+                                ampereLabel.center = CGPoint(x: ampereLongX + 565 - 17, y: ampereLongY)
+                            } else {
+                                ampereLabel.center = CGPoint(x: ampereLongX + 565 - 15, y: ampereLongY)
+                            }
+                            // 円の描画
+                            let ampereCircleDraw = AmpereCircleDraw(frame: CGRect(x: 0, y: 0,
+                                                                                  width: arduinoImageView.bounds.width,
+                                                                                  height: arduinoImageView.bounds.height))
+                            ampereCircleDraw.isOpaque = false
+                            ampereCircleDraw.intoBoardPoint(startX: ampereLongX - 17, startY: ampereLongY - 17)
+                            view.addSubview(ampereCircleDraw)
+
+                            // 文字の描画
+                            ampereLabel.font = UIFont.systemFont(ofSize: 20)
+                            ampereLabel.numberOfLines = 0
+                            if flagAmpereRange == 1 {
+                                if logWithBase(base: 10)(voltRetention.ampereRetention.ampereValue[i][j]) >= 1 {
+                                    ampereLabel.text = "\(Int(voltRetention.ampereRetention.ampereValue[i][j]))\(voltRetention.ampereRetention.ampereUnit[i][j])"
+                                } else {
+                                    ampereLabel.text = "\(voltRetention.ampereRetention.ampereValue[i][j])\(voltRetention.ampereRetention.ampereUnit[i][j])"
+                                }
+                            } else {
+                                voltRetention.ampereRetention.ampereValueText(choice: i, voltValue: voltRetention.ampereRetention.ampereTotalVoltArray[i], resistorValue: voltRetention.ampereRetention.ampereTotalResistorArray[i])
+                                if logWithBase(base: 10)(voltRetention.ampereRetention.ampereTotalValue) >= 1 {
+                                    ampereLabel.text = "\(Int(voltRetention.ampereRetention.ampereTotalValue))\(voltRetention.ampereRetention.ampereTotalUnit)"
+                                } else {
+                                    ampereLabel.text = "\(voltRetention.ampereRetention.ampereTotalValue)\(voltRetention.ampereRetention.ampereTotalUnit)"
+                                }
+                            }
+                            ampereLabel.tag = 1
+                            ampereLabel.textColor = UIColor.orange
+                            ampereLabel.shadowColor = UIColor.orange
+                            view.addSubview(ampereLabel)
+                        }
+                    }
+                }
+            }
             // ジャイロセンサの値を出力
             // アナログピン（入力）に全て接続があったら
             if voltGyroRun > 3 {
@@ -1029,6 +1435,12 @@ class ViewController: UIViewController {
                 if $0.tag == 1 {
                     $0.removeFromSuperview()
                 }
+                if $0 is AmpereDraw {
+                    $0.removeFromSuperview()
+                }
+                if $0 is AmpereCircleDraw {
+                    $0.removeFromSuperview()
+                }
             }
             testArray = []
             iTest2 = 0
@@ -1049,221 +1461,6 @@ class ViewController: UIViewController {
             gyroRan = 0
             voltGyroInValue = 0
         }
-    }
-
-    @IBAction func editButtonAction(sender _: Any) {}
-
-    @IBAction func generateButtonAction(sender _: Any) {}
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {
-        // Get touch event
-        let touch = touches.first
-        // Get tapped coordinate
-        tapLocation = touch!.location(in: view)
-        point = String(arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-        pointInt = Int(arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-        arduinoUnoPointControl12_9.coordinateTranslate(
-            translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y))
-        )
-        logger.info("X座標: \(tapLocation.x)")
-        logger.info("Y座標: \(tapLocation.y)")
-
-        // ジャンパワイヤここから
-        if pointInt != 0 && wireDrawRan == 1 && partsDraw.wireTranslatePointArray.firstIndex(of: pointInt) == nil {
-            partsDraw.wireDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-            flagDrawWire = 1
-            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
-        }
-
-        if partsDraw.wireGetPointXArray.count % 2 != 0 && wireDrawRan != 1 {
-            partsDraw.wireGetPointXArray.removeLast()
-            partsDraw.wireGetPointYArray.removeLast()
-            partsDraw.jumperNumber -= 1
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-
-        if pointInt != 0 && partsDraw.flagDraw(flagNumber: 0) == 1 && wireDrawRan == 1 && flagDrawWire == 1 {
-            let lineDraw = LineDraw(frame: CGRect(x: 0, y: 0,
-                                                  width: arduinoImageView.bounds.width,
-                                                  height: arduinoImageView.bounds.height))
-            lineDraw.isOpaque = false
-            lineDraw.backgroundColor = UIColor.clear
-            lineDraw.intoBoardPoint(startX: partsDraw.wireGetPointXArray[wireCount],
-                                    startY: partsDraw.wireGetPointYArray[wireCount],
-                                    endX: partsDraw.wireGetPointXArray[wireCount + 1],
-                                    endY: partsDraw.wireGetPointYArray[wireCount + 1])
-            wireCount += 2
-            view.addSubview(lineDraw)
-            backViewArray.append(1)
-            flagDrawWire = 0
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-        // ジャンパワイヤここまで
-
-        // LEDここから
-        if pointInt != 0 && ledDrawRan == 1 && partsDraw.ledTranslatePointArray.firstIndex(of: pointInt) == nil {
-            partsDraw.ledDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-            flagDrawLed = 1
-            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
-        }
-        /* LEDボタンOFF時に要素が一つだけ残っていた場合消す */
-        if partsDraw.ledGetPointXArray.count % 2 != 0 && ledDrawRan != 1 {
-            partsDraw.ledGetPointXArray.removeLast()
-            partsDraw.ledGetPointYArray.removeLast()
-            partsDraw.ledNumber -= 1
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-        /* LED描画部 */
-        if pointInt != 0 && partsDraw.flagDraw(flagNumber: 1) == 1 && ledDrawRan == 1 && flagDrawLed == 1 {
-            let ledDraw = LedDraw(frame: CGRect(x: 0, y: 0,
-                                                width: arduinoImageView.bounds.width,
-                                                height: arduinoImageView.bounds.height))
-            ledDraw.isOpaque = false
-            ledDraw.backgroundColor = UIColor.clear
-            ledDraw.intoBoardPoint(startX: partsDraw.ledGetPointXArray[ledCount],
-                                   startY: partsDraw.ledGetPointYArray[ledCount],
-                                   endX: partsDraw.ledGetPointXArray[ledCount + 1],
-                                   endY: partsDraw.ledGetPointYArray[ledCount + 1])
-            ledCount += 2
-            view.addSubview(ledDraw)
-            backViewArray.append(2)
-            flagDrawLed = 0
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-        // LEDここまで
-
-        /* 抵抗器描画部 */
-        if pointInt != 0 && resistorDrawRan == 1 && partsDraw.resistorTranslatePointArray.firstIndex(of: pointInt) == nil {
-            partsDraw.resistorDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-            flagDrawResistor = 1
-            view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation))
-        }
-        if partsDraw.resistorGetPointYArray.count % 2 != 0 && resistorDrawRan != 1 {
-            partsDraw.resistorGetPointXArray.removeLast()
-            partsDraw.resistorGetPointYArray.removeLast()
-            partsDraw.resistorNumber -= 1
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-        if pointInt != 0 && partsDraw.flagDraw(flagNumber: 2) == 1 && resistorDrawRan == 1 && flagDrawResistor == 1 {
-            let resistorDraw = ResitorDraw(frame: CGRect(x: 0, y: 0,
-                                                         width: arduinoImageView.bounds.width,
-                                                         height: arduinoImageView.bounds.height))
-            resistorDraw.isOpaque = false
-            resistorDraw.backgroundColor = UIColor.clear
-            resistorDraw.intoBoardPoint(startX: partsDraw.resistorGetPointXArray[resistorCount],
-                                        startY: partsDraw.resistorGetPointYArray[resistorCount],
-                                        endX: partsDraw.resistorGetPointXArray[resistorCount + 1],
-                                        endY: partsDraw.resistorGetPointYArray[resistorCount + 1])
-            resistorCount += 2
-            view.addSubview(resistorDraw)
-            backViewArray.append(3)
-            flagDrawResistor = 0
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-        /* 抵抗器ここまで */
-
-        // ジャイロセンサ描画のための配列に値を入れる
-        if pointInt != 0 && 171 ... 200 ~= pointInt && gyroDrawRan == 1 && partsDraw.gyroTranslatePointArray.firstIndex(of: pointInt) == nil {
-            if partsDraw.gyroTranslatePointArray.count % 4 != 0 && pointInt - 1 == partsDraw.gyroTranslatePointArray.last
-                || partsDraw.gyroTranslatePointArray.count % 4 == 0 {
-                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-                flagDrawGyro = 1
-                view.addSubview(selectedCircle(uiImageView: arduinoImageView, tapLocation: tapLocation)) // 選択中
-            } else if flagDrawGyro != 0 {
-                partsDraw.gyroGetPointXArray.removeLast()
-                partsDraw.gyroGetPointYArray.removeLast()
-                partsDraw.gyroTranslatePointArray.removeLast()
-                partsDraw.gyroNumber -= 1
-                partsDraw.gyroDraw(translatePoint: arduinoUnoPointControl12_9.pointTranslate(pointX: Double(tapLocation.x), pointY: Double(tapLocation.y)))
-                flagDrawGyro = 0
-//                view.subviews.forEach {
-//                    if $0 is SelectedCircle {
-//                        $0.removeFromSuperview()
-//                    }
-//                }
-            }
-        }
-
-        // ジャイロセンサ描画モード:OFF時に不必要な要素が残っていれば消す
-        if partsDraw.gyroGetPointXArray.count % 4 != 0 && gyroDrawRan != 1 {
-            for _ in 0 ..< partsDraw.gyroGetPointXArray.count % 4 {
-                partsDraw.gyroGetPointXArray.removeLast()
-                partsDraw.gyroGetPointYArray.removeLast()
-                partsDraw.gyroNumber -= 1
-            }
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-
-        // ジャイロセンサ描画部
-        if pointInt != 0 && 171 ... 200 ~= pointInt && partsDraw.flagDraw(flagNumber: 3) == 1 && gyroDrawRan == 1 && flagDrawGyro == 1 {
-            let gyroDraw = GyroDraw(frame: CGRect(x: 0, y: 0,
-                                                  width: arduinoImageView.bounds.width,
-                                                  height: arduinoImageView.bounds.height))
-            gyroDraw.isOpaque = false
-            gyroDraw.backgroundColor = UIColor.clear
-            gyroDraw.intoBoardPoint(x1: partsDraw.gyroGetPointXArray[gyroCount],
-                                    y1: partsDraw.gyroGetPointYArray[gyroCount],
-                                    x2: partsDraw.gyroGetPointXArray[gyroCount + 1],
-                                    y2: partsDraw.gyroGetPointYArray[gyroCount + 1],
-                                    x3: partsDraw.gyroGetPointXArray[gyroCount + 2],
-                                    y3: partsDraw.gyroGetPointYArray[gyroCount + 2],
-                                    x4: partsDraw.gyroGetPointXArray[gyroCount + 3],
-                                    y4: partsDraw.gyroGetPointYArray[gyroCount + 3])
-            view.addSubview(gyroDraw)
-            gyroCount += 4
-            backViewArray.append(4)
-            flagDrawGyro = 0
-            view.subviews.forEach {
-                if $0 is SelectedCircle {
-                    $0.removeFromSuperview()
-                }
-            }
-        }
-
-        /* Debug */
-        //        let debug = self.arduinoUnoPointControl12_9.pointTranslate(pointX: tapLocation.x, pointY: tapLocation.y)
-        //        SCLAlertView().showInfo("\(debug)")
-        ////        logger.debug("\(debug)")
-        //        /* Debug */
-        ////        logger.info(tapLocation)
-        //        logger.debug("X-cordinate: \(Double(tapLocation.x))")
-        //        logger.debug("Y-cordinate: \(Double(tapLocation.y))")
     }
 
     override func didReceiveMemoryWarning() {

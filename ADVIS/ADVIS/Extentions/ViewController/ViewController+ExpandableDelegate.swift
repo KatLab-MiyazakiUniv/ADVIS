@@ -158,6 +158,7 @@ extension ViewController: ExpandableDelegate {
                     resistorDrawRan = 0
                     SCLAlertView().showInfo("抵抗器\nOFF")
                 } else if resistorDrawRan == 0 {
+                    resistorDrawRan = 1
                     resistorCode1 = 1
                     resistorCode2 = 5
                     resistorCode3 = 1

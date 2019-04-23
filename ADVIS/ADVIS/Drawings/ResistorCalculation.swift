@@ -37,7 +37,7 @@ class ResistorCalculation {
     var ampereTotalValue: Double = 0.0
     var ampereTotalUnit = ""
 
-    /// 電流値のカラーコードの計算
+    /// 抵抗値のカラーコードの計算
     func resistorCalculate(resistorValue: Int, resistorTolerance: Int) -> String {
         var ampereResult = Double(resistorValue)
         var ampereTolerance = resistorTolerance
@@ -45,7 +45,7 @@ class ResistorCalculation {
         let log10 = logWithBase(base: 10)
 
         if ampereTolerance % 3 != 0 {
-            ampereResult = ampereResult * pow(10, Double(ampereTolerance % 3))
+            ampereResult = ampereResult * pow(10.0, Double(ampereTolerance % 3))
             ampereTolerance = ampereTolerance - ampereTolerance % 3
         }
         if ampereResult >= 1000 {
@@ -63,7 +63,7 @@ class ResistorCalculation {
             ampereTolerance = ampereTolerance + 3
         }
 
-        ampereResult = round(ampereResult / pow(10, floor(log10(ampereResult)) - 1)) * pow(10, floor(log10(ampereResult)) - 1)
+        ampereResult = round(ampereResult / pow(10.0, floor(log10(ampereResult)) - 1)) * pow(10.0, floor(log10(ampereResult)) - 1)
 
         if ampereTolerance == 12 {
             ampereCharacter = "TΩ"
@@ -90,7 +90,7 @@ class ResistorCalculation {
 
     /// 電流値の計算
     func ampereValueText(choice _: Int, voltValue: Int, resistorValue: Double) {
-        var ampereTotalResult = Double(voltValue)
+        var ampereTotalResult = Double(voltValue * 1000) / Double(resistorValue)
         var ampereTotalTolerance = -3
         var ampereTotalCharacter = ""
         let log10 = logWithBase(base: 10)

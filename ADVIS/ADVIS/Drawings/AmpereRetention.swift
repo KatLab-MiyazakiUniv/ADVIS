@@ -13,7 +13,7 @@ import UIKit
 /// 電流値をいい感じにするクラス
 class AmpereRetention {
     /// インスタンス生成
-    private var partsDraw = PartsDraw()
+    // private var partsDraw = PartsDraw()
     var arduinoUnoPointControl12_9 = ArduinoUnoPointControl12_9()
 
     /// 電流の配列に値を入れる際に何番目に入れるかを管理
@@ -53,14 +53,14 @@ class AmpereRetention {
             if ampereResistorValue[j][i[j]] != 0 {
                 ampereValueCalculate(choice: j, voltValue: ampereVoltValue[j][i[j] / 2], resistorValue: ampereResistorValue[j][i[j]], resistorTolerance: ampereResistorValue[j][i[j] + 1])
             } else {
-                ampereResistorValue[j].insert(20, at: i[j] / 2)
+                ampereValue[j].insert(20.0, at: i[j] / 2)
                 ampereUnit[j].insert("mA", at: i[j] / 2)
             }
         } else if ampereVoltValue[j][i[j] / 2] == 0 && ampereResistorValue[j][i[j]] == 0 {
-            ampereValue[j].insert(20, at: i[j] / 2)
+            ampereValue[j].insert(20.0, at: i[j] / 2)
             ampereUnit[j].insert("mA", at: i[j] / 2)
         } else {
-            ampereValue[j].insert(0, at: i[j] / 2)
+            ampereValue[j].insert(0.0, at: i[j] / 2)
             ampereUnit[j].insert("", at: i[j] / 2)
         }
         if index % 2 == 0 {
@@ -251,12 +251,12 @@ class AmpereRetention {
 
         if ampereResult >= 1000 {
             ampereResult = ampereResult / 1000
-            ampereTolerance = ampereTolerance - ampereTolerance % 3
+            ampereTolerance = ampereTolerance - ampereTolerance + 3
         } else if ampereResult < 0.1 {
             ampereResult = ampereResult * 1000
             ampereTolerance = ampereTolerance - 3
         } else if (ampereResult * 100).truncatingRemainder(dividingBy: 10) != 0 {
-            ampereResult = ampereResult / 1000
+            ampereResult = ampereResult * 1000
             ampereTolerance = ampereTolerance - 3
         }
 
@@ -265,7 +265,7 @@ class AmpereRetention {
             ampereTolerance = ampereTolerance + 3
         }
 
-        ampereResult = round(ampereResult / pow(10.0, floor(log10(ampereResult)) - 1)) * pow(10, floor(log10(ampereResult)) - 1)
+        ampereResult = round(ampereResult / pow(10.0, floor(log10(ampereResult)) - 1)) * pow(10.0, floor(log10(ampereResult)) - 1)
 
         if ampereTolerance == 3 {
             ampereCharacter = "kA"
@@ -303,7 +303,7 @@ class AmpereRetention {
             ampereTotalResult = ampereTotalResult / 1000
             ampereTotalTolerance = ampereTotalTolerance + 3
         }
-        ampereTotalResult = round(ampereTotalResult / pow(10, floor(log10(ampereTotalResult)) - 1)) * pow(10, floor(log10(ampereTotalResult)) - 1)
+        ampereTotalResult = round(ampereTotalResult / pow(10.0, floor(log10(ampereTotalResult)) - 1)) * pow(10.0, floor(log10(ampereTotalResult)) - 1)
 
         if ampereTotalTolerance == 3 {
             ampereTotalCharacter = "kA"

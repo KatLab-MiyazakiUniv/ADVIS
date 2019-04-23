@@ -45,12 +45,16 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             resistorCode1 = partsDraw.resistorColorTranslateValue(colorCode: resistorCode[component][row])
+            logger.debug("\(resistorCode1)")
         } else if component == 1 {
             resistorCode2 = partsDraw.resistorColorTranslateValue(colorCode: resistorCode[component][row])
+            logger.debug("\(resistorCode2)")
         } else if component == 2 {
-            resistorCode3 = partsDraw.resistorColorTranslateValue(colorCode: resistorCode[component][row])
+            resistorCode3 = partsDraw.resistorColorTranslateMultiplier(colorCode: resistorCode[component][row])
+            logger.debug("\(resistorCode3)")
         } else {
-            resistorCode4 = partsDraw.resistorColorTranslateValue(colorCode: resistorCode[component][row])
+            resistorCode4 = partsDraw.resistorColorTranslateTolerance(colorCode: resistorCode[component][row])
+            logger.debug("\(resistorCode4)")
         }
         logger.debug("\(resistorCode[component][row])")
     }

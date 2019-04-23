@@ -116,7 +116,7 @@ class ResitorDraw: UIView {
         if colorCode1 != 0 || colorCode2 != 0 {
             resistorColorX = resistorFirstX / 4
             resistorColorY = resistorFirstY / 4
-            logger.debug("\(resistorColorX), \(resistorColorY)")
+            print("\(resistorColorX), \(resistorColorY)")
             /// 第1カラーコード
             let resistorColor1 = UIBezierPath()
 
