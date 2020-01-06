@@ -1,12 +1,16 @@
+name: Alamofire, nameSpecified: , owner: Alamofire, version: 4.8.1
+
 name: ExpandableCell, nameSpecified: , owner: younatics, version: 1.3.0
 
 name: lottie-ios, nameSpecified: , owner: airbnb, version: 3.0.3
 
 name: LUExpandableTableView, nameSpecified: , owner: LaurentiuUngur, version: 4.1.0
 
-name: SCLAlertView-Swift, nameSpecified: , owner: vikmeup, version: 86ea761
+name: SCLAlertView-Swift, nameSpecified: , owner: vikmeup, version: d98c3e6
 
 name: SwiftyBeaver, nameSpecified: , owner: SwiftyBeaver, version: 1.7.0
+
+name: SwiftyJSON, nameSpecified: , owner: SwiftyJSON, version: 5.0.0
 
 add-version-numbers: false
 

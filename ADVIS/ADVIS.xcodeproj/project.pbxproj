@@ -29,6 +29,10 @@
 		074190922128209D00B8E7E1 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074190912128209D00B8E7E1 /* NormalCell.xib */; };
 		07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07560DC1223423C000CB43DA /* AmpereRetention.swift */; };
 		076E946D2130440B0005C52D /* LedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E946C2130440B0005C52D /* LedDraw.swift */; };
+		0776FBF723C2226D00CD3C5B /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0776FBF623C2226D00CD3C5B /* Edit.storyboard */; };
+		0776FBF923C222A100CD3C5B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0776FBF823C222A100CD3C5B /* EditViewController.swift */; };
+		0776FBFC23C361C700CD3C5B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0776FBFA23C361C700CD3C5B /* Alamofire.framework */; };
+		0776FBFD23C361C700CD3C5B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0776FBFB23C361C700CD3C5B /* SwiftyJSON.framework */; };
 		077C9BC621273F9D00ECE0C6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077C9BC521273F9D00ECE0C6 /* Settings.bundle */; };
 		077EC9952120844F00DFEC20 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */; };
 		077F575821259F7F008F2606 /* MyTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F575721259F7F008F2606 /* MyTableViewSectionHeader.swift */; };
@@ -66,6 +70,7 @@
 		07E13B6F212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */; };
 		07EC7212212C159C008DCF61 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC7211212C159C008DCF61 /* MaterialButton.swift */; };
 		07EC7214212C36B3008DCF61 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EC7213212C36B3008DCF61 /* SCLAlertView.framework */; };
+		EE0F2DF18E9B79B1AEBE18DE /* CodingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F28A13A12C3A15280421E /* CodingNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +115,10 @@
 		074190912128209D00B8E7E1 /* NormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
 		07560DC1223423C000CB43DA /* AmpereRetention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmpereRetention.swift; sourceTree = "<group>"; };
 		076E946C2130440B0005C52D /* LedDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedDraw.swift; sourceTree = "<group>"; };
+		0776FBF623C2226D00CD3C5B /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
+		0776FBF823C222A100CD3C5B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		0776FBFA23C361C700CD3C5B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		0776FBFB23C361C700CD3C5B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		077C9BC521273F9D00ECE0C6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		077EC9942120844F00DFEC20 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		077F575721259F7F008F2606 /* MyTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewSectionHeader.swift; sourceTree = "<group>"; };
@@ -146,6 +155,7 @@
 		07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoUnoPointControl12_9Tests.swift; sourceTree = "<group>"; };
 		07EC7211212C159C008DCF61 /* MaterialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		07EC7213212C36B3008DCF61 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+		EE0F28A13A12C3A15280421E /* CodingNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +163,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0776FBFC23C361C700CD3C5B /* Alamofire.framework in Frameworks */,
+				0776FBFD23C361C700CD3C5B /* SwiftyJSON.framework in Frameworks */,
 				07EC7214212C36B3008DCF61 /* SCLAlertView.framework in Frameworks */,
 				0741908A2127DD2E00B8E7E1 /* ExpandableCell.framework in Frameworks */,
 				077EC9952120844F00DFEC20 /* SwiftyBeaver.framework in Frameworks */,
@@ -260,6 +272,8 @@
 		072E9C1020CC4A9100D8B02A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0776FBFA23C361C700CD3C5B /* Alamofire.framework */,
+				0776FBFB23C361C700CD3C5B /* SwiftyJSON.framework */,
 				07EC7213212C36B3008DCF61 /* SCLAlertView.framework */,
 				074190892127DD2E00B8E7E1 /* ExpandableCell.framework */,
 				074190872127DD0100B8E7E1 /* ExpandableCell.framework.dSYM */,
@@ -337,6 +351,9 @@
 				070D81462129BEFB0026FD0A /* SplashViewController.swift */,
 				072E9C1520CC4CA100D8B02A /* Resources */,
 				077C9BC521273F9D00ECE0C6 /* Settings.bundle */,
+				0776FBF623C2226D00CD3C5B /* Edit.storyboard */,
+				0776FBF823C222A100CD3C5B /* EditViewController.swift */,
+				EE0F28A13A12C3A15280421E /* CodingNetwork.swift */,
 			);
 			path = ADVIS;
 			sourceTree = "<group>";
@@ -473,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B8B75920C510A700B7B9EE /* LaunchScreen.storyboard in Resources */,
+				0776FBF723C2226D00CD3C5B /* Edit.storyboard in Resources */,
 				072E9C2120CC505B00D8B02A /* data.json in Resources */,
 				077C9BC621273F9D00ECE0C6 /* Settings.bundle in Resources */,
 				072E9C1F20CC4F1100D8B02A /* img_0.png in Resources */,
@@ -517,6 +535,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ExpandableCell.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SCLAlertView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -531,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0776FBF923C222A100CD3C5B /* EditViewController.swift in Sources */,
 				072E9C2320CD6B2200D8B02A /* ArduinoUnoPointControl12_9.swift in Sources */,
 				07DCBD812131BB32002E8C78 /* VoltCircleDraw.swift in Sources */,
 				072E9C0F20C6C33400D8B02A /* ArduinoUnoView.swift in Sources */,
@@ -556,6 +577,7 @@
 				070D81472129BEFB0026FD0A /* SplashViewController.swift in Sources */,
 				078F6250212F030500C6E079 /* PartsDraw.swift in Sources */,
 				078F624E212EFAE800C6E079 /* LineDraw.swift in Sources */,
+				EE0F2DF18E9B79B1AEBE18DE /* CodingNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
