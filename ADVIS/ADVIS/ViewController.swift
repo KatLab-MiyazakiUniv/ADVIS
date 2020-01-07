@@ -433,6 +433,9 @@ class ViewController: UIViewController {
     }
 
     // バックボタンを押した場合
+
+    // MARK: - バックボタン -
+
     @IBAction func backButtonAction(sender _: Any) {
         if backViewArray.count > 0 {
             flagBackBegin = 1
@@ -563,7 +566,8 @@ class ViewController: UIViewController {
         }
     }
 
-    // とりあえずVOLT RUNにしとく
+    // MARK: - VOLT RUN ボタン -
+
     @IBAction func compileButtonAction(sender _: Any) {
         wireDrawRan = 0
         ledDrawRan = 0
@@ -875,10 +879,13 @@ class ViewController: UIViewController {
 
     @IBAction func editButtonAction(sender _: Any) {}
 
+    // MARK: - コードをコンパイルするボタン -
+
     @IBAction func generateButtonAction(sender _: Any) {
         print("generateが押されたよ")
-        let codingNetwork = CodingNetwork()
-        codingNetwork.postCode(requestBody: code)
+        let voltPinCheck = VoltPinCheck(arduinoPinStatusDict: VoltPin.dic)
+        voltPinCheck.setOutputPin()
+        print("done...")
     }
 
     override func viewDidLayoutSubviews() {

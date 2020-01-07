@@ -12,6 +12,7 @@ class EditViewController: UIViewController {
     // MARK: - エディタ -
 
     @IBOutlet var textView: UITextView!
+    let codingNetwork = CodingNetwork() // Heroku上のサーバと通信開始するインスタンス生成
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class EditViewController: UIViewController {
     // MARK: - 戻るボタン -
 
     @IBAction func backButton(_: Any) {
+        codingNetwork.postCode(requestBody: textView.text) // 通信開始
         performSegue(withIdentifier: "toViewController", sender: nil)
     }
 

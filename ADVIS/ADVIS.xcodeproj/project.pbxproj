@@ -70,6 +70,9 @@
 		07E13B6F212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */; };
 		07EC7212212C159C008DCF61 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EC7211212C159C008DCF61 /* MaterialButton.swift */; };
 		07EC7214212C36B3008DCF61 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07EC7213212C36B3008DCF61 /* SCLAlertView.framework */; };
+		07F20E6C23C4BA2400AE2327 /* VoltCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F20E6B23C4BA2400AE2327 /* VoltCheck.swift */; };
+		07F20E6E23C4BC4600AE2327 /* VoltPinCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F20E6D23C4BC4600AE2327 /* VoltPinCheck.swift */; };
+		07F20E7123C4D3A400AE2327 /* VoltPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F20E7023C4D3A400AE2327 /* VoltPin.swift */; };
 		EE0F2DF18E9B79B1AEBE18DE /* CodingNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F28A13A12C3A15280421E /* CodingNetwork.swift */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +158,9 @@
 		07E13B6E212DA18D0056977F /* ArduinoUnoPointControl12_9Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoUnoPointControl12_9Tests.swift; sourceTree = "<group>"; };
 		07EC7211212C159C008DCF61 /* MaterialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		07EC7213212C36B3008DCF61 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+		07F20E6B23C4BA2400AE2327 /* VoltCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltCheck.swift; sourceTree = "<group>"; };
+		07F20E6D23C4BC4600AE2327 /* VoltPinCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltPinCheck.swift; sourceTree = "<group>"; };
+		07F20E7023C4D3A400AE2327 /* VoltPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltPin.swift; sourceTree = "<group>"; };
 		EE0F28A13A12C3A15280421E /* CodingNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodingNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +318,16 @@
 			path = Drawings;
 			sourceTree = "<group>";
 		};
+		0776FBFE23C4B7D600CD3C5B /* VoltCheck */ = {
+			isa = PBXGroup;
+			children = (
+				07F20E6B23C4BA2400AE2327 /* VoltCheck.swift */,
+				07F20E6D23C4BC4600AE2327 /* VoltPinCheck.swift */,
+				07F20E7023C4D3A400AE2327 /* VoltPin.swift */,
+			);
+			path = VoltCheck;
+			sourceTree = "<group>";
+		};
 		07B8B74220C510A500B7B9EE = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +352,8 @@
 		07B8B74D20C510A500B7B9EE /* ADVIS */ = {
 			isa = PBXGroup;
 			children = (
+				07F20E6F23C4C06800AE2327 /* Network */,
+				0776FBFE23C4B7D600CD3C5B /* VoltCheck */,
 				076E946B213043990005C52D /* Drawings */,
 				0704212F212705D800688D05 /* CustomView */,
 				0704212B212700A400688D05 /* Extentions */,
@@ -353,7 +371,6 @@
 				077C9BC521273F9D00ECE0C6 /* Settings.bundle */,
 				0776FBF623C2226D00CD3C5B /* Edit.storyboard */,
 				0776FBF823C222A100CD3C5B /* EditViewController.swift */,
-				EE0F28A13A12C3A15280421E /* CodingNetwork.swift */,
 			);
 			path = ADVIS;
 			sourceTree = "<group>";
@@ -379,6 +396,14 @@
 				07B8B77020C510A700B7B9EE /* Info.plist */,
 			);
 			path = ADVISUITests;
+			sourceTree = "<group>";
+		};
+		07F20E6F23C4C06800AE2327 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EE0F28A13A12C3A15280421E /* CodingNetwork.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +589,7 @@
 				07DCBD7F2131B9CF002E8C78 /* VoltDraw.swift in Sources */,
 				07DCBD852131C00F002E8C78 /* DangerDraw.swift in Sources */,
 				07DCBD872131C8B2002E8C78 /* VoltRetention.swift in Sources */,
+				07F20E6C23C4BA2400AE2327 /* VoltCheck.swift in Sources */,
 				076E946D2130440B0005C52D /* LedDraw.swift in Sources */,
 				07DCBD832131BDF3002E8C78 /* LedLightupDraw.swift in Sources */,
 				0741908E2128147400B8E7E1 /* ExpandableCells.swift in Sources */,
@@ -572,7 +598,9 @@
 				070421312127064900688D05 /* CustomMenuButton.swift in Sources */,
 				07DCBD8B2131CD47002E8C78 /* GyroDraw.swift in Sources */,
 				07560DC2223423C000CB43DA /* AmpereRetention.swift in Sources */,
+				07F20E7123C4D3A400AE2327 /* VoltPin.swift in Sources */,
 				077F575E2125ABFC008F2606 /* MyTableViewCell.swift in Sources */,
+				07F20E6E23C4BC4600AE2327 /* VoltPinCheck.swift in Sources */,
 				071F77C42126C60300534F87 /* CustomArduinoUno.swift in Sources */,
 				070D81472129BEFB0026FD0A /* SplashViewController.swift in Sources */,
 				078F6250212F030500C6E079 /* PartsDraw.swift in Sources */,

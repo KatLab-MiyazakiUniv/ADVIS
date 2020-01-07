@@ -49,37 +49,33 @@ struct PinStatus: Codable {
 /// Heroku上のサーバーとPOST通信を行う
 class CodingNetwork {
     let url: String
-    var arduinoPintatus2 = [ArduinoPinStatus]()
+    let dispatchGroup = DispatchGroup()
 
     init() {
         url = "https://pure-reaches-27951.herokuapp.com//api/v1/arduino/parse"
     }
 
+    /// POST通信を行う
+    /// 成功すると辞書型に変換してstatic変数に代入
     func postCode(requestBody: String) {
+//        self.dispatchGroup.enter() // 逐次処理的な
         let requestBody = ["sourceCode": requestBody]
+//        var arduinoPinStatusDict: [String: PinStatus] = [:]
         Alamofire.request(url, method: .post, parameters: requestBody).validate().responseJSON { res in
             if res.result.isSuccess {
                 let returnData = res.data
                 let arduinoPinStatus = try? JSONDecoder().decode(ArduinoPinStatus.self, from: returnData!)
-                _ = self.converArduinoPinStatusToDict(arduinoPinStatus: arduinoPinStatus!)
-//                print(arduinoPinStatus!.analogPin00)
-//                // 強制的にアンラップ
-//                print("Unwrap: \n \(arduinoPinStatus!)")
-//                print("")
-//                let mirror = Mirror(reflecting: arduinoPinStatus!)
-//                var a: [String: PinStatus] = [:]
-//                for child in mirror.children {
-//                    print("Label: \(child.label!) Value: \(child.value)")
-//                    a.updateValue(child.value as! PinStatus, forKey: child.label!)
-//                }
-//                print(a)
+                VoltPin.dic = self.converArduinoPinStatusToDict(arduinoPinStatus: arduinoPinStatus!)
             } else {
                 print("Error!")
             }
+//            self.dispatchGroup.leave()
         }
+//        return arduinoPinStatusDict
     }
 
-    func converArduinoPinStatusToDict(arduinoPinStatus: ArduinoPinStatus) -> [String: PinStatus] {
+    /// 構造体を辞書型に変換するメソッド
+    private func converArduinoPinStatusToDict(arduinoPinStatus: ArduinoPinStatus) -> [String: PinStatus] {
         print("構造体を辞書型に変換します．")
         print("変換前: \n \(arduinoPinStatus)")
         let mirror = Mirror(reflecting: arduinoPinStatus)

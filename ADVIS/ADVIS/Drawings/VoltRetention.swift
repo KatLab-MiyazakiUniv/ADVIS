@@ -2,8 +2,8 @@
 //  VoltRetention.swift
 //  ADVIS
 //
-//  Created by Tatsumi Nishida on 8/26/18.
-//  Copyright © 2018 Tatsumi. All rights reserved.
+//  Created by T.N.Revolution on 8/26/18.
+//  Copyright © 2018 T.N.Revolution. All rights reserved.
 //
 
 import Foundation
@@ -28,6 +28,7 @@ class VoltRetention {
     var voltDrawStart = 0
     var voltDrawEnd = 0
 
+    /// 各通電区間を管理する配列
     var voltControlArray = Array(repeating: 0, count: 90)
     var voltConnectedArray: [[Int]] = [[404], [405], [408], [409], [410], [411], [419], [420], [421], [422], [423], [424]]
     var voltInPinArray: [Int] = [412, 413, 414]
@@ -38,33 +39,33 @@ class VoltRetention {
      */
     func voltPowerIn(repeatNumber: Int) -> Int {
         if flagPowerIn == 0 {
-            voltControlArray[64] = 3
-            voltControlArray[65] = 5
-            voltControlArray[66] = 0
-            voltControlArray[67] = 0
-            voltControlArray[68] = 10
-            voltControlArray[69] = 3
-            voltControlArray[70] = 3
-            voltControlArray[71] = 3
-            voltControlArray[72] = 0
-            voltControlArray[73] = 0
-            voltControlArray[74] = 0
+            voltControlArray[64] = 3 // 3.3Vpin
+            voltControlArray[65] = 5 // 5Vpin
+            voltControlArray[66] = 0 // GND
+            voltControlArray[67] = 0 // GND
+            voltControlArray[68] = 10 // Vin
+            voltControlArray[69] = 3 // A00
+            voltControlArray[70] = 3 // A01
+            voltControlArray[71] = 3 // A02
+            voltControlArray[72] = 0 // A03
+            voltControlArray[73] = 0 // A04
+            voltControlArray[74] = 0 // A05
 
-            voltControlArray[75] = 0
-            voltControlArray[76] = 5
-            voltControlArray[77] = 5
-            voltControlArray[78] = 5
-            voltControlArray[79] = 5
-            voltControlArray[80] = 5
-            voltControlArray[81] = 5
-            voltControlArray[82] = 0
-            voltControlArray[83] = 0
-            voltControlArray[84] = 0
-            voltControlArray[85] = 0
-            voltControlArray[86] = 0
-            voltControlArray[87] = 0
-            voltControlArray[88] = 0
-            voltControlArray[89] = 0
+            voltControlArray[75] = 0 // GND
+            voltControlArray[76] = 5 // D13
+            voltControlArray[77] = 5 // D12
+            voltControlArray[78] = 5 // D11
+            voltControlArray[79] = 5 // D10
+            voltControlArray[80] = 5 // D09
+            voltControlArray[81] = 5 // D08
+            voltControlArray[82] = 0 // D07
+            voltControlArray[83] = 0 // D06
+            voltControlArray[84] = 0 // D05
+            voltControlArray[85] = 0 // D04
+            voltControlArray[86] = 0 // D03
+            voltControlArray[87] = 0 // D02
+            voltControlArray[88] = 0 // D01
+            voltControlArray[89] = 0 // D00
 
             searchInput = voltConnectedArray[repeatNumber][0]
 
