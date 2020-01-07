@@ -36,286 +36,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 10,
-      "symbol": "ArduinoPinStatus",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 11,
-      "symbol": "ArduinoPinStatus.digitalPin00",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 12,
-      "symbol": "ArduinoPinStatus.digitalPin01",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 13,
-      "symbol": "ArduinoPinStatus.digitalPin02",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 14,
-      "symbol": "ArduinoPinStatus.digitalPin03",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 15,
-      "symbol": "ArduinoPinStatus.digitalPin04",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 16,
-      "symbol": "ArduinoPinStatus.digitalPin05",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 17,
-      "symbol": "ArduinoPinStatus.digitalPin06",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 18,
-      "symbol": "ArduinoPinStatus.digitalPin07",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 19,
-      "symbol": "ArduinoPinStatus.digitalPin08",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 20,
-      "symbol": "ArduinoPinStatus.digitalPin09",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 21,
-      "symbol": "ArduinoPinStatus.digitalPin10",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 22,
-      "symbol": "ArduinoPinStatus.digitalPin11",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 23,
-      "symbol": "ArduinoPinStatus.digitalPin12",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 24,
-      "symbol": "ArduinoPinStatus.digitalPin13",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 25,
-      "symbol": "ArduinoPinStatus.GND0",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 26,
-      "symbol": "ArduinoPinStatus.AREF",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 27,
-      "symbol": "ArduinoPinStatus.serialDataLine12C",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 28,
-      "symbol": "ArduinoPinStatus.serialClockLine12C",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 29,
-      "symbol": "ArduinoPinStatus.analogPin00",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 30,
-      "symbol": "ArduinoPinStatus.analogPin01",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 31,
-      "symbol": "ArduinoPinStatus.analogPin02",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 32,
-      "symbol": "ArduinoPinStatus.analogPin03",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 33,
-      "symbol": "ArduinoPinStatus.analogPin04",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 34,
-      "symbol": "ArduinoPinStatus.analogPin05",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 35,
-      "symbol": "ArduinoPinStatus.vin",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 36,
-      "symbol": "ArduinoPinStatus.GND1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 37,
-      "symbol": "ArduinoPinStatus.GND2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 38,
-      "symbol": "ArduinoPinStatus.volt5_0v",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 39,
-      "symbol": "ArduinoPinStatus.volt3_3v",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 40,
-      "symbol": "ArduinoPinStatus.IOREF",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 43,
-      "symbol": "PinStatus",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 44,
-      "symbol": "PinStatus.isLow",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 45,
-      "symbol": "PinStatus.isInput",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 46,
-      "symbol": "PinStatus.voltValue",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 51,
-      "symbol": "CodingNetwork.url",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 52,
-      "symbol": "CodingNetwork.arduinoPintatus2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 54,
-      "symbol": "CodingNetwork.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 58,
-      "symbol": "CodingNetwork.postCode(requestBody:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CodingNetwork.swift",
-      "line": 82,
-      "symbol": "CodingNetwork.converArduinoPinStatusToDict(arduinoPinStatus:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/CustomView/ArduinoUnoView/ArduinoUnoView.swift",
       "line": 11,
       "symbol": "ArduinoUnoView",
@@ -1080,63 +800,56 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 31,
-      "symbol": "VoltRetention.voltControlArray",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 32,
+      "line": 33,
       "symbol": "VoltRetention.voltConnectedArray",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 33,
+      "line": 34,
       "symbol": "VoltRetention.voltInPinArray",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 176,
+      "line": 177,
       "symbol": "VoltRetention.voltConnection(inPinNumber:repeatNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 252,
+      "line": 253,
       "symbol": "VoltRetention.voltSearchNearConnection(inPinValue:repeatNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 504,
+      "line": 505,
       "symbol": "VoltRetention.voltValueControl(pinNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 546,
+      "line": 547,
       "symbol": "VoltRetention.voltReturnValue(boardNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 582,
+      "line": 583,
       "symbol": "VoltRetention.voltBoardTranslate(voltTransNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 612,
+      "line": 613,
       "symbol": "VoltRetention.voltControlNumberBack(boardNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1150,21 +863,28 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/EditViewController.swift",
-      "line": 16,
+      "line": 15,
+      "symbol": "EditViewController.codingNetwork",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/EditViewController.swift",
+      "line": 17,
       "symbol": "EditViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/EditViewController.swift",
-      "line": 24,
+      "line": 25,
       "symbol": "EditViewController.backButton(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/EditViewController.swift",
-      "line": 28,
+      "line": 30,
       "symbol": "EditViewController.prepare(for:sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1327,6 +1047,272 @@
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Extentions/ViewController/ViewController+ExpandableDelegate.swift",
       "line": 240,
       "symbol": "ViewController.expandableTableView(_:shouldHighlightRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 10,
+      "symbol": "ArduinoPinStatus",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 11,
+      "symbol": "ArduinoPinStatus.digitalPin00",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 12,
+      "symbol": "ArduinoPinStatus.digitalPin01",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 13,
+      "symbol": "ArduinoPinStatus.digitalPin02",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 14,
+      "symbol": "ArduinoPinStatus.digitalPin03",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 15,
+      "symbol": "ArduinoPinStatus.digitalPin04",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 16,
+      "symbol": "ArduinoPinStatus.digitalPin05",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 17,
+      "symbol": "ArduinoPinStatus.digitalPin06",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 18,
+      "symbol": "ArduinoPinStatus.digitalPin07",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 19,
+      "symbol": "ArduinoPinStatus.digitalPin08",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 20,
+      "symbol": "ArduinoPinStatus.digitalPin09",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 21,
+      "symbol": "ArduinoPinStatus.digitalPin10",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 22,
+      "symbol": "ArduinoPinStatus.digitalPin11",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 23,
+      "symbol": "ArduinoPinStatus.digitalPin12",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 24,
+      "symbol": "ArduinoPinStatus.digitalPin13",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 25,
+      "symbol": "ArduinoPinStatus.GND0",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 26,
+      "symbol": "ArduinoPinStatus.AREF",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 27,
+      "symbol": "ArduinoPinStatus.serialDataLine12C",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 28,
+      "symbol": "ArduinoPinStatus.serialClockLine12C",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 29,
+      "symbol": "ArduinoPinStatus.analogPin00",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 30,
+      "symbol": "ArduinoPinStatus.analogPin01",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 31,
+      "symbol": "ArduinoPinStatus.analogPin02",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 32,
+      "symbol": "ArduinoPinStatus.analogPin03",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 33,
+      "symbol": "ArduinoPinStatus.analogPin04",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 34,
+      "symbol": "ArduinoPinStatus.analogPin05",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 35,
+      "symbol": "ArduinoPinStatus.vin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 36,
+      "symbol": "ArduinoPinStatus.GND1",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 37,
+      "symbol": "ArduinoPinStatus.GND2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 38,
+      "symbol": "ArduinoPinStatus.volt5_0v",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 39,
+      "symbol": "ArduinoPinStatus.volt3_3v",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 40,
+      "symbol": "ArduinoPinStatus.IOREF",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 43,
+      "symbol": "PinStatus",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 44,
+      "symbol": "PinStatus.isLow",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 45,
+      "symbol": "PinStatus.isInput",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 46,
+      "symbol": "PinStatus.voltValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 51,
+      "symbol": "CodingNetwork.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 52,
+      "symbol": "CodingNetwork.dispatchGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Network/CodingNetwork.swift",
+      "line": 54,
+      "symbol": "CodingNetwork.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -1724,72 +1710,100 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 436,
+      "line": 439,
       "symbol": "ViewController.backButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 567,
+      "line": 571,
       "symbol": "ViewController.compileButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 876,
+      "line": 880,
       "symbol": "ViewController.editButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 878,
+      "line": 884,
       "symbol": "ViewController.generateButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 884,
+      "line": 891,
       "symbol": "ViewController.viewDidLayoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 888,
+      "line": 895,
       "symbol": "ViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 892,
+      "line": 899,
       "symbol": "ViewController.touchesBegan(_:with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 1095,
+      "line": 1102,
       "symbol": "ViewController.didReceiveMemoryWarning()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 1101,
+      "line": 1108,
       "symbol": "judgeDevice(screenSizeHeight:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 1115,
+      "line": 1122,
       "symbol": "selectedCircle(uiImageView:tapLocation:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/VoltCheck/VoltCheck.swift",
+      "line": 11,
+      "symbol": "VoltCheck",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/VoltCheck/VoltCheck.swift",
+      "line": 12,
+      "symbol": "VoltCheck.voltRun(runRan:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/VoltCheck/VoltPin.swift",
+      "line": 11,
+      "symbol": "VoltPin",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/VoltCheck/VoltPin.swift",
+      "line": 12,
+      "symbol": "VoltPin.dic",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     }
   ],
