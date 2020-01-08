@@ -56,7 +56,12 @@ class ViewController: UIViewController {
     var iVoltDraw = 0
     var iTest = 0
     var motionManager: CMMotionManager!
-    var code: String = "" // ソースコードを受け取る
+    /// ソースコードを受け取る
+    var code: String = ""
+    /// 出力ピン同士がつながっている場合か管理するフラグ
+    var isIBothOutputPin = false
+    /// LEDが破損する危険性がある場合か管理するフラグ
+    var isLedDamage = false
 
     /* その他の変数 */
     //    var backLed = 0
@@ -168,14 +173,13 @@ class ViewController: UIViewController {
                             }
                         }
 
-                        /* 抵抗器が接続されていた場合に電圧値を３下げる */
+                        // 抵抗器が接続されていた場合に電圧値を３下げる
                         if partsDraw.resistorTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
                             voltRetention.voltValue = voltRetention.voltValue - 3
                         }
-                        /* LEDがあった場合電圧値を１下げる */
-                        // LEDがあった場合は特に何もしないことにした
+                        // LEDがあった場合電圧値を１下げる
                         if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
-//                            voltRetention.voltValue = voltRetention.voltValue - 1
+                            voltRetention.voltValue = voltRetention.voltValue - 1
                         }
                         // 電圧値を配列に保存
                         if voltRetention.voltReturnValue(boardNumber: voltConnectNext) < voltRetention.voltValue {
@@ -244,27 +248,6 @@ class ViewController: UIViewController {
                 }
             }
 
-//            // 3Vより大きい電圧値が入力ピンに送られた場合
-//            for i in 0..<12 {
-//                if 406...407 ~= voltRetention.voltConnectedArray[i].last!
-//                    || 412...418 ~= voltRetention.voltConnectedArray[i].last!
-//                    || 425...432 ~= voltRetention.voltConnectedArray[i].last! {
-//                    voltLastNumber = voltRetention.voltConnectedArray[i][(voltRetention.voltConnectedArray[i].count)-2]
-//                    voltLastValue = voltRetention.voltReturnValue(boardNumber: voltLastNumber)
-//                    if voltLastNumber > 3 && partsDraw.resistorTranslatePointArray.index(of: voltLastNumber) == nil || voltLastValue >= 7 {
-//                        // 破損の描画
-//                        arduinoUnoPointControl12_9.coordinateTranslate(translatePoint: voltRetention.voltConnectedArray[i][voltRetention.voltConnectedArray[i].count-1])
-//                        let dangerDraw = DangerDraw.init(frame: CGRect.init(x: 0, y: 0,
-//                                                                            width: arduinoImageView.bounds.width,
-//                                                                            height: arduinoImageView.bounds.height))
-//                        dangerDraw.isOpaque = false
-//                        dangerDraw.intoBoardPoint(startX: arduinoUnoPointControl12_9.coordinateNumberX-10,
-//                                                  startY: arduinoUnoPointControl12_9.coordinateNumberY-10)
-//                        self.view.addSubview(dangerDraw)
-//                    }
-//                }
-//            }
-
             // アナログピン（入力）に全て接続があったら
             if voltGyroRun > 9 {
                 var testFlag = 0
@@ -328,6 +311,9 @@ class ViewController: UIViewController {
                                                       endX: ledLightupArrayX[iLedDraw + 1],
                                                       endY: ledLightupArrayY[iLedDraw + 1])
                         view.addSubview(ledLightUpDraw)
+                        // LED破損のフラグをtrue
+                        isLedDamage = true
+
                         // 入力値が3Vより大きい場合破損の危険性があるのでハイライト
                         if voltRetention.voltReturnValue(boardNumber: partsDraw.ledTranslatePointArray[iLedDraw]) > 3,
                             voltRetention.voltReturnValue(boardNumber: partsDraw.ledTranslatePointArray[iLedDraw + 1]) < voltRetention.voltReturnValue(boardNumber: partsDraw.ledTranslatePointArray[iLedDraw]) {
@@ -339,6 +325,7 @@ class ViewController: UIViewController {
                                                       startY: ledLightupArrayY[iLedDraw + 1] - 10)
                             view.addSubview(dangerDraw)
                         }
+
                         // 入力電圧が大きい場合破損の危険性があるのでハイライトPART2
                         if voltRetention.voltReturnValue(boardNumber: partsDraw.ledTranslatePointArray[iLedDraw + 1]) > 3,
                             voltRetention.voltReturnValue(boardNumber: partsDraw.ledTranslatePointArray[iLedDraw]) < voltRetention.voltReturnValue(boardNumber: partsDraw.ledTranslatePointArray[iLedDraw + 1]) {
@@ -349,9 +336,15 @@ class ViewController: UIViewController {
                             dangerDraw.intoBoardPoint(startX: ledLightupArrayX[iLedDraw + 1] - 10,
                                                       startY: ledLightupArrayY[iLedDraw + 1] - 10)
                             view.addSubview(dangerDraw)
+                            // LED破損のフラグをtrue
+                            isLedDamage = true
                         }
                     }
                     iLedDraw += 2
+                }
+                if isLedDamage {
+                    SCLAlertView().showError("LED破損の危険", subTitle: "このLEDに3Vより大きい電圧値を加えるとだめです．")
+                    isLedDamage = false
                 }
             }
         } else {
@@ -680,7 +673,7 @@ class ViewController: UIViewController {
             } // 各出力ピンのためのwhile文終わり
 
             /* 破損の可能性があるピンを調べ出す */
-            /* 入力ピン同士で繋がっていた場合 */
+            // 出力ピン同士で繋がっていた場合
             for i in 0 ..< voltPinCount {
                 for j in 0 ..< voltPinCount {
                     /* conectedArrayの中に出力ピンのどれかのナンバーがあればtrue */
@@ -695,6 +688,8 @@ class ViewController: UIViewController {
                             dangerDraw.intoBoardPoint(startX: arduinoUnoPointControl12_9.coordinateNumberX - 10,
                                                       startY: arduinoUnoPointControl12_9.coordinateNumberY - 10)
                             view.addSubview(dangerDraw)
+                            // 入力ピン同士でつながっているのでフラグをtrueにする
+                            isIBothOutputPin = true
                         }
                     }
                 }
@@ -856,6 +851,11 @@ class ViewController: UIViewController {
                                                             print("z: \(accel.z)")
 
                 })
+            }
+            // 出力ピン同士が破損する危険性
+            if isIBothOutputPin {
+                SCLAlertView().showError("本体破損の危険", subTitle: "入力ピン同士が接続されている可能性があります")
+                isIBothOutputPin = false
             }
         } else {
             runRan = 0

@@ -532,6 +532,12 @@ class VoltRetention {
      bordNumber:ボード番号
      thisValue
      */
+    /// voltCotrollの値を取得する．
+    /// ピン番号をもとにその通電区間の電圧値を返す
+    /// - Parameters:
+    ///   - boardNumber: 調べたいピン番号（自分が付けた固有の番号）
+    /// - Returns:
+    ///   - その通電区間の電圧値
     func voltReturnValue(boardNumber: Int) -> Int {
         if boardNumber < 401 {
             /* プラス，マイナス行の管理 */
@@ -550,6 +556,7 @@ class VoltRetention {
                 if boardNumber == 51 + i || boardNumber == 81 + i || boardNumber == 111 + i
                     || boardNumber == 141 + i || boardNumber == 171 + i {
                     thisValue = voltControlArray[i]
+                    print("thisValue: \(thisValue)")
                 }
             }
 
