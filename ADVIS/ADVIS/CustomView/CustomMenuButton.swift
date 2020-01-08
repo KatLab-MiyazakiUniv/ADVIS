@@ -36,9 +36,9 @@ class CustomMenuButton: UIButton {
     }
 
     fileprivate func updateBackgroundColor() {
-        if !isSelected && !isHighlighted {
+        if !isSelected, !isHighlighted {
             backgroundColor = .clear
-        } else if !isSelected && isHighlighted {
+        } else if !isSelected, isHighlighted {
             backgroundColor = .lightGray
         } else {
             backgroundColor = .white

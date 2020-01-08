@@ -28,10 +28,35 @@ class VoltRetention {
     var voltDrawStart = 0
     var voltDrawEnd = 0
 
+    /// 接続先のfor文を回すときに使う（ViewVControllerで）
+    var voltPinCount = 0
+
     /// 各通電区間を管理する配列
     var voltControlArray = Array(repeating: 0, count: 90)
-    var voltConnectedArray: [[Int]] = [[404], [405], [408], [409], [410], [411], [419], [420], [421], [422], [423], [424]]
+    /// 岩切さんの卒論P16，図4.2を参照
+    /// 出力ピンのピン番号を管理する2次元配列（自分が付けた固有の番号のこと）
+//    var voltConnectedArray: [[Int]] = [[404], [405], [408], [409], [410], [411], [419], [420], [421], [422], [423], [424]]
+    var voltConnectedArray = [[Int]]() // 起点となるピンを管理する
     var voltInPinArray: [Int] = [412, 413, 414]
+    /// 5Vを出力するピン番号を管理する配列
+    var volt5pinCheck: [Int] = []
+
+    func setup() {
+        print("setup")
+        let voltPinCheck = VoltPinCheck(arduinoPinStatusDict: VoltPin.dic)
+        voltControlArray = voltPinCheck.setOutputPinSection() // 書いたソースコードをもとに各出力ピンの電圧値を決定
+        voltConnectedArray = voltPinCheck.setOutputPin() // 書いたソースコードをもとに設定
+//        print("ya: \(voltConnectedArray)")
+        voltPinCount = voltPinCheck.getVoltConnectedArrayLength()
+        // forEach文で回す．$0が何者かはクロージャーで検索してね
+        voltConnectedArray.forEach {
+            // 404は3Vピン，408はVinピンだから除外
+            if $0[0] != 404 || $0[0] != 408 {
+                self.volt5pinCheck.append($0[0])
+            }
+        }
+    }
+
     /**
      powerピンまたはデジタルI/Oにパーツの接続があるかどうかを調べ、接続があった場合にはflagPowerInから1(Int)を返り値として返す
      - Parameter repeatNumber: 調べる番号
@@ -39,61 +64,42 @@ class VoltRetention {
      */
     func voltPowerIn(repeatNumber: Int) -> Int {
         if flagPowerIn == 0 {
-            voltControlArray[64] = 3 // 3.3Vpin
-            voltControlArray[65] = 5 // 5Vpin
-            voltControlArray[66] = 0 // GND
-            voltControlArray[67] = 0 // GND
-            voltControlArray[68] = 10 // Vin
-            voltControlArray[69] = 3 // A00
-            voltControlArray[70] = 3 // A01
-            voltControlArray[71] = 3 // A02
-            voltControlArray[72] = 0 // A03
-            voltControlArray[73] = 0 // A04
-            voltControlArray[74] = 0 // A05
-
-            voltControlArray[75] = 0 // GND
-            voltControlArray[76] = 5 // D13
-            voltControlArray[77] = 5 // D12
-            voltControlArray[78] = 5 // D11
-            voltControlArray[79] = 5 // D10
-            voltControlArray[80] = 5 // D09
-            voltControlArray[81] = 5 // D08
-            voltControlArray[82] = 0 // D07
-            voltControlArray[83] = 0 // D06
-            voltControlArray[84] = 0 // D05
-            voltControlArray[85] = 0 // D04
-            voltControlArray[86] = 0 // D03
-            voltControlArray[87] = 0 // D02
-            voltControlArray[88] = 0 // D01
-            voltControlArray[89] = 0 // D00
-
+//            self.setup()
+//            let voltPinCheck = VoltPinCheck(arduinoPinStatusDict: VoltPin.dic)
+//            print("VoltRetentionのvoltConnectedArray: \(voltConnectedArray)")
             searchInput = voltConnectedArray[repeatNumber][0]
-
             /* 404~418で動作しないようにする */
             if partsDraw.ledTranslatePointArray.firstIndex(of: searchInput) != nil {
                 if partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
                     pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! + 1]
                     flagPowerIn = 1
-                    if searchInput == 404 || 409 ... 411 ~= searchInput {
+//                     print("voltValue: \(voltValue)")
+                    // 3.3Vピン
+                    if searchInput == 404 {
                         voltValue = 3
-                    } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // Vinピン
                     } else if searchInput == 408 {
                         voltValue = 10
+                        // コーディングによる出力ピンのチェック
+                    } else if volt5pinCheck.contains(searchInput) {
+                        voltValue = 5
                     } else {
                         voltValue = 0
                     }
                     flagPowerIn = 1
                 } else {
                     pinNumber = partsDraw.ledTranslatePointArray[partsDraw.ledTranslatePointArray.firstIndex(of: searchInput)! + 1]
-                    if searchInput == 404 || 409 ... 411 ~= searchInput {
+                    // 3.3Vピン
+                    if searchInput == 404 {
                         voltValue = 3
-                    } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // Vinピン
                     } else if searchInput == 408 {
                         voltValue = 10
+                        // コーディングによる出力ピンのチェック
+                    } else if volt5pinCheck.contains(searchInput) {
+                        voltValue = 5
                     } else {
-                        flagPowerIn = 0
+                        voltValue = 0
                     }
                     flagPowerIn = 1
                 }
@@ -102,25 +108,30 @@ class VoltRetention {
             if partsDraw.wireTranslatePointArray.firstIndex(of: searchInput) != nil {
                 if partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
                     pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! + 1]
-
-                    if searchInput == 404 || 409 ... 411 ~= searchInput {
+                    // 3.3Vピン
+                    if searchInput == 404 {
                         voltValue = 3
-                    } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // Vinピン
                     } else if searchInput == 408 {
                         voltValue = 10
+                        // コーディングによる出力ピンのチェック
+                    } else if volt5pinCheck.contains(searchInput) {
+                        voltValue = 5
                     } else {
                         voltValue = 0
                     }
                     flagPowerIn = 1
                 } else {
                     pinNumber = partsDraw.wireTranslatePointArray[partsDraw.wireTranslatePointArray.firstIndex(of: searchInput)! - 1]
-                    if searchInput == 404 || 409 ... 411 ~= searchInput {
+                    // 3.3Vピン
+                    if searchInput == 404 {
                         voltValue = 3
-                    } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // Vinピン
                     } else if searchInput == 408 {
                         voltValue = 10
+                        // コーディングによる出力ピンのチェック
+                    } else if volt5pinCheck.contains(searchInput) {
+                        voltValue = 5
                     } else {
                         voltValue = 0
                     }
@@ -131,25 +142,30 @@ class VoltRetention {
             if partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput) != nil {
                 if partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! % 2 == 0 {
                     pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! + 1]
-
-                    if searchInput == 404 || 409 ... 411 ~= searchInput {
+                    // 3.3Vピン
+                    if searchInput == 404 {
                         voltValue = 3
-                    } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // Vinピン
                     } else if searchInput == 408 {
                         voltValue = 10
+                        // コーディングによる出力ピンのチェック
+                    } else if volt5pinCheck.contains(searchInput) {
+                        voltValue = 5
                     } else {
                         voltValue = 0
                     }
                     flagPowerIn = 1
                 } else {
                     pinNumber = partsDraw.resistorTranslatePointArray[partsDraw.resistorTranslatePointArray.firstIndex(of: searchInput)! + 1]
-                    if searchInput == 404 || 409 ... 411 ~= searchInput {
+                    // 3.3Vピン
+                    if searchInput == 404 {
                         voltValue = 3
-                    } else if searchInput == 405 || 419 ... 424 ~= searchInput {
-                        voltValue = 5
+                        // Vinピン
                     } else if searchInput == 408 {
                         voltValue = 10
+                        // コーディングによる出力ピンのチェック
+                    } else if volt5pinCheck.contains(searchInput) {
+                        voltValue = 5
                     } else {
                         voltValue = 0
                     }
@@ -210,34 +226,6 @@ class VoltRetention {
                     pinValue = partsDraw.resistorTranslatePointArray[pinNumberConnection - 1]
                 }
             }
-//            else if partsDraw.gyroTranslatePointArray.index(of: inPinNumber) != nil {
-//                pinNumberConnection = partsDraw.gyroTranslatePointArray.index(of: inPinNumber)!
-//                if pinNumberConnection == 4 && pinValue == 0 {
-            ////                    for iGyro in 1..<5 {
-            ////                        if voltConnectedArray[repeatNumber].index(of: partsDraw.gyroTranslatePointArray[pinNumberConnection - iGyro]) == nil {
-            ////
-            ////                        }
-            ////                    }
-//                } else if pinNumberConnection == 3 && pinValue == 0 {
-            ////                    for iGyro in 0..<4 {
-            ////                        if voltConnectedArray[repeatNumber].index(of: partsDraw.gyroTranslatePointArray[pinNumberConnection - iGyro]) == nil {
-            ////
-            ////                        }
-            ////                    }
-//                } else if pinNumberConnection == 2 && pinValue == 0 {
-            ////                    for iGyro in 0..<4 {
-            ////                        if voltConnectedArray[repeatNumber].index(of: partsDraw.gyroTranslatePointArray[pinNumberConnection + 1 - iGyro]) == nil {
-            ////
-            ////                        }
-            ////                    }
-//                } else if pinNumberConnection == 1 && pinValue == 0 {
-            ////                    for iGyro in 0..<4 {
-            ////                        if voltConnectedArray[repeatNumber].index(of: partsDraw.gyroTranslatePointArray[pinNumberConnection + 2 - iGyro]) == nil {
-            ////
-            ////                        }
-            ////                    }
-//                }
-//            }
         }
         if voltConnectedArray[repeatNumber].firstIndex(of: pinValue) == nil {
             voltConnectedArray[repeatNumber].append(pinValue)
@@ -576,10 +564,10 @@ class VoltRetention {
         return thisValue
     }
 
-    /*
-     VoltControlArrayのやつを変換用
-     voltTransNumber:controlArray内の番号
-     */
+    /// voltControlArrayのやつを変換用
+    /// - Parameters:
+    ///   - voltTransNumber: controlArray内の番号 [Int]
+    ///
     func voltBoardTranslate(voltTransNumber: Int) {
         if 0 ... 29 ~= voltTransNumber {
             for i in 0 ..< 30 {

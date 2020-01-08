@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     // private var arduinoUnoView: ArduinoUnoView? = nil
     var arduinoUnoPointControl12_9 = ArduinoUnoPointControl12_9()
     var voltRetention = VoltRetention()
+    /// プログラミングをしたか
+    var isCoding = false
+    /// for文の管理で使う
+    var voltPinCount = 0
 
     var wireCount = 0
     var ledCount = 0
@@ -107,6 +111,8 @@ class ViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
     }
 
+    // MARK: - RUNボタン -
+
     // RUNボタンを押した場合
     @IBAction func runButtonAction(sender _: Any) {
         print("そーすこーどは，\(code)です．")
@@ -116,8 +122,11 @@ class ViewController: UIViewController {
 
         if naturalRan == 0 {
             naturalRan = 1
+            voltRetention.setup() // ここで出力ピンの設定をする
+            voltPinCount = voltRetention.voltPinCount
+
             // powerの接続を調べる
-            while repeatI < 12 {
+            while repeatI < voltPinCount {
                 voltRetention.pinNumber = 0
                 voltConnectNext = voltRetention.voltPowerIn(repeatNumber: repeatI)
                 voltControlValue = voltRetention.voltValue
@@ -164,8 +173,9 @@ class ViewController: UIViewController {
                             voltRetention.voltValue = voltRetention.voltValue - 3
                         }
                         /* LEDがあった場合電圧値を１下げる */
+                        // LEDがあった場合は特に何もしないことにした
                         if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
-                            voltRetention.voltValue = voltRetention.voltValue - 1
+//                            voltRetention.voltValue = voltRetention.voltValue - 1
                         }
                         // 電圧値を配列に保存
                         if voltRetention.voltReturnValue(boardNumber: voltConnectNext) < voltRetention.voltValue {
@@ -568,6 +578,7 @@ class ViewController: UIViewController {
 
     // MARK: - VOLT RUN ボタン -
 
+    // 名前がおかしいけど無視してください．
     @IBAction func compileButtonAction(sender _: Any) {
         wireDrawRan = 0
         ledDrawRan = 0
@@ -580,9 +591,14 @@ class ViewController: UIViewController {
         }
 
         if runRan == 0 {
+            print("VOLT RUN START")
             runRan = 1
+            voltRetention.setup() // ここで出力ピンの設定をする
+            voltPinCount = voltRetention.voltPinCount
+            print("for文を繰り返す回数\(voltPinCount)未満")
             // powerの接続を調べる
-            while repeatI < 12 {
+            while repeatI < voltPinCount {
+                print("repeatI: \(repeatI)")
                 voltRetention.pinNumber = 0
                 voltConnectNext = voltRetention.voltPowerIn(repeatNumber: repeatI)
                 voltControlValue = voltRetention.voltValue
@@ -635,8 +651,9 @@ class ViewController: UIViewController {
                             voltRetention.voltValue -= 3
                         }
                         /* LEDがあった場合に電圧値の値を1下げる */
+                        // 何もしないことにした
                         if partsDraw.ledTranslatePointArray.firstIndex(of: voltConnectNumber) != nil {
-                            voltRetention.voltValue -= 1
+//                            voltRetention.voltValue -= 1
                         }
                         /* 電圧の値を配列に保存 */
                         if voltRetention.voltReturnValue(boardNumber: voltConnectNext) < voltRetention.voltValue {
@@ -664,8 +681,8 @@ class ViewController: UIViewController {
 
             /* 破損の可能性があるピンを調べ出す */
             /* 入力ピン同士で繋がっていた場合 */
-            for i in 0 ..< 12 {
-                for j in 0 ..< 12 {
+            for i in 0 ..< voltPinCount {
+                for j in 0 ..< voltPinCount {
                     /* conectedArrayの中に出力ピンのどれかのナンバーがあればtrue */
                     if voltRetention.voltConnectedArray[i].firstIndex(of: voltRetention.voltConnectedArray[j][0]) != nil {
                         /* conectedArrayの中に見つかった出力ピンのナンバーが0番目以外であればtrue */
@@ -723,10 +740,9 @@ class ViewController: UIViewController {
                 }
             }
             // 3Vより大きい電圧値が入力ピンに送られた場合
-            for iSearch in 0 ..< 12 {
+            for iSearch in 0 ..< voltPinCount {
                 if 406 ... 407 ~= voltRetention.voltConnectedArray[iSearch].last!
-                    || 412 ... 418 ~= voltRetention.voltConnectedArray[iSearch].last!
-                    || 425 ... 432 ~= voltRetention.voltConnectedArray[iSearch].last! {
+                    || voltRetention.voltConnectedArray[iSearch].last! == 418 {
                     voltLastNumber = voltRetention.voltConnectedArray[iSearch][voltRetention.voltConnectedArray[iSearch].count - 2]
                     voltLastValue = voltRetention.voltReturnValue(boardNumber: voltLastNumber)
 
@@ -884,7 +900,7 @@ class ViewController: UIViewController {
     @IBAction func generateButtonAction(sender _: Any) {
         print("generateが押されたよ")
         let voltPinCheck = VoltPinCheck(arduinoPinStatusDict: VoltPin.dic)
-        voltPinCheck.setOutputPin()
+        _ = voltPinCheck.setOutputPin()
         print("done...")
     }
 

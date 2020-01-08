@@ -23,11 +23,11 @@ class PartsDraw {
     var gyroNumber = 0
 
     /// ジャンパワイヤを描画する点のx座標用配列
-    var wireGetPointXArray: Array<Double> = []
+    var wireGetPointXArray: [Double] = []
     /// ジャンパワイヤを描画する点のy座標用配列
-    var wireGetPointYArray: Array<Double> = []
+    var wireGetPointYArray: [Double] = []
     /// ジャンパワイヤを描画する点を保持する配列
-    var wireTranslatePointArray: Array<Int> = []
+    var wireTranslatePointArray: [Int] = []
 
     /// LEDを描画する点のx座標用配列
     var ledGetPointXArray: [Double] = []
@@ -124,28 +124,28 @@ class PartsDraw {
     /// - Returns: 0もしくは，1を返す
     func flagDraw(flagNumber: Int) -> Int {
         if flagNumber == 0 {
-            if jumperNumber > 0 && jumperNumber % 2 == 0 {
+            if jumperNumber > 0, jumperNumber % 2 == 0 {
                 return 1
             } else {
                 return 0
             }
 
         } else if flagNumber == 1 {
-            if ledNumber > 0 && ledNumber % 2 == 0 {
+            if ledNumber > 0, ledNumber % 2 == 0 {
                 return 1
             } else {
                 return 0
             }
 
         } else if flagNumber == 2 {
-            if resistorNumber > 0 && resistorNumber % 2 == 0 {
+            if resistorNumber > 0, resistorNumber % 2 == 0 {
                 return 1
             } else {
                 return 0
             }
 
         } else if flagNumber == 3 {
-            if gyroNumber > 0 && gyroNumber % 4 == 0 {
+            if gyroNumber > 0, gyroNumber % 4 == 0 {
                 return 1
             } else {
                 return 0

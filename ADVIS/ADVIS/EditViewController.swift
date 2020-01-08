@@ -31,6 +31,7 @@ class EditViewController: UIViewController {
         if segue.identifier == "toViewController" {
             let viewController = (segue.destination as? ViewController)!
             viewController.code = textView.text
+            viewController.isCoding = true
         }
     }
 
