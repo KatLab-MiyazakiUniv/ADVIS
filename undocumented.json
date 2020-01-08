@@ -842,14 +842,7 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 535,
-      "symbol": "VoltRetention.voltReturnValue(boardNumber:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/Drawings/VoltRetention.swift",
-      "line": 601,
+      "line": 608,
       "symbol": "VoltRetention.voltControlNumberBack(boardNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1577,147 +1570,140 @@
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 59,
-      "symbol": "ViewController.code",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 67,
+      "line": 72,
       "symbol": "ViewController.backViewArray",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 68,
+      "line": 73,
       "symbol": "ViewController.ledLightupArrayX",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 69,
+      "line": 74,
       "symbol": "ViewController.ledLightupArrayY",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 70,
+      "line": 75,
       "symbol": "ViewController.voltDrawArrayX",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 71,
+      "line": 76,
       "symbol": "ViewController.voltDrawArrayY",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 72,
+      "line": 77,
       "symbol": "ViewController.testArray",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 77,
+      "line": 82,
       "symbol": "ViewController.compileButton",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 78,
+      "line": 83,
       "symbol": "ViewController.runButton",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 79,
+      "line": 84,
       "symbol": "ViewController.backButton",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 80,
+      "line": 85,
       "symbol": "ViewController.cleanButton",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 81,
+      "line": 86,
       "symbol": "ViewController.editButton",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 82,
+      "line": 87,
       "symbol": "ViewController.generateButton",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 88,
+      "line": 93,
       "symbol": "ViewController.tableView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 89,
+      "line": 94,
       "symbol": "ViewController.arduinoImageView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 91,
+      "line": 96,
       "symbol": "ViewController.cell",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 100,
+      "line": 105,
       "symbol": "ViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 117,
+      "line": 122,
       "symbol": "ViewController.runButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 390,
+      "line": 383,
       "symbol": "ViewController.cleanButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 449,
+      "line": 442,
       "symbol": "ViewController.backButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/travis/build/Tatsumi0000/ADVIS/ADVIS/ADVIS/ViewController.swift",
-      "line": 582,
+      "line": 575,
       "symbol": "ViewController.compileButtonAction(sender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
