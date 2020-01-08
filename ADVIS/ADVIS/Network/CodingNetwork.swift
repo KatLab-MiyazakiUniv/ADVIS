@@ -8,36 +8,36 @@ import Foundation
 import SwiftyJSON
 
 struct ArduinoPinStatus: Codable {
-    var digitalPin00: PinStatus // 00
-    var digitalPin01: PinStatus // 01
-    var digitalPin02: PinStatus // 02
-    var digitalPin03: PinStatus // 03
-    var digitalPin04: PinStatus // 04
-    var digitalPin05: PinStatus // 05
-    var digitalPin06: PinStatus // 06
-    var digitalPin07: PinStatus // 07
-    var digitalPin08: PinStatus // 08
-    var digitalPin09: PinStatus // 09
-    var digitalPin10: PinStatus // 10
-    var digitalPin11: PinStatus // 11
-    var digitalPin12: PinStatus // 12
-    var digitalPin13: PinStatus // 13
-    var GND0: PinStatus
-    var AREF: PinStatus
-    var serialDataLine12C: PinStatus
-    var serialClockLine12C: PinStatus
-    var analogPin00: PinStatus // 14
-    var analogPin01: PinStatus // 15
-    var analogPin02: PinStatus // 16
-    var analogPin03: PinStatus // 17
-    var analogPin04: PinStatus // 18
-    var analogPin05: PinStatus // 19
-    var vin: PinStatus
-    var GND1: PinStatus
-    var GND2: PinStatus
-    var volt5_0v: PinStatus
-    var volt3_3v: PinStatus
-    var IOREF: PinStatus
+    var digitalPin00: PinStatus = PinStatus() // 00
+    var digitalPin01: PinStatus = PinStatus() // 01
+    var digitalPin02: PinStatus = PinStatus() // 02
+    var digitalPin03: PinStatus = PinStatus() // 03
+    var digitalPin04: PinStatus = PinStatus() // 04
+    var digitalPin05: PinStatus = PinStatus() // 05
+    var digitalPin06: PinStatus = PinStatus() // 06
+    var digitalPin07: PinStatus = PinStatus() // 07
+    var digitalPin08: PinStatus = PinStatus() // 08
+    var digitalPin09: PinStatus = PinStatus() // 09
+    var digitalPin10: PinStatus = PinStatus() // 10
+    var digitalPin11: PinStatus = PinStatus() // 11
+    var digitalPin12: PinStatus = PinStatus() // 12
+    var digitalPin13: PinStatus = PinStatus() // 13
+    var GND0: PinStatus = PinStatus()
+    var AREF: PinStatus = PinStatus()
+    var serialDataLine12C: PinStatus = PinStatus()
+    var serialClockLine12C: PinStatus = PinStatus()
+    var analogPin00: PinStatus = PinStatus() // 14
+    var analogPin01: PinStatus = PinStatus() // 15
+    var analogPin02: PinStatus = PinStatus() // 16
+    var analogPin03: PinStatus = PinStatus() // 17
+    var analogPin04: PinStatus = PinStatus() // 18
+    var analogPin05: PinStatus = PinStatus() // 19
+    var vin: PinStatus = PinStatus(isLow: false, isInput: false, voltValue: 10.0)
+    var GND1: PinStatus = PinStatus()
+    var GND2: PinStatus = PinStatus()
+    var volt5_0v: PinStatus = PinStatus(isLow: false, isInput: false, voltValue: 5.0)
+    var volt3_3v: PinStatus = PinStatus(isLow: false, isInput: false, voltValue: 3.0)
+    var IOREF: PinStatus = PinStatus()
 }
 
 struct PinStatus: Codable {
