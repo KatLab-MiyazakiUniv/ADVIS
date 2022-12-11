@@ -12,15 +12,16 @@ ADVISのリポジトリです．
 このプロジェクトの使い方は[こちら](https://github.com/Tatsumi0000/ADVIS/blob/master/MEMO.md)を参照
 
 ## ドキュメント
-[ADVISのドキュメント](https://tatsumi0000.github.io/ADVIS/)
+- [ADVISのドキュメント](https://KatLab-MiyazakiUniv.github.io/ADVIS/)
+  - 現在ドキュメントは整備されていません。見たい場合は、ローカルでjazzyをインストールして試して下さい。
 
 ## Issues
-- 一覧: https://github.com/Tatsumi0000/ADVIS/issues
-- 新規: https://github.com/Tatsumi0000/ADVIS/issues/new
+- 一覧: https://github.com/KatLab-MiyazakiUniv/ADVIS/issues
+- 新規: https://github.com/KatLab-MiyazakiUniv/ADVIS/issues/new
 
 ### Projects
 
-- [ADVIS](https://github.com/Tatsumi0000/ADVIS/tree/master/ADVIS) - ADVISという名のiOSアプリ
+- [ADVIS](https://github.com/KatLab-MiyazakiUniv/ADVIS/tree/master/ADVIS) - ADVISという名のiOSアプリ
 
 ## Author
 
